@@ -610,7 +610,7 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
         {/* Logo */}
         <div style={{ position: 'relative', height: '50px', width: '200px' }}>
           <Image
-            src="/Original_Logo.png"
+            src="/Transparent_Logo_Blanco.png"
             alt="Merca Capital"
             fill
             style={{ objectFit: 'contain', objectPosition: 'left' }}
