@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 // ============================================
-// MERCA CAPITAL - ESTILO ALTAVELA
-// Header grande, Hero asimétrico, Premium
+// MERCA CAPITAL - VERSIÓN FINAL
+// Estilo Altavela + Logo Oficial
 // ============================================
 
 // ============================================
@@ -452,7 +452,7 @@ const Icons: Record<string, () => React.ReactNode> = {
 };
 
 // ============================================
-// HEADER - ESTILO ALTAVELA
+// HEADER - CON LOGO OFICIAL
 // ============================================
 
 const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t: ContentStructure }> = ({ lang, setLang, t }) => {
@@ -486,30 +486,26 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: scrolled ? '70px' : '100px',
+        height: scrolled ? '80px' : '110px',
         transition: 'height 0.4s ease',
       }}>
-        {/* LOGO GRANDE - Estilo Altavela */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <div style={{
-            fontFamily: "'Times New Roman', Georgia, serif",
-            fontSize: scrolled ? '1.6rem' : '2rem',
-            fontWeight: 400,
-            letterSpacing: '0.15em',
-            color: '#FFFFFF',
-            transition: 'font-size 0.4s ease',
-          }}>
-            MERCA CAPITAL
-          </div>
-          <div style={{
-            fontSize: '0.65rem',
-            letterSpacing: '0.25em',
-            color: '#C9A227',
-            textTransform: 'uppercase',
-            fontWeight: 500,
-          }}>
-            Visión Inmobiliaria
-          </div>
+        {/* LOGO OFICIAL */}
+        <div style={{ 
+          position: 'relative', 
+          height: scrolled ? '55px' : '75px', 
+          width: scrolled ? '220px' : '300px',
+          transition: 'all 0.4s ease',
+        }}>
+          <Image
+            src="/Transparent_Logo_Blanco.png"
+            alt="Merca Capital"
+            fill
+            style={{ 
+              objectFit: 'contain', 
+              objectPosition: 'left',
+            }}
+            priority
+          />
         </div>
 
         {/* NAV */}
@@ -836,7 +832,7 @@ const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => {
                 fontFamily: "'Times New Roman', Georgia, serif",
                 fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
                 fontWeight: 400,
-                color: stat.highlight ? '#C9A227' : '#C9A227',
+                color: '#C9A227',
                 lineHeight: 1,
                 marginBottom: '0.75rem',
               }}>
@@ -1272,7 +1268,7 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
 };
 
 // ============================================
-// FOOTER
+// FOOTER - CON LOGO OFICIAL
 // ============================================
 
 const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
@@ -1290,23 +1286,20 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
         alignItems: 'center',
         gap: '2rem',
       }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            fontFamily: "'Times New Roman', Georgia, serif",
-            fontSize: '1.8rem',
-            letterSpacing: '0.15em',
-            color: '#FFFFFF',
-            marginBottom: '0.5rem',
-          }}>
-            MERCA CAPITAL
-          </div>
-          <div style={{
-            fontSize: '0.7rem',
-            letterSpacing: '0.2em',
-            color: '#C9A227',
-          }}>
-            {t.footer.tagline.toUpperCase()}
-          </div>
+        {/* LOGO OFICIAL */}
+        <div style={{ 
+          position: 'relative', 
+          height: '90px', 
+          width: '360px',
+        }}>
+          <Image
+            src="/Transparent_Logo_Blanco.png"
+            alt="Merca Capital"
+            fill
+            style={{ 
+              objectFit: 'contain',
+            }}
+          />
         </div>
 
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
