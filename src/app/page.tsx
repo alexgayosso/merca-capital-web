@@ -610,8 +610,8 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
         {/* Logo GRANDE - Estilo Altavela */}
         <div style={{ 
           position: 'relative', 
-          height: scrolled ? '45px' : '60px', 
-          width: scrolled ? '180px' : '240px',
+          height: scrolled ? '55px' : '80px', 
+          width: scrolled ? '220px' : '320px',
           transition: 'all 0.4s ease',
         }}>
           <Image
@@ -1888,8 +1888,8 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
         {/* Logo GRANDE */}
         <div style={{ 
           position: 'relative', 
-          height: '80px', 
-          width: '300px',
+          height: '100px', 
+          width: '400px',
         }}>
           <Image
             src="/Transparent_Logo_Blanco.png"
