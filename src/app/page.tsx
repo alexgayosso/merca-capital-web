@@ -726,7 +726,7 @@ const Portfolio: React.FC<{ t: typeof content.es }> = ({ t }) => {
 // Thesis Section
 const Thesis: React.FC<{ t: typeof content.es }> = ({ t }) => {
   const getIcon = (iconName: string) => {
-    const icons: { [key: string]: () => JSX.Element } = { 
+    const icons: { [key: string]: () => React.ReactNode } = { 
       shield: Icons.shield, 
       grid: Icons.grid, 
       chart: Icons.chart 
