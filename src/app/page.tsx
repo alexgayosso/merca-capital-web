@@ -1,111 +1,73 @@
-'use client'; // Refresh
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-// ============================================
-// MERCA CAPITAL - CÓDIGO DEFINITIVO
-// Identidad: Navy Profundo + Cobre/Dorado
-// ============================================
-
-type Language = 'es' | 'en';
-
+// Contenido bilingüe simplificado para asegurar carga
 const content = {
   es: {
-    nav: { about: 'Nosotros', portfolio: 'Portafolio', thesis: 'Tesis', model: 'Modelo', contact: 'Contacto' },
-    hero: { overline: 'VISIÓN INMOBILIARIA', headline: 'Desarrollamos la infraestructura que alimenta a México', subhead: 'Mercados de abasto que operan con o sin crisis. 15 años construyendo activos esenciales con rendimientos probados.', cta: 'Ver Portafolio', ctaSecondary: 'Contactar' },
-    stats: { title: 'Track Record Comprobado', items: [{ value: '52,000+', label: 'm² desarrollados' }, { value: '15+', label: 'años de operación' }, { value: '90%', label: 'ocupación promedio' }] },
-    portfolio: { title: 'Nuestros Desarrollos', projects: [{ name: 'Mercahorro Torreón', city: 'Torreón', sqm: '9,000 m²' }, { name: 'Plaza Abastos Monterrey', city: 'Monterrey', sqm: '15,000 m²' }] },
-    contact: { title: 'Contacto', locations: 'Madrid | Monterrey', email: 'hola@mercacapital.com' },
-    footer: { rights: '© 2025 Merca Capital. Todos los derechos reservados.' }
+    hero: { overline: 'VISIÓN INMOBILIARIA', headline: 'Desarrollamos la infraestructura que alimenta a México', subhead: 'Mercados de abasto que operan con o sin crisis. 15 años construyendo activos esenciales con rendimientos probados.', cta: 'VER PORTAFOLIO', ctaSecondary: 'CONTACTAR' },
+    stats: [{ v: '52,000+', l: 'M² DESARROLLADOS' }, { v: '15+', l: 'AÑOS DE OPERACIÓN' }, { v: '90%', l: 'OCUPACIÓN PROMEDIO' }],
+    footer: '© 2025 MERCA CAPITAL. TODOS LOS DERECHOS RESERVADOS.'
   },
   en: {
-    nav: { about: 'About', portfolio: 'Portfolio', thesis: 'Thesis', model: 'Model', contact: 'Contact' },
-    hero: { overline: 'REAL ESTATE VISION', headline: 'We Build the Infrastructure That Feeds Mexico', subhead: 'Wholesale food markets that operate through any crisis. 15 years building essential assets.', cta: 'View Portfolio', ctaSecondary: 'Contact Us' },
-    stats: { title: 'Proven Track Record', items: [{ value: '52,000+', label: 'sqm developed' }, { value: '15+', label: 'years operating' }, { value: '90%', label: 'avg. occupancy' }] },
-    portfolio: { title: 'Our Developments', projects: [{ name: 'Mercahorro Torreon', city: 'Torreon', sqm: '9,000 sqm' }, { name: 'Plaza Abastos Monterrey', city: 'Monterrey', sqm: '15,000 sqm' }] },
-    contact: { title: 'Contact', locations: 'Madrid | Monterrey', email: 'hola@mercacapital.com' },
-    footer: { rights: '© 2025 Merca Capital. All rights reserved.' }
+    hero: { overline: 'REAL ESTATE VISION', headline: 'We Build the Infrastructure That Feeds Mexico', subhead: 'Wholesale food markets that operate through any crisis. 15 years building essential assets.', cta: 'VIEW PORTFOLIO', ctaSecondary: 'CONTACT US' },
+    stats: [{ v: '52,000+', l: 'SQM DEVELOPED' }, { v: '15+', l: 'YEARS OPERATING' }, { v: '90%', l: 'AVG. OCCUPANCY' }],
+    footer: '© 2025 MERCA CAPITAL. ALL RIGHTS RESERVED.'
   }
 };
 
-const Icons = {
-  menu: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
-  close: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-};
-
-const Header = ({ lang, setLang, t }: { lang: Language; setLang: (l: Language) => void; t: any }) => {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? 'bg-[#000B29]/95 backdrop-blur-md shadow-xl' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-        <div className="relative h-12 w-48">
-          {/* Logo Principal usando el nombre de archivo sin espacios */}
-          <Image src="/Original_Logo.png" alt="Merca Capital" fill className="object-contain object-left" priority />
-        </div>
-        <nav className="hidden md:flex items-center gap-8">
-          {Object.keys(t.nav).map((key) => (
-            <button key={key} className="text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-amber-500 transition-colors">{t.nav[key]}</button>
-          ))}
-          <button 
-            onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-            className="px-3 py-1 border border-amber-600 text-amber-500 text-[10px] font-black rounded hover:bg-amber-600 hover:text-white transition-all"
-          >
-            {lang === 'es' ? 'EN' : 'ES'}
-          </button>
-        </nav>
-      </div>
-    </header>
-  );
-};
-
 export default function MercaCapitalPage() {
-  const [lang, setLang] = useState<Language>('es');
+  const [lang, setLang] = useState<'es' | 'en'>('es');
   const t = content[lang];
 
   return (
-    <main className="bg-[#000B29] text-white min-h-screen font-sans selection:bg-amber-500/30">
-      <Header lang={lang} setLang={setLang} t={t} />
+    <main style={{ backgroundColor: '#000B29', color: 'white', minHeight: '100vh', fontFamily: 'sans-serif', textAlign: 'center', padding: '40px 20px' }}>
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 flex flex-col items-center text-center">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C08A3E_1px,transparent_1px)] [background-size:32px_32px]" />
-        <div className="relative z-10 max-w-4xl">
-          <span className="text-amber-500 text-[10px] font-black tracking-[0.3em] uppercase mb-4 block">{t.hero.overline}</span>
-          <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[1.1]">{t.hero.headline}</h1>
-          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">{t.hero.subhead}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-10 py-5 bg-[#C08A3E] text-white font-black uppercase tracking-widest text-xs hover:bg-amber-500 transition-all shadow-2xl shadow-amber-900/40">{t.hero.cta}</button>
-            <button className="px-10 py-5 border-2 border-slate-700 text-white font-black uppercase tracking-widest text-xs hover:bg-white/10 transition-all">{t.hero.ctaSecondary}</button>
-          </div>
+      {/* Botón de Idioma flotante para que no falle el Header */}
+      <button 
+        onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+        style={{ position: 'fixed', top: '20px', right: '20px', padding: '10px', backgroundColor: '#C08A3E', color: 'white', border: 'none', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer', zIndex: 100 }}
+      >
+        {lang === 'es' ? 'ENGLISH' : 'ESPAÑOL'}
+      </button>
+
+      {/* Header / Logo Principal */}
+      <div style={{ marginBottom: '60px', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ position: 'relative', width: '300px', height: '80px' }}>
+          <Image src="/Original_Logo.png" alt="Merca Capital" fill style={{ objectFit: 'contain' }} priority />
         </div>
-      </section>
+      </div>
+
+      {/* Hero Section */}
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <p style={{ color: '#C08A3E', letterSpacing: '0.3em', fontSize: '12px', fontWeight: 'bold', marginBottom: '20px' }}>{t.hero.overline}</p>
+        <h1 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: 'bold', marginBottom: '30px', lineHeight: '1.1' }}>{t.hero.headline}</h1>
+        <p style={{ color: '#94a3b8', fontSize: '18px', marginBottom: '40px', maxWidth: '700px', margin: '0 auto 40px' }}>{t.hero.subhead}</p>
+        
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button style={{ backgroundColor: '#C08A3E', color: 'white', padding: '15px 30px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>{t.hero.cta}</button>
+          <button style={{ backgroundColor: 'transparent', color: 'white', padding: '15px 30px', border: '2px solid #475569', fontWeight: 'bold', cursor: 'pointer' }}>{t.hero.ctaSecondary}</button>
+        </div>
+      </div>
 
       {/* Stats Section */}
-      <section className="py-20 bg-black/30 border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          {t.stats.items.map((item: any, i: number) => (
-            <div key={i}>
-              <div className="text-5xl font-bold text-amber-500 mb-2">{item.value}</div>
-              <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase">{item.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', margin: '80px auto', maxWidth: '1000px', backgroundColor: 'rgba(0,0,0,0.2)', padding: '40px', borderRadius: '10px' }}>
+        {t.stats.map((s, i) => (
+          <div key={i}>
+            <div style={{ fontSize: '40px', fontWeight: 'bold', color: '#C08A3E', marginBottom: '10px' }}>{s.v}</div>
+            <div style={{ fontSize: '10px', letterSpacing: '0.2em', color: '#64748b' }}>{s.l}</div>
+          </div>
+        ))}
+      </div>
 
-      {/* Footer / Logo Final */}
-      <footer className="py-20 flex flex-col items-center border-t border-white/5">
-        <div className="relative h-10 w-40 mb-8 opacity-50 grayscale hover:grayscale-0 transition-all">
-          <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital Footer" fill className="object-contain" />
+      {/* Footer / Logo Blanco */}
+      <div style={{ marginTop: '100px', borderTop: '1px solid #1e293b', paddingTop: '40px' }}>
+        <div style={{ position: 'relative', width: '150px', height: '50px', margin: '0 auto 20px', opacity: 0.7 }}>
+          <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital Vision" fill style={{ objectFit: 'contain' }} />
         </div>
-        <p className="text-[10px] tracking-widest text-slate-600 uppercase">{t.footer.rights}</p>
-      </footer>
+        <p style={{ fontSize: '10px', color: '#475569', letterSpacing: '0.1em' }}>{t.footer}</p>
+      </div>
     </main>
   );
 }
