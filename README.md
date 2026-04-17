@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Merca Capital - Website v3.0 (FINAL)
 
-## Getting Started
+Landing page institucional premium para Merca Capital.
 
-First, run the development server:
+## 🎨 Identidad Visual
+
+**Paleta de Colores:**
+- **Navy Deep:** `#000B29` — Fondo principal premium
+- **Cobre/Dorado:** `#C08A3E` — Acentos de lujo
+- **Cream:** `#F5F3EF` — Secciones claras
+
+**Logos en `/public`:**
+- `Original_Logo.png` — Logo principal (header)
+- `Transparent_Logo_Blanco.png` — Logo claro (footer oscuro)
+
+## ✅ Fixes Técnicos Aplicados
+
+1. ✅ `'use client';` al inicio
+2. ✅ Tipado estricto con `ContentStructure` completo (incluye `footer`)
+3. ✅ Rutas de imágenes correctas (`/Original_Logo.png`, `/Transparent_Logo_Blanco.png`)
+4. ✅ Iconos usan `React.ReactNode` (no `JSX.Element`)
+5. ✅ CSS-in-JS integrado (no dependencias externas)
+6. ✅ Bilingüe ES/EN con switch funcional
+
+## 🚀 Quick Start
 
 ```bash
+# Instalar
+npm install
+
+# Desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build (verificar que no hay errores)
+npm run build
+
+# Deploy
+vercel --prod
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+mercacapital-final/
+├── public/
+│   ├── Original_Logo.png
+│   └── Transparent_Logo_Blanco.png
+├── src/app/
+│   ├── page.tsx       # Landing completa
+│   ├── layout.tsx     # Metadata SEO
+│   └── globals.css    # Estilos base
+├── tailwind.config.ts
+├── next.config.js
+├── tsconfig.json
+└── package.json
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📊 Track Record Incluido
 
-## Learn More
+- **15+ años** de operación
+- **52,000+ m²** desarrollados
+- **90%** ocupación promedio
+- **5** mercados construidos
+- **300+** comerciantes activos
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Formspree
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Reemplazar `YOUR_FORMSPREE_ID` en `page.tsx`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+fetch('https://formspree.io/f/TU_ID_REAL', {...})
+```
 
-## Deploy on Vercel
+## 📧 Contacto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- hola@mercacapital.com
+- +52 871 204 0725
