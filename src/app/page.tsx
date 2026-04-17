@@ -575,7 +575,7 @@ const Icons: Record<string, () => React.ReactNode> = {
 // COMPONENTES
 // ============================================
 
-// Header con Logo
+// Header con Logo GRANDE estilo Altavela
 const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t: ContentStructure }> = ({ lang, setLang, t }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -599,21 +599,30 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: '0 2rem',
-        background: scrolled ? 'rgba(0, 11, 41, 0.95)' : 'transparent',
+        padding: '0 3rem',
+        background: scrolled ? 'rgba(0, 11, 41, 0.98)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(192, 138, 62, 0.2)' : 'none',
-        transition: 'all 0.3s ease',
+        borderBottom: scrolled ? '1px solid rgba(192, 138, 62, 0.15)' : 'none',
+        transition: 'all 0.4s ease',
       }}
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px' }}>
-        {/* Logo */}
-        <div style={{ position: 'relative', height: '50px', width: '200px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: scrolled ? '70px' : '90px', transition: 'height 0.4s ease' }}>
+        {/* Logo GRANDE - Estilo Altavela */}
+        <div style={{ 
+          position: 'relative', 
+          height: scrolled ? '45px' : '60px', 
+          width: scrolled ? '180px' : '240px',
+          transition: 'all 0.4s ease',
+        }}>
           <Image
             src="/Transparent_Logo_Blanco.png"
             alt="Merca Capital"
             fill
-            style={{ objectFit: 'contain', objectPosition: 'left' }}
+            style={{ 
+              objectFit: 'contain', 
+              objectPosition: 'left',
+              mixBlendMode: 'lighten', // Hace el fondo negro invisible
+            }}
             priority
           />
         </div>
@@ -1864,9 +1873,9 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
 const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <footer style={{
-      padding: '4rem 2rem 2rem',
+      padding: '5rem 2rem 2rem',
       background: colors.navy.deep,
-      borderTop: `1px solid rgba(192, 138, 62, 0.2)`,
+      borderTop: `1px solid rgba(192, 138, 62, 0.15)`,
     }}>
       <div style={{
         maxWidth: '1200px',
@@ -1876,13 +1885,20 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
         alignItems: 'center',
         gap: '2rem',
       }}>
-        {/* Logo */}
-        <div style={{ position: 'relative', height: '60px', width: '220px' }}>
+        {/* Logo GRANDE */}
+        <div style={{ 
+          position: 'relative', 
+          height: '80px', 
+          width: '300px',
+        }}>
           <Image
             src="/Transparent_Logo_Blanco.png"
             alt="Merca Capital"
             fill
-            style={{ objectFit: 'contain' }}
+            style={{ 
+              objectFit: 'contain',
+              mixBlendMode: 'lighten',
+            }}
           />
         </div>
 
