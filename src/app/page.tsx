@@ -419,7 +419,7 @@ const Icons = {
 // ============================================
 
 // Header
-const Header: React.FC<{ lang: string; setLang: (l: string) => void; t: typeof content.es }> = ({ lang, setLang, t }) => {
+const Header: React.FC<{ lang: string; setLang: (l: 'es' | 'en') => void; t: typeof content.es }> = ({ lang, setLang, t }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -1127,7 +1127,7 @@ export default function MercaCapitalPage() {
 
   return (
     <main className="overflow-x-hidden">
-      <Header lang={lang} setLang={setLang} t={t} />
+      <Header lang={lang} setLang={(l) => setLang(l as 'es' | 'en')} t={t} />
       <Hero t={t} />
       <Stats t={t} />
       <Portfolio t={t} />
