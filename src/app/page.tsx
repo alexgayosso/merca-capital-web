@@ -4,275 +4,210 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 // ============================================
-// MERCA CAPITAL - ARQUITECTO V2 (ESTILO ALTAVELA)
+// MERCA CAPITAL - THE MASTER MERGE (STATE OF THE ART)
+// Contenido Completo (Claude) + Diseño Premium (Arquitecto)
 // ============================================
 
 // ============================================
-// TIPOS
+// 1. TIPOS DE DATOS (Preservados al 100%)
 // ============================================
 
-type NavContent = {
-  about: string;
-  portfolio: string;
-  thesis: string;
-  model: string;
-  contact: string;
-};
-
-type HeroContent = {
-  tagline: string;
-  headline1: string;
-  headline2: string;
-  headline3: string;
-  headline4: string;
-  description: string;
-  cta: string;
-  ctaSecondary: string;
-  pillars: {
-    title: string;
-    items: { name: string; description: string }[];
-  };
-};
-
-type StatItem = {
-  value: string;
-  label: string;
-  highlight?: boolean;
-};
-
-type StatsContent = {
-  title: string;
-  description: string;
-  items: StatItem[];
-};
-
-type ProjectItem = {
-  name: string;
-  sqm: string;
-  status: string;
-  city: string;
-  description: string;
-  year: string;
-};
-
-type PortfolioContent = {
-  title: string;
-  subtitle: string;
-  projects: ProjectItem[];
-};
-
-type ThesisItem = {
-  title: string;
-  description: string;
-  icon: string;
-};
-
-type AntiCyclicalContent = {
-  title: string;
-  description: string;
-  points: string[];
-};
+type NavContent = { about: string; portfolio: string; thesis: string; model: string; contact: string; };
+type HeroContent = { tagline: string; headline1: string; headline2: string; headline3: string; headline4: string; description: string; cta: string; ctaSecondary: string; pillars: { title: string; items: { name: string; description: string }[]; }; };
+type StatItem = { value: string; label: string; highlight?: boolean; };
+type StatsContent = { title: string; description: string; items: StatItem[]; };
+type ProjectItem = { name: string; sqm: string; status: string; city: string; description: string; year: string; };
+type PortfolioContent = { title: string; subtitle: string; projects: ProjectItem[]; };
+type ThesisItem = { title: string; description: string; icon: string; };
+type AntiCyclicalContent = { title: string; description: string; points: string[]; };
+type ThesisContent = { title: string; subtitle: string; antiCyclical: AntiCyclicalContent; items: ThesisItem[]; };
+type ModelStep = { number: string; title: string; description: string; };
+type ModelContent = { title: string; subtitle: string; description: string; steps: ModelStep[]; };
+type LeadershipContent = { title: string; name: string; role: string; bio: string; };
+type CtaContent = { title: string; description: string; button: string; };
+type FormContent = { name: string; email: string; company: string; message: string; submit: string; success: string; error: string; };
+type ContactInfoContent = { phone: string; email: string; locations: string; };
+type ContactContent = { title: string; subtitle: string; form: FormContent; info: ContactInfoContent; };
+type FooterContent = { tagline: string; rights: string; privacy: string; };
 
 type ContentStructure = {
-  nav: NavContent;
-  hero: HeroContent;
-  stats: StatsContent;
-  portfolio: PortfolioContent;
-  thesis: {
-    title: string;
-    subtitle: string;
-    items: ThesisItem[];
-  };
-  anticyclical: AntiCyclicalContent;
-  footer: {
-    rights: string;
-    privacy: string;
-  };
+  nav: NavContent; hero: HeroContent; stats: StatsContent; portfolio: PortfolioContent; thesis: ThesisContent; model: ModelContent; leadership: LeadershipContent; cta: CtaContent; contact: ContactContent; footer: FooterContent;
 };
 
 // ============================================
-// DATOS (Mantenemos tu contenido original)
+// 2. DICCIONARIO BILINGÜE COMPLETO
 // ============================================
 
 const content: Record<'es' | 'en', ContentStructure> = {
   es: {
-    nav: {
-      about: 'Nosotros',
-      portfolio: 'Portafolio',
-      thesis: 'Tesis',
-      model: 'Modelo',
-      contact: 'Contacto',
-    },
+    nav: { about: 'NOSOTROS', portfolio: 'PORTAFOLIO', thesis: 'TESIS', model: 'MODELO', contact: 'CONTACTO' },
     hero: {
-      tagline: 'ESTRATEGIA INMOBILIARIA DE ALTO IMPACTO',
-      headline1: 'Donde el',
-      headline2: 'Capital',
-      headline3: 'Construye',
-      headline4: 'México',
-      description: 'Más de 15 años transformando el comercio esencial a través de infraestructura logística de última milla y mercados de abasto inteligentes.',
-      cta: 'Explorar Inversiones',
-      ctaSecondary: 'Nuestra Tesis',
+      tagline: 'VISIÓN · INMOBILIARIA · ESENCIAL',
+      headline1: 'Donde el', headline2: 'Capital', headline3: 'construye', headline4: 'México.',
+      description: 'Desarrollamos mercados de abasto que operan con o sin crisis. 15 años construyendo la infraestructura que alimenta ciudades, con rendimientos comprobados y ocupación consistente.',
+      cta: 'EXPLORAR PORTAFOLIO', ctaSecondary: 'NUESTRA TESIS',
       pillars: {
-        title: 'Pilares de Valor',
+        title: 'PILARES ESTRATÉGICOS',
         items: [
-          { name: 'Resiliencia', description: 'Activos esenciales en crisis.' },
-          { name: 'Plusvalía', description: 'Ubicaciones estratégicas.' },
-          { name: 'Flujo', description: 'Rentas de alta ocupación.' },
+          { name: 'Torreón · Monterrey', description: 'Corredor Norte de México' },
+          { name: 'Infraestructura Esencial', description: 'Mercados · Abasto · Distribución' },
+          { name: 'Modelo Anticíclico', description: 'Demanda Inelástica · Rentas Estables' },
+          { name: 'Gestión Integral', description: 'Desarrollo · Operación · Administración' }
         ]
       }
     },
     stats: {
-      title: 'Trayectoria Probada',
-      description: 'Nuestros números respaldan la solidez de cada inversión.',
+      title: 'Track Record',
+      description: 'Más de una década construyendo infraestructura esencial en el norte de México.',
       items: [
-        { value: '15+', label: 'Años de Experiencia' },
-        { value: '52k+', label: 'm² Construidos', highlight: true },
-        { value: '90%', label: 'Ocupación Promedio' },
-        { value: '3', label: 'Estados del País' },
+        { value: '52,000', label: 'm² desarrollados', highlight: true },
+        { value: '15', label: 'años de operación', highlight: true },
+        { value: '5', label: 'mercados construidos', highlight: false },
+        { value: '90', label: '% ocupación promedio', highlight: false },
+        { value: '300', label: 'comerciantes activos', highlight: false }
       ]
     },
     portfolio: {
-      title: 'Portafolio Estratégico',
-      subtitle: 'Activos de alto rendimiento en ubicaciones clave.',
+      title: 'Portafolio de Activos', subtitle: 'Infraestructura comercial de abasto en operación',
       projects: [
-        {
-          name: 'Mercahorro Torreón',
-          sqm: '22,500 m²',
-          status: 'Operativo',
-          city: 'Torreón, Coah.',
-          description: 'Centro de abasto inteligente con tecnología de última generación.',
-          year: '2021'
-        },
-        {
-          name: 'Mercahorro Monterrey',
-          sqm: '18,200 m²',
-          status: 'Desarrollo',
-          city: 'Monterrey, NL.',
-          description: 'Hub logístico comercial en la zona de mayor crecimiento.',
-          year: '2024'
-        },
+        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Centro de abasto regional con alta rotación de productos frescos.', year: '2012' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operando', city: 'Gómez Palacio, Durango', description: 'Hub de distribución alimentaria para la Comarca Lagunera.', year: '2015' },
+        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Complejo mayorista con infraestructura de última generación.', year: '2018' },
+        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operando', city: 'Monterrey, Nuevo León', description: 'El desarrollo más grande, sirviendo al área metropolitana.', year: '2021' },
+        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'En Desarrollo', city: 'Gómez Palacio, Durango', description: 'Expansión estratégica para la demanda creciente.', year: '2025' }
       ]
     },
     thesis: {
-      title: 'Tesis de Inversión',
-      subtitle: 'Por qué invertir en infraestructura esencial.',
+      title: 'Tesis de Inversión', subtitle: '¿Por qué mercados de abasto?',
+      antiCyclical: {
+        title: 'Modelo Anticíclico',
+        description: 'Los mercados de abasto son infraestructura esencial. La gente come todos los días, sin importar la economía. Mientras otros sectores sufren en recesiones, el abasto mantiene —e incrementa— su demanda.',
+        points: ['Demanda inelástica: alimentación es gasto no discrecional', 'Rendimiento estable en cualquier ciclo económico', 'Protección contra inflación vía rentas indexadas', 'Ocupación consistente por modelo probado']
+      },
       items: [
-        { title: 'Demanda Inelástica', description: 'El consumo de alimentos no se detiene.', icon: 'shield' },
-        { title: 'Activos Reales', description: 'Propiedad física con valor intrínseco.', icon: 'building' },
-        { title: 'Escalabilidad', description: 'Modelo replicable en mercados clave.', icon: 'trend' },
+        { title: 'Mercado Fragmentado', description: 'Infraestructura subdesarrollada en México. Consolidamos un sector con enorme potencial.', icon: 'grid' },
+        { title: 'Flujos Predecibles', description: '90% ocupación histórica. 300+ comerciantes generando ingresos estables.', icon: 'chart' },
+        { title: 'Barrera de Entrada', description: 'Requiere expertise, relaciones con comerciantes y conocimiento regulatorio.', icon: 'shield' }
       ]
     },
-    anticyclical: {
-      title: 'Enfoque Anticíclico',
-      description: 'Nuestra estrategia protege el capital ante la volatilidad económica.',
-      points: [
-        'Protección contra inflación mediante rentas variables.',
-        'Baja correlación con mercados financieros tradicionales.',
-        'Activos de primera necesidad.'
+    model: {
+      title: 'Modelo Integrado', subtitle: 'Control total del ciclo',
+      description: 'No solo construimos y vendemos. Permanecemos invertidos junto a nuestros socios.',
+      steps: [
+        { number: '01', title: 'Originación', description: 'Ubicaciones estratégicas en mercados desatendidos.' },
+        { number: '02', title: 'Desarrollo', description: 'Diseño y construcción con equipo propio.' },
+        { number: '03', title: 'Comercialización', description: 'Pre-arrendamos a comerciantes establecidos.' },
+        { number: '04', title: 'Administración', description: 'Operación profesional a largo plazo.' }
       ]
     },
-    footer: {
-      rights: '© 2024 Merca Capital. Todos los derechos reservados.',
-      privacy: 'Aviso de Privacidad'
-    }
+    leadership: {
+      title: 'Liderazgo', name: 'Alejandro Gayosso Heimpel', role: 'Fundador y CEO', bio: '15 años en infraestructura comercial. Tec de Monterrey + MBA IE Business School Madrid. Operaciones en México, basado en Madrid.'
+    },
+    cta: {
+      title: 'Capital Privado en Despliegue', description: 'Buscamos socios estratégicos: family offices, fondos e inversionistas interesados en infraestructura esencial.', button: 'INICIAR CONVERSACIÓN'
+    },
+    contact: {
+      title: 'Contacto', subtitle: 'Hablemos de oportunidades',
+      form: { name: 'Nombre', email: 'Email', company: 'Empresa', message: 'Mensaje', submit: 'Enviar', success: '¡Enviado! Te contactaremos pronto.', error: 'Error. Intenta de nuevo.' },
+      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Monterrey' }
+    },
+    footer: { tagline: 'Visión Inmobiliaria', rights: '© 2025 Merca Capital. Todos los derechos reservados.', privacy: 'Aviso de Privacidad' }
   },
   en: {
-    nav: {
-      about: 'About',
-      portfolio: 'Portfolio',
-      thesis: 'Thesis',
-      model: 'Model',
-      contact: 'Contact',
-    },
+    nav: { about: 'ABOUT', portfolio: 'PORTFOLIO', thesis: 'THESIS', model: 'MODEL', contact: 'CONTACT' },
     hero: {
-      tagline: 'HIGH-IMPACT REAL ESTATE STRATEGY',
-      headline1: 'Where',
-      headline2: 'Capital',
-      headline3: 'Builds',
-      headline4: 'Mexico',
-      description: 'Over 15 years transforming essential trade through last-mile logistics and smart wholesale markets.',
-      cta: 'Explore Investments',
-      ctaSecondary: 'Our Thesis',
+      tagline: 'VISION · REAL ESTATE · ESSENTIAL',
+      headline1: 'Where', headline2: 'Capital', headline3: 'builds', headline4: 'Mexico.',
+      description: 'We develop wholesale food markets that operate through any crisis. 15 years building essential infrastructure with proven returns and consistent occupancy.',
+      cta: 'EXPLORE PORTFOLIO', ctaSecondary: 'OUR THESIS',
       pillars: {
-        title: 'Value Pillars',
+        title: 'STRATEGIC PILLARS',
         items: [
-          { name: 'Resilience', description: 'Essential assets in crisis.' },
-          { name: 'Appreciation', description: 'Strategic locations.' },
-          { name: 'Cash Flow', description: 'High occupancy rents.' },
+          { name: 'Torreón · Monterrey', description: 'Northern Mexico Corridor' },
+          { name: 'Essential Infrastructure', description: 'Markets · Wholesale · Distribution' },
+          { name: 'Anti-Cyclical Model', description: 'Inelastic Demand · Stable Rents' },
+          { name: 'Integrated Management', description: 'Development · Operations · Admin' }
         ]
       }
     },
     stats: {
-      title: 'Proven Track Record',
-      description: 'Our numbers back the solidity of every investment.',
+      title: 'Track Record',
+      description: 'Over a decade building essential infrastructure in Northern Mexico.',
       items: [
-        { value: '15+', label: 'Years Experience' },
-        { value: '52k+', label: 'sqm Built', highlight: true },
-        { value: '90%', label: 'Avg Occupancy' },
-        { value: '3', label: 'States' },
+        { value: '52,000', label: 'sqm developed', highlight: true },
+        { value: '15', label: 'years operating', highlight: true },
+        { value: '5', label: 'markets built', highlight: false },
+        { value: '90', label: '% avg occupancy', highlight: false },
+        { value: '300', label: 'active merchants', highlight: false }
       ]
     },
     portfolio: {
-      title: 'Strategic Portfolio',
-      subtitle: 'High-performance assets in key locations.',
+      title: 'Asset Portfolio', subtitle: 'Operating wholesale food infrastructure',
       projects: [
-        {
-          name: 'Mercahorro Torreon',
-          sqm: '22,500 sqm',
-          status: 'Operating',
-          city: 'Torreon, Coah.',
-          description: 'Smart wholesale center with latest generation technology.',
-          year: '2021'
-        },
-        {
-          name: 'Mercahorro Monterrey',
-          sqm: '18,200 sqm',
-          status: 'Development',
-          city: 'Monterrey, NL.',
-          description: 'Commercial logistics hub in high-growth area.',
-          year: '2024'
-        },
+        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Regional wholesale center with high turnover.', year: '2012' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operating', city: 'Gómez Palacio, Durango', description: 'Food distribution hub for Laguna Region.', year: '2015' },
+        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Wholesale complex with modern infrastructure.', year: '2018' },
+        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operating', city: 'Monterrey, Nuevo León', description: 'Our largest development.', year: '2021' },
+        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'In Development', city: 'Gómez Palacio, Durango', description: 'Strategic expansion.', year: '2025' }
       ]
     },
     thesis: {
-      title: 'Investment Thesis',
-      subtitle: 'Why invest in essential infrastructure.',
+      title: 'Investment Thesis', subtitle: 'Why wholesale food markets?',
+      antiCyclical: {
+        title: 'Anti-Cyclical Model',
+        description: 'Wholesale markets are essential infrastructure. People eat every day, regardless of economy. While other sectors suffer, food distribution maintains—and increases—demand.',
+        points: ['Inelastic demand: food is non-discretionary', 'Stable performance through any cycle', 'Inflation protection via indexed rents', 'Consistent occupancy from proven model']
+      },
       items: [
-        { title: 'Inelastic Demand', description: 'Food consumption never stops.', icon: 'shield' },
-        { title: 'Real Assets', description: 'Physical property with intrinsic value.', icon: 'building' },
-        { title: 'Scalability', description: 'Replicable model in key markets.', icon: 'trend' },
+        { title: 'Fragmented Market', description: 'Underdeveloped infrastructure. We consolidate a sector with massive potential.', icon: 'grid' },
+        { title: 'Predictable Flows', description: '90% historical occupancy. 300+ merchants generating stable income.', icon: 'chart' },
+        { title: 'Barrier to Entry', description: 'Requires expertise, merchant relationships and regulatory knowledge.', icon: 'shield' }
       ]
     },
-    anticyclical: {
-      title: 'Anticyclical Approach',
-      description: 'Our strategy protects capital against economic volatility.',
-      points: [
-        'Inflation protection via variable rents.',
-        'Low correlation with traditional financial markets.',
-        'Necessity-driven assets.'
+    model: {
+      title: 'Integrated Model', subtitle: 'Full cycle control',
+      description: 'We don\'t just build and sell. We stay invested alongside our partners.',
+      steps: [
+        { number: '01', title: 'Origination', description: 'Strategic locations in underserved markets.' },
+        { number: '02', title: 'Development', description: 'In-house design and construction.' },
+        { number: '03', title: 'Commercialization', description: 'Pre-lease to established merchants.' },
+        { number: '04', title: 'Management', description: 'Professional long-term operation.' }
       ]
     },
-    footer: {
-      rights: '© 2024 Merca Capital. All rights reserved.',
-      privacy: 'Privacy Policy'
-    }
+    leadership: {
+      title: 'Leadership', name: 'Alejandro Gayosso Heimpel', role: 'Founder & CEO', bio: '15 years in commercial infrastructure. Tec de Monterrey + MBA IE Business School Madrid. Operations in Mexico, based in Madrid.'
+    },
+    cta: {
+      title: 'Private Capital Deploying', description: 'Seeking strategic partners: family offices, funds and investors in essential infrastructure.', button: 'START CONVERSATION'
+    },
+    contact: {
+      title: 'Contact', subtitle: 'Let\'s discuss opportunities',
+      form: { name: 'Name', email: 'Email', company: 'Company', message: 'Message', submit: 'Send', success: 'Sent! We\'ll be in touch.', error: 'Error. Try again.' },
+      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Monterrey' }
+    },
+    footer: { tagline: 'Real Estate Vision', rights: '© 2025 Merca Capital. All rights reserved.', privacy: 'Privacy Policy' }
   }
 };
 
 // ============================================
-// ICONOS SVG
+// 3. ÍCONOS SVG (Preservados)
 // ============================================
 
-const Icons = {
-  linkedin: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-    </svg>
-  ),
+const Icons: Record<string, () => React.ReactNode> = {
+  globe: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  grid: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>,
+  chart: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>,
+  shield: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  star: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  check: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>,
+  phone: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+  mail: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>,
+  mapPin: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>,
+  linkedin: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>,
 };
 
 // ============================================
-// COMPONENTES DE DISEÑO
+// 4. COMPONENTES (Arquitectura Premium)
 // ============================================
 
 const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t: ContentStructure }> = ({ lang, setLang, t }) => {
@@ -284,78 +219,39 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
   return (
     <header style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000,
-      background: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'transparent',
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+      background: scrolled ? 'rgba(0, 11, 41, 0.95)' : 'transparent',
       backdropFilter: scrolled ? 'blur(12px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(201, 162, 39, 0.2)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(201, 162, 39, 0.15)' : 'none',
       transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
     }}>
       <div style={{
-        maxWidth: '1400px',
-        margin: '0 auto',
-        padding: scrolled ? '0.8rem 2rem' : '1.5rem 2rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        transition: 'all 0.4s ease',
+        maxWidth: '1600px', margin: '0 auto',
+        padding: scrolled ? '0.8rem 4rem' : '1.5rem 4rem',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        transition: 'padding 0.4s ease',
       }}>
-        {/* LOGO PANORÁMICO TIPO ALTAVELA */}
-        <div style={{ 
-          position: 'relative', 
-          height: scrolled ? '35px' : '48px', 
-          width: scrolled ? '160px' : '220px',
-          transition: 'all 0.4s ease',
-        }}>
-          <Image
-            src="/Transparent_Logo_Blanco.png"
-            alt="Merca Capital"
-            fill
-            style={{ objectFit: 'contain', objectPosition: 'left' }}
-            priority
-          />
+        {/* LOGO ALTAVELA STYLE */}
+        <div style={{ position: 'relative', height: scrolled ? '40px' : '55px', width: scrolled ? '180px' : '240px', transition: 'all 0.4s ease' }}>
+          <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital" fill style={{ objectFit: 'contain', objectPosition: 'left' }} priority />
         </div>
 
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-          {Object.entries(t.nav).map(([key, value]) => (
-            <a 
-              key={key} 
-              href={`#${key}`} 
-              style={{
-                color: 'white',
-                fontSize: '0.7rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                textDecoration: 'none',
-                opacity: 0.7,
-                transition: 'opacity 0.3s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-              onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
-            >
-              {value}
-            </a>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
+          {(['portfolio', 'thesis', 'model', 'contact'] as const).map((section) => (
+            <button key={section} onClick={() => scrollTo(section)}
+              style={{ background: 'none', border: 'none', color: '#FFF', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', cursor: 'pointer', textTransform: 'uppercase', opacity: 0.7, transition: 'opacity 0.3s' }}
+              onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}>
+              {t.nav[section]}
+            </button>
           ))}
-          <button 
-            onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-            style={{
-              background: 'transparent',
-              border: '1px solid rgba(201, 162, 39, 0.4)',
-              color: '#C9A227',
-              padding: '5px 10px',
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              borderRadius: '2px',
-              marginLeft: '1rem'
-            }}
-          >
+          <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+            style={{ background: 'transparent', border: '1px solid rgba(201, 162, 39, 0.4)', color: '#C9A227', padding: '5px 12px', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px', marginLeft: '1rem', transition: 'all 0.3s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A227'; e.currentTarget.style.color = '#000B29'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C9A227'; }}>
             {lang.toUpperCase()}
           </button>
         </nav>
@@ -364,8 +260,277 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
   );
 };
 
+const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section style={{
+    minHeight: '100vh', background: '#000B29', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden'
+  }}>
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 30% 50%, rgba(201, 162, 39, 0.08) 0%, transparent 60%)', zIndex: 1 }} />
+    <div style={{ width: '100%', maxWidth: '1600px', margin: '0 auto', padding: '8rem 4rem 4rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '3rem' }}>
+          <div style={{ width: '45px', height: '1px', background: '#C9A227' }} />
+          <span style={{ color: '#C9A227', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.3em' }}>{t.hero.tagline}</span>
+        </div>
+        <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', fontWeight: 300, lineHeight: 1, color: '#FFF', margin: '0 0 2rem 0', letterSpacing: '-0.02em' }}>
+          {t.hero.headline1} <br/>
+          <span style={{ fontStyle: 'italic', color: '#C9A227', fontWeight: 400 }}>{t.hero.headline2}</span> <br/>
+          {t.hero.headline3} <span style={{ fontWeight: 600 }}>{t.hero.headline4}</span>
+        </h1>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', lineHeight: 1.8, maxWidth: '520px', marginBottom: '3.5rem', fontWeight: 300 }}>
+          {t.hero.description}
+        </p>
+        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+          <a href="#portfolio" style={{ background: '#C9A227', color: '#000B29', padding: '1.2rem 2.8rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textDecoration: 'none', transition: 'transform 0.3s' }}>
+            {t.hero.cta}
+          </a>
+          <a href="#thesis" style={{ color: '#FFF', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: '5px' }}>
+            {t.hero.ctaSecondary}
+          </a>
+        </div>
+      </div>
+
+      <div style={{ position: 'relative', padding: '3rem' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '40px', height: '40px', borderTop: '1px solid rgba(201,162,39,0.4)', borderLeft: '1px solid rgba(201,162,39,0.4)' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '40px', height: '40px', borderTop: '1px solid rgba(201,162,39,0.4)', borderRight: '1px solid rgba(201,162,39,0.4)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '40px', height: '40px', borderBottom: '1px solid rgba(201,162,39,0.4)', borderLeft: '1px solid rgba(201,162,39,0.4)' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: '40px', height: '40px', borderBottom: '1px solid rgba(201,162,39,0.4)', borderRight: '1px solid rgba(201,162,39,0.4)' }} />
+
+        <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', padding: '2.5rem', backdropFilter: 'blur(10px)' }}>
+          <div style={{ color: '#C9A227', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between' }}>
+            {t.hero.pillars.title} <span style={{ opacity: 0.5 }}>▲</span>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {t.hero.pillars.items.map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: '1.2rem' }}>
+                <div style={{ color: '#C9A227', marginTop: '3px' }}>
+                  {i === 0 && Icons.globe()} {i === 1 && Icons.grid()} {i === 2 && Icons.chart()} {i === 3 && Icons.star()}
+                </div>
+                <div>
+                  <h4 style={{ color: '#FFF', fontSize: '1.05rem', fontWeight: 500, margin: '0 0 0.3rem 0', fontFamily: 'var(--font-cormorant), serif' }}>{item.name}</h4>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.stats.title}</h2>
+        <p style={{ color: '#666', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>{t.stats.description}</p>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+        {t.stats.items.map((stat, i) => (
+          <div key={i} style={{ background: stat.highlight ? '#000B29' : '#FFF', padding: '3rem 2rem', textAlign: 'center', border: stat.highlight ? 'none' : '1px solid rgba(0,0,0,0.05)', boxShadow: stat.highlight ? '0 20px 40px rgba(0,11,41,0.1)' : 'none' }}>
+            <div style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3.5rem', fontWeight: 300, color: '#C9A227', lineHeight: 1, marginBottom: '1rem' }}>{stat.value}</div>
+            <div style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: stat.highlight ? 'rgba(255,255,255,0.7)' : '#666' }}>{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section id="portfolio" style={{ padding: '8rem 4rem', background: '#FFFFFF' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.portfolio.title}</h2>
+        <p style={{ color: '#666', fontSize: '1.1rem' }}>{t.portfolio.subtitle}</p>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '3rem' }}>
+        {t.portfolio.projects.map((proj, i) => (
+          <div key={i} style={{ background: '#F9F8F6', border: '1px solid rgba(0,0,0,0.05)', transition: 'transform 0.4s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+            
+            {/* Espacio reservado para foto real de Alta Calidad */}
+            <div style={{ height: '350px', background: '#11131A', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'rgba(201, 162, 39, 0.95)', color: '#000B29', padding: '0.5rem 1rem', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                {proj.status}
+              </div>
+            </div>
+
+            <div style={{ padding: '2.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#000B29', margin: 0 }}>{proj.name}</h3>
+                <span style={{ color: '#C9A227', fontWeight: 600, fontFamily: 'var(--font-cormorant), serif', fontSize: '1.2rem' }}>{proj.year}</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#666', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', fontWeight: 600 }}>
+                {proj.city} <span style={{ color: '#C9A227', margin: '0 0.5rem' }}>|</span> {proj.sqm}
+              </div>
+              <p style={{ color: '#555', lineHeight: 1.6, margin: 0 }}>{proj.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section id="thesis" style={{ padding: '10rem 4rem', background: '#000B29', position: 'relative' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 300, color: '#FFF', margin: '0 0 1rem 0' }}>{t.thesis.title}</h2>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem' }}>{t.thesis.subtitle}</p>
+      </div>
+
+      <div style={{ background: 'rgba(201,162,39,0.03)', border: '1px solid rgba(255,255,255,0.05)', borderLeft: '3px solid #C9A227', padding: '4rem', marginBottom: '4rem' }}>
+        <h3 style={{ color: '#C9A227', fontSize: '1.5rem', fontWeight: 600, margin: '0 0 1.5rem 0', fontFamily: 'var(--font-cormorant), serif' }}>{t.thesis.antiCyclical.title}</h3>
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '900px' }}>{t.thesis.antiCyclical.description}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+          {t.thesis.antiCyclical.points.map((pt, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <span style={{ color: '#C9A227', marginTop: '2px' }}>{Icons.check()}</span>
+              <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>{pt}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        {t.thesis.items.map((item, i) => (
+          <div key={i} style={{ padding: '3rem', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+            <div style={{ width: '50px', height: '50px', background: 'rgba(201,162,39,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C9A227', marginBottom: '2rem' }}>
+              {Icons[item.icon]?.()}
+            </div>
+            <h4 style={{ color: '#FFF', fontSize: '1.2rem', fontWeight: 500, margin: '0 0 1rem 0' }}>{item.title}</h4>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Model: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section id="model" style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.model.title}</h2>
+        <p style={{ color: '#666', fontSize: '1.1rem' }}>{t.model.subtitle}</p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+        {t.model.steps.map((step, i) => (
+          <div key={i} style={{ background: '#FFF', padding: '3rem 2.5rem', border: '1px solid rgba(0,0,0,0.05)', position: 'relative' }}>
+            <div style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '5rem', fontWeight: 300, color: 'rgba(201,162,39,0.15)', lineHeight: 0.8, marginBottom: '1.5rem' }}>{step.number}</div>
+            <h4 style={{ color: '#000B29', fontSize: '1.2rem', fontWeight: 600, margin: '0 0 1rem 0' }}>{step.title}</h4>
+            <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{step.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ background: '#000B29', padding: '3rem', textAlign: 'center', borderLeft: '4px solid #C9A227' }}>
+        <p style={{ color: '#FFF', fontSize: '1.4rem', fontFamily: 'var(--font-cormorant), serif', fontStyle: 'italic', margin: 0 }}>"{t.model.description}"</p>
+      </div>
+    </div>
+  </section>
+);
+
+// Componente agregado por Arquitecto (Claude olvidó renderizarlo)
+const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <section style={{ padding: '8rem 4rem', background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
+      
+      {/* Leadership */}
+      <div>
+        <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2.5rem', fontWeight: 400, color: '#000B29', margin: '0 0 2.5rem 0' }}>{t.leadership.title}</h2>
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: '#F9F8F6', border: '2px solid #C9A227', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: '#C9A227', fontSize: '1.5rem', fontFamily: 'var(--font-cormorant), serif' }}>AG</span>
+          </div>
+          <div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.3rem 0' }}>{t.leadership.name}</h3>
+            <p style={{ color: '#C9A227', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, margin: '0 0 1rem 0' }}>{t.leadership.role}</p>
+            <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '400px' }}>{t.leadership.bio}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Box */}
+      <div style={{ background: '#000B29', padding: '4rem', textAlign: 'center' }}>
+        <h3 style={{ fontFamily: 'var(--font-cormorant), serif', color: '#FFF', fontSize: '2rem', fontWeight: 300, margin: '0 0 1.5rem 0' }}>{t.cta.title}</h3>
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: 1.6, margin: '0 auto 2.5rem', maxWidth: '400px' }}>{t.cta.description}</p>
+        <a href="#contact" style={{ display: 'inline-block', background: '#C9A227', color: '#000B29', padding: '1.2rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textDecoration: 'none' }}>
+          {t.cta.button}
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); setStatus('sending');
+    // Simulación elegante de envío (Añade tu API real aquí)
+    setTimeout(() => { setStatus('success'); (e.target as HTMLFormElement).reset(); }, 1500);
+  };
+
+  return (
+    <section id="contact" style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '6rem' }}>
+        <div>
+          <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.contact.title}</h2>
+          <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '4rem' }}>{t.contact.subtitle}</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {[{ icon: Icons.phone(), text: t.contact.info.phone }, { icon: Icons.mail(), text: t.contact.info.email }, { icon: Icons.mapPin(), text: t.contact.info.locations }].map((item, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ width: '50px', height: '50px', background: '#FFF', border: '1px solid rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C9A227' }}>{item.icon}</div>
+                <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1.05rem' }}>{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ background: '#FFF', padding: '4rem', boxShadow: '0 20px 40px rgba(0,0,0,0.03)' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {[{ n: 'name', l: t.contact.form.name, t: 'text' }, { n: 'email', l: t.contact.form.email, t: 'email' }, { n: 'company', l: t.contact.form.company, t: 'text' }].map((f) => (
+              <div key={f.n}>
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#000B29', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{f.l}</label>
+                <input type={f.t} name={f.n} required={f.n !== 'company'} style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '1px solid #E5E5E5', background: 'transparent', fontSize: '1rem', outline: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C9A227'} onBlur={(e) => e.target.style.borderBottomColor = '#E5E5E5'} />
+              </div>
+            ))}
+            <div>
+              <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#000B29', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.contact.form.message}</label>
+              <textarea name="message" rows={3} required style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '1px solid #E5E5E5', background: 'transparent', fontSize: '1rem', outline: 'none', resize: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C9A227'} onBlur={(e) => e.target.style.borderBottomColor = '#E5E5E5'} />
+            </div>
+            <button type="submit" disabled={status === 'sending'} style={{ background: '#000B29', color: '#FFF', padding: '1.2rem', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', border: 'none', cursor: 'pointer', marginTop: '1rem', transition: 'background 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.background = '#C9A227'} onMouseLeave={(e) => e.currentTarget.style.background = '#000B29'}>
+              {status === 'sending' ? '...' : t.contact.form.submit}
+            </button>
+            {status === 'success' && <p style={{ color: '#C9A227', fontSize: '0.9rem', textAlign: 'center', marginTop: '1rem' }}>{t.contact.form.success}</p>}
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => (
+  <footer style={{ padding: '5rem 4rem 3rem', background: '#000B29', borderTop: '1px solid rgba(201,162,39,0.15)' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
+      <div style={{ position: 'relative', height: '60px', width: '260px' }}>
+        <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital" fill style={{ objectFit: 'contain' }} />
+      </div>
+      <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+        <a href="#" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.05em' }}>{t.footer.privacy}</a>
+        <a href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A227' }}>{Icons.linkedin()}</a>
+      </div>
+      <div style={{ width: '100%', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '3rem', textAlign: 'center' }}>
+        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', letterSpacing: '0.05em', margin: 0 }}>{t.footer.rights}</p>
+      </div>
+    </div>
+  </footer>
+);
+
 // ============================================
-// MAIN PAGE
+// 5. RENDER PRINCIPAL
 // ============================================
 
 export default function MercaCapitalPage() {
@@ -373,234 +538,16 @@ export default function MercaCapitalPage() {
   const t = content[lang];
 
   return (
-    <main style={{ backgroundColor: '#0A0A0A', color: 'white', overflowX: 'hidden' }}>
+    <main style={{ overflowX: 'hidden', fontFamily: 'var(--font-inter), sans-serif', color: '#000B29' }}>
       <Header lang={lang} setLang={setLang} t={t} />
-
-      {/* HERO SECTION */}
-      <section style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '0 8%',
-        position: 'relative',
-        background: 'linear-gradient(to right, #0A0A0A 30%, transparent 100%)',
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '60%',
-          height: '100%',
-          opacity: 0.4,
-          zIndex: 0
-        }}>
-          {/* Aquí irá tu imagen real de desarrollo */}
-          <div style={{
-            width: '100%',
-            height: '100%',
-            background: 'radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 70%)'
-          }} />
-        </div>
-
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px' }}>
-          <div style={{ 
-            display: 'inline-block',
-            paddingLeft: '60px',
-            position: 'relative',
-            marginBottom: '2.5rem'
-          }}>
-            <div style={{ 
-              position: 'absolute', 
-              left: 0, 
-              top: '50%', 
-              width: '45px', 
-              height: '1px', 
-              background: '#C9A227' 
-            }} />
-            <span style={{
-              color: '#C9A227',
-              fontSize: '0.8rem',
-              letterSpacing: '0.4em',
-              fontWeight: 500,
-              textTransform: 'uppercase'
-            }}>
-              {t.hero.tagline}
-            </span>
-          </div>
-          
-          <h1 style={{
-            fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
-            lineHeight: 0.9,
-            fontWeight: 300,
-            marginBottom: '2.5rem',
-            letterSpacing: '-0.03em'
-          }}>
-            {t.hero.headline1} <span style={{ fontWeight: 600 }}>{t.hero.headline2}</span><br />
-            {t.hero.headline3} <span style={{ color: '#C9A227', fontStyle: 'italic' }}>{t.hero.headline4}</span>
-          </h1>
-
-          <p style={{
-            fontSize: '1.15rem',
-            color: 'rgba(255,255,255,0.5)',
-            maxWidth: '550px',
-            lineHeight: 1.7,
-            marginBottom: '4rem',
-            fontWeight: 300
-          }}>
-            {t.hero.description}
-          </p>
-
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <button style={{
-              background: '#C9A227',
-              color: 'black',
-              padding: '1.2rem 2.8rem',
-              border: 'none',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              cursor: 'pointer',
-              transition: 'transform 0.3s ease'
-            }}>
-              {t.hero.cta}
-            </button>
-            <a href="#thesis" style={{
-              color: 'white',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              textDecoration: 'none',
-              borderBottom: '1px solid rgba(255,255,255,0.3)',
-              paddingBottom: '5px'
-            }}>
-              {t.hero.ctaSecondary}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS SECTION */}
-      <section style={{
-        padding: '8rem 8%',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-        background: '#0D0D0D'
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '4rem'
-        }}>
-          {t.stats.items.map((stat, idx) => (
-            <div key={idx} style={{ textAlign: 'left' }}>
-              <div style={{ 
-                fontSize: '3.5rem', 
-                fontWeight: 600, 
-                color: stat.highlight ? '#C9A227' : 'white',
-                marginBottom: '0.5rem',
-                fontFamily: 'serif'
-              }}>
-                {stat.value}
-              </div>
-              <div style={{ 
-                fontSize: '0.7rem', 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.2em', 
-                color: 'rgba(255,255,255,0.4)',
-                fontWeight: 600
-              }}>
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PORTFOLIO SECTION */}
-      <section id="portfolio" style={{ padding: '10rem 8%' }}>
-        <div style={{ marginBottom: '5rem', maxWidth: '800px' }}>
-          <h2 style={{ fontSize: '3rem', fontWeight: 300, marginBottom: '1.5rem' }}>
-            {t.portfolio.title}
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>
-            {t.portfolio.subtitle}
-          </p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
-          {t.portfolio.projects.map((project, idx) => (
-            <div key={idx} style={{
-              background: '#141414',
-              border: '1px solid rgba(255,255,255,0.05)',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'transform 0.4s ease',
-              cursor: 'pointer'
-            }}>
-              {/* Espacio para imagen real del desarrollo */}
-              <div style={{ height: '400px', background: '#1A1A1A', position: 'relative' }}>
-                <div style={{
-                   position: 'absolute',
-                   top: '2rem',
-                   right: '2rem',
-                   padding: '0.5rem 1rem',
-                   background: 'rgba(201, 162, 39, 0.9)',
-                   color: 'black',
-                   fontSize: '0.7rem',
-                   fontWeight: 700,
-                   textTransform: 'uppercase'
-                }}>
-                  {project.status}
-                </div>
-              </div>
-              
-              <div style={{ padding: '2.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                   <h3 style={{ fontSize: '1.5rem', fontWeight: 500 }}>{project.name}</h3>
-                   <span style={{ color: '#C9A227', fontWeight: 600 }}>{project.year}</span>
-                </div>
-                <div style={{ 
-                   fontSize: '0.8rem', 
-                   textTransform: 'uppercase', 
-                   color: 'rgba(255,255,255,0.4)',
-                   letterSpacing: '0.1em',
-                   marginBottom: '1.5rem'
-                }}>
-                  {project.city} • {project.sqm}
-                </div>
-                <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FOOTER REFINADO */}
-      <footer style={{ padding: '5rem 8%', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4rem' }}>
-          <div style={{ position: 'relative', height: '40px', width: '180px' }}>
-            <Image
-              src="/Transparent_Logo_Blanco.png"
-              alt="Merca Capital"
-              fill
-              style={{ objectFit: 'contain', objectPosition: 'left' }}
-            />
-          </div>
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            <a href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/" style={{ color: '#C9A227' }}>
-              {Icons.linkedin()}
-            </a>
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>
-          <p>{t.footer.rights}</p>
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{t.footer.privacy}</a>
-        </div>
-      </footer>
+      <Hero t={t} />
+      <Stats t={t} />
+      <Portfolio t={t} />
+      <Thesis t={t} />
+      <Model t={t} />
+      <LeadershipAndCTA t={t} />
+      <Contact t={t} />
+      <Footer t={t} />
     </main>
   );
 }
