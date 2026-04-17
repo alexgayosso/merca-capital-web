@@ -4,7 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 // ============================================
-// TIPOS ESTRICTOS
+// MERCA CAPITAL - ESTILO ALTAVELA
+// Header grande, Hero asimétrico, Premium
+// ============================================
+
+// ============================================
+// TIPOS
 // ============================================
 
 type NavContent = {
@@ -16,11 +21,18 @@ type NavContent = {
 };
 
 type HeroContent = {
-  overline: string;
-  headline: string;
-  subhead: string;
+  tagline: string;
+  headline1: string;
+  headline2: string;
+  headline3: string;
+  headline4: string;
+  description: string;
   cta: string;
   ctaSecondary: string;
+  pillars: {
+    title: string;
+    items: { name: string; description: string }[];
+  };
 };
 
 type StatItem = {
@@ -149,74 +161,51 @@ type ContentLanguages = {
 const content: ContentLanguages = {
   es: {
     nav: {
-      about: 'Nosotros',
-      portfolio: 'Portafolio',
-      thesis: 'Tesis',
-      model: 'Modelo',
-      contact: 'Contacto'
+      about: 'NOSOTROS',
+      portfolio: 'PORTAFOLIO',
+      thesis: 'TESIS',
+      model: 'MODELO',
+      contact: 'CONTACTO'
     },
     hero: {
-      overline: 'VISIÓN INMOBILIARIA',
-      headline: 'Desarrollamos la infraestructura que alimenta a México',
-      subhead: 'Mercados de abasto que operan con o sin crisis. 15 años construyendo activos esenciales con rendimientos comprobados.',
-      cta: 'Explorar Portafolio',
-      ctaSecondary: 'Contactar'
+      tagline: 'VISIÓN · INMOBILIARIA · ESENCIAL',
+      headline1: 'Donde el',
+      headline2: 'Capital',
+      headline3: 'construye',
+      headline4: 'México.',
+      description: 'Desarrollamos mercados de abasto que operan con o sin crisis. 15 años construyendo la infraestructura que alimenta ciudades, con rendimientos comprobados y ocupación consistente.',
+      cta: 'EXPLORAR PORTAFOLIO',
+      ctaSecondary: 'NUESTRA TESIS',
+      pillars: {
+        title: 'PILARES ESTRATÉGICOS',
+        items: [
+          { name: 'Torreón · Monterrey', description: 'Corredor Norte de México' },
+          { name: 'Infraestructura Esencial', description: 'Mercados · Abasto · Distribución' },
+          { name: 'Modelo Anticíclico', description: 'Demanda Inelástica · Rentas Estables' },
+          { name: 'Gestión Integral', description: 'Desarrollo · Operación · Administración' }
+        ]
+      }
     },
     stats: {
-      title: 'Track Record Institucional',
-      description: 'Más de una década construyendo la infraestructura de abasto más sólida del norte de México.',
+      title: 'Track Record',
+      description: 'Más de una década construyendo infraestructura esencial en el norte de México.',
       items: [
-        { value: '52,000+', label: 'm² desarrollados', highlight: true },
-        { value: '15+', label: 'años de operación', highlight: true },
-        { value: '5', label: 'mercados construidos' },
-        { value: '90%', label: 'ocupación promedio' },
-        { value: '300+', label: 'comerciantes activos' }
+        { value: '52,000', label: 'm² desarrollados', highlight: true },
+        { value: '15', label: 'años de operación', highlight: true },
+        { value: '5', label: 'mercados construidos', highlight: false },
+        { value: '90', label: '% ocupación promedio', highlight: false },
+        { value: '300', label: 'comerciantes activos', highlight: false }
       ]
     },
     portfolio: {
       title: 'Portafolio de Activos',
       subtitle: 'Infraestructura comercial de abasto en operación',
       projects: [
-        { 
-          name: 'Mercahorro Torreón', 
-          sqm: '9,000 m²', 
-          status: 'En operación', 
-          city: 'Torreón, Coahuila',
-          description: 'Centro de abasto regional con alta rotación de productos frescos y abarrotes.',
-          year: '2012'
-        },
-        { 
-          name: 'Mercahorro Gómez Palacio', 
-          sqm: '9,000 m²', 
-          status: 'En operación', 
-          city: 'Gómez Palacio, Durango',
-          description: 'Hub de distribución alimentaria para la Comarca Lagunera.',
-          year: '2015'
-        },
-        { 
-          name: 'Plaza Abastos Torreón', 
-          sqm: '12,000 m²', 
-          status: 'En operación', 
-          city: 'Torreón, Coahuila',
-          description: 'Complejo comercial mayorista con infraestructura de última generación.',
-          year: '2018'
-        },
-        { 
-          name: 'Plaza Abastos Monterrey', 
-          sqm: '15,000 m²', 
-          status: 'En operación', 
-          city: 'Monterrey, Nuevo León',
-          description: 'El desarrollo más grande de nuestro portafolio, sirviendo al área metropolitana.',
-          year: '2021'
-        },
-        { 
-          name: 'Mercahorro Gómez II', 
-          sqm: '7,000 m²', 
-          status: 'En construcción', 
-          city: 'Gómez Palacio, Durango',
-          description: 'Expansión estratégica para cubrir la demanda creciente de la región.',
-          year: '2025'
-        }
+        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Centro de abasto regional con alta rotación de productos frescos.', year: '2012' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operando', city: 'Gómez Palacio, Durango', description: 'Hub de distribución alimentaria para la Comarca Lagunera.', year: '2015' },
+        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Complejo mayorista con infraestructura de última generación.', year: '2018' },
+        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operando', city: 'Monterrey, Nuevo León', description: 'El desarrollo más grande, sirviendo al área metropolitana.', year: '2021' },
+        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'En Desarrollo', city: 'Gómez Palacio, Durango', description: 'Expansión estratégica para la demanda creciente.', year: '2025' }
       ]
     },
     thesis: {
@@ -224,86 +213,58 @@ const content: ContentLanguages = {
       subtitle: '¿Por qué mercados de abasto?',
       antiCyclical: {
         title: 'Modelo Anticíclico',
-        description: 'Los mercados de abasto son infraestructura esencial. La gente come todos los días, independientemente de las condiciones económicas. Mientras otros sectores inmobiliarios sufren en recesiones, el abasto mantiene su demanda — e incluso la incrementa cuando los consumidores buscan precios más accesibles.',
+        description: 'Los mercados de abasto son infraestructura esencial. La gente come todos los días, sin importar la economía. Mientras otros sectores sufren en recesiones, el abasto mantiene —e incrementa— su demanda.',
         points: [
           'Demanda inelástica: alimentación es gasto no discrecional',
           'Rendimiento estable en cualquier ciclo económico',
-          'Protección natural contra la inflación vía rentas indexadas',
-          'Ocupación consistente por modelo de negocio probado'
+          'Protección contra inflación vía rentas indexadas',
+          'Ocupación consistente por modelo probado'
         ]
       },
       items: [
-        {
-          title: 'Mercado Fragmentado',
-          description: 'La infraestructura de abasto en México está subdesarrollada. Consolidamos un sector con enorme potencial de profesionalización.',
-          icon: 'grid'
-        },
-        {
-          title: 'Flujos Predecibles',
-          description: '90% de ocupación histórica. Base diversificada de comerciantes generando ingresos estables mes a mes.',
-          icon: 'chart'
-        },
-        {
-          title: 'Barrera de Entrada',
-          description: 'Desarrollar mercados de abasto requiere expertise especializado, relaciones con comerciantes y conocimiento regulatorio local.',
-          icon: 'shield'
-        }
+        { title: 'Mercado Fragmentado', description: 'Infraestructura subdesarrollada en México. Consolidamos un sector con enorme potencial.', icon: 'grid' },
+        { title: 'Flujos Predecibles', description: '90% ocupación histórica. 300+ comerciantes generando ingresos estables.', icon: 'chart' },
+        { title: 'Barrera de Entrada', description: 'Requiere expertise, relaciones con comerciantes y conocimiento regulatorio.', icon: 'shield' }
       ]
     },
     model: {
       title: 'Modelo Integrado',
-      subtitle: 'Control total del ciclo de inversión',
-      description: 'No solo construimos y vendemos. Permanecemos invertidos junto a nuestros socios a largo plazo.',
+      subtitle: 'Control total del ciclo',
+      description: 'No solo construimos y vendemos. Permanecemos invertidos junto a nuestros socios.',
       steps: [
-        { 
-          number: '01',
-          title: 'Originación', 
-          description: 'Identificamos ubicaciones estratégicas en mercados desatendidos con demanda comprobada.' 
-        },
-        { 
-          number: '02',
-          title: 'Desarrollo', 
-          description: 'Diseño y construcción con equipo propio. Control de calidad y costos de principio a fin.' 
-        },
-        { 
-          number: '03',
-          title: 'Comercialización', 
-          description: 'Pre-arrendamos a comerciantes establecidos. Los proyectos inician operación con ocupación asegurada.' 
-        },
-        { 
-          number: '04',
-          title: 'Administración', 
-          description: 'Operación profesional a largo plazo. Cobranza, mantenimiento y mejora continua del activo.' 
-        }
+        { number: '01', title: 'Originación', description: 'Ubicaciones estratégicas en mercados desatendidos.' },
+        { number: '02', title: 'Desarrollo', description: 'Diseño y construcción con equipo propio.' },
+        { number: '03', title: 'Comercialización', description: 'Pre-arrendamos a comerciantes establecidos.' },
+        { number: '04', title: 'Administración', description: 'Operación profesional a largo plazo.' }
       ]
     },
     leadership: {
       title: 'Liderazgo',
       name: 'Alejandro Gayosso Heimpel',
       role: 'Fundador y CEO',
-      bio: '15 años de experiencia en desarrollo de infraestructura comercial en México. Ingeniería por el Tecnológico de Monterrey, MBA por IE Business School en Madrid. Operaciones en México con base en Madrid, España.'
+      bio: '15 años en infraestructura comercial. Tec de Monterrey + MBA IE Business School Madrid. Operaciones en México, basado en Madrid.'
     },
     cta: {
       title: 'Capital Privado en Despliegue',
-      description: 'Estamos asociándonos con inversionistas privados para escalar nuestro modelo probado. Family offices, fondos y socios estratégicos interesados en infraestructura comercial esencial.',
-      button: 'Iniciar Conversación'
+      description: 'Buscamos socios estratégicos: family offices, fondos e inversionistas interesados en infraestructura esencial.',
+      button: 'INICIAR CONVERSACIÓN'
     },
     contact: {
       title: 'Contacto',
-      subtitle: 'Hablemos de oportunidades de inversión',
+      subtitle: 'Hablemos de oportunidades',
       form: {
-        name: 'Nombre completo',
-        email: 'Email corporativo',
-        company: 'Empresa / Family Office',
+        name: 'Nombre',
+        email: 'Email',
+        company: 'Empresa',
         message: 'Mensaje',
-        submit: 'Enviar Mensaje',
-        success: '¡Mensaje enviado! Te contactaremos pronto.',
-        error: 'Error al enviar. Intenta de nuevo.'
+        submit: 'Enviar',
+        success: '¡Enviado! Te contactaremos pronto.',
+        error: 'Error. Intenta de nuevo.'
       },
       info: {
         phone: '+52 871 204 0725',
         email: 'hola@mercacapital.com',
-        locations: 'Madrid, España | Monterrey, México'
+        locations: 'Madrid · Monterrey'
       }
     },
     footer: {
@@ -314,74 +275,51 @@ const content: ContentLanguages = {
   },
   en: {
     nav: {
-      about: 'About',
-      portfolio: 'Portfolio',
-      thesis: 'Thesis',
-      model: 'Model',
-      contact: 'Contact'
+      about: 'ABOUT',
+      portfolio: 'PORTFOLIO',
+      thesis: 'THESIS',
+      model: 'MODEL',
+      contact: 'CONTACT'
     },
     hero: {
-      overline: 'REAL ESTATE VISION',
-      headline: 'We Build the Infrastructure That Feeds Mexico',
-      subhead: 'Wholesale food markets that operate through any crisis. 15 years building essential assets with proven returns.',
-      cta: 'Explore Portfolio',
-      ctaSecondary: 'Contact Us'
+      tagline: 'VISION · REAL ESTATE · ESSENTIAL',
+      headline1: 'Where',
+      headline2: 'Capital',
+      headline3: 'builds',
+      headline4: 'Mexico.',
+      description: 'We develop wholesale food markets that operate through any crisis. 15 years building essential infrastructure with proven returns and consistent occupancy.',
+      cta: 'EXPLORE PORTFOLIO',
+      ctaSecondary: 'OUR THESIS',
+      pillars: {
+        title: 'STRATEGIC PILLARS',
+        items: [
+          { name: 'Torreón · Monterrey', description: 'Northern Mexico Corridor' },
+          { name: 'Essential Infrastructure', description: 'Markets · Wholesale · Distribution' },
+          { name: 'Anti-Cyclical Model', description: 'Inelastic Demand · Stable Rents' },
+          { name: 'Integrated Management', description: 'Development · Operations · Admin' }
+        ]
+      }
     },
     stats: {
-      title: 'Institutional Track Record',
-      description: 'Over a decade building the most solid wholesale infrastructure in Northern Mexico.',
+      title: 'Track Record',
+      description: 'Over a decade building essential infrastructure in Northern Mexico.',
       items: [
-        { value: '52,000+', label: 'sqm developed', highlight: true },
-        { value: '15+', label: 'years operating', highlight: true },
-        { value: '5', label: 'markets built' },
-        { value: '90%', label: 'avg. occupancy' },
-        { value: '300+', label: 'active merchants' }
+        { value: '52,000', label: 'sqm developed', highlight: true },
+        { value: '15', label: 'years operating', highlight: true },
+        { value: '5', label: 'markets built', highlight: false },
+        { value: '90', label: '% avg occupancy', highlight: false },
+        { value: '300', label: 'active merchants', highlight: false }
       ]
     },
     portfolio: {
       title: 'Asset Portfolio',
       subtitle: 'Operating wholesale food infrastructure',
       projects: [
-        { 
-          name: 'Mercahorro Torreón', 
-          sqm: '9,000 m²', 
-          status: 'Operating', 
-          city: 'Torreón, Coahuila',
-          description: 'Regional wholesale center with high turnover of fresh products and groceries.',
-          year: '2012'
-        },
-        { 
-          name: 'Mercahorro Gómez Palacio', 
-          sqm: '9,000 m²', 
-          status: 'Operating', 
-          city: 'Gómez Palacio, Durango',
-          description: 'Food distribution hub for the Laguna Region.',
-          year: '2015'
-        },
-        { 
-          name: 'Plaza Abastos Torreón', 
-          sqm: '12,000 m²', 
-          status: 'Operating', 
-          city: 'Torreón, Coahuila',
-          description: 'Wholesale commercial complex with state-of-the-art infrastructure.',
-          year: '2018'
-        },
-        { 
-          name: 'Plaza Abastos Monterrey', 
-          sqm: '15,000 m²', 
-          status: 'Operating', 
-          city: 'Monterrey, Nuevo León',
-          description: 'Our largest development, serving the metropolitan area.',
-          year: '2021'
-        },
-        { 
-          name: 'Mercahorro Gómez II', 
-          sqm: '7,000 m²', 
-          status: 'Under Development', 
-          city: 'Gómez Palacio, Durango',
-          description: 'Strategic expansion to meet growing regional demand.',
-          year: '2025'
-        }
+        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Regional wholesale center with high turnover.', year: '2012' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operating', city: 'Gómez Palacio, Durango', description: 'Food distribution hub for Laguna Region.', year: '2015' },
+        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Wholesale complex with modern infrastructure.', year: '2018' },
+        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operating', city: 'Monterrey, Nuevo León', description: 'Our largest development.', year: '2021' },
+        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'In Development', city: 'Gómez Palacio, Durango', description: 'Strategic expansion.', year: '2025' }
       ]
     },
     thesis: {
@@ -389,86 +327,58 @@ const content: ContentLanguages = {
       subtitle: 'Why wholesale food markets?',
       antiCyclical: {
         title: 'Anti-Cyclical Model',
-        description: 'Wholesale food markets are essential infrastructure. People eat every day, regardless of economic conditions. While other real estate sectors suffer during recessions, food distribution maintains its demand — and even increases when consumers seek more accessible prices.',
+        description: 'Wholesale markets are essential infrastructure. People eat every day, regardless of economy. While other sectors suffer, food distribution maintains—and increases—demand.',
         points: [
-          'Inelastic demand: food is non-discretionary spending',
-          'Stable performance through any economic cycle',
-          'Natural inflation protection via indexed rents',
-          'Consistent occupancy from proven business model'
+          'Inelastic demand: food is non-discretionary',
+          'Stable performance through any cycle',
+          'Inflation protection via indexed rents',
+          'Consistent occupancy from proven model'
         ]
       },
       items: [
-        {
-          title: 'Fragmented Market',
-          description: 'Mexico\'s wholesale infrastructure is underdeveloped. We consolidate a sector with massive professionalization potential.',
-          icon: 'grid'
-        },
-        {
-          title: 'Predictable Cash Flows',
-          description: '90% historical occupancy. Diversified merchant base generating stable monthly income.',
-          icon: 'chart'
-        },
-        {
-          title: 'Barrier to Entry',
-          description: 'Developing food markets requires specialized expertise, merchant relationships, and local regulatory knowledge.',
-          icon: 'shield'
-        }
+        { title: 'Fragmented Market', description: 'Underdeveloped infrastructure. We consolidate a sector with massive potential.', icon: 'grid' },
+        { title: 'Predictable Flows', description: '90% historical occupancy. 300+ merchants generating stable income.', icon: 'chart' },
+        { title: 'Barrier to Entry', description: 'Requires expertise, merchant relationships and regulatory knowledge.', icon: 'shield' }
       ]
     },
     model: {
       title: 'Integrated Model',
-      subtitle: 'Full control of the investment cycle',
-      description: 'We don\'t just build and sell. We stay invested alongside our partners for the long term.',
+      subtitle: 'Full cycle control',
+      description: 'We don\'t just build and sell. We stay invested alongside our partners.',
       steps: [
-        { 
-          number: '01',
-          title: 'Origination', 
-          description: 'We identify strategic locations in underserved markets with proven demand.' 
-        },
-        { 
-          number: '02',
-          title: 'Development', 
-          description: 'In-house design and construction. Quality and cost control from start to finish.' 
-        },
-        { 
-          number: '03',
-          title: 'Commercialization', 
-          description: 'Pre-lease to established merchants. Projects start operations with secured occupancy.' 
-        },
-        { 
-          number: '04',
-          title: 'Asset Management', 
-          description: 'Professional long-term operation. Collections, maintenance, and continuous improvement.' 
-        }
+        { number: '01', title: 'Origination', description: 'Strategic locations in underserved markets.' },
+        { number: '02', title: 'Development', description: 'In-house design and construction.' },
+        { number: '03', title: 'Commercialization', description: 'Pre-lease to established merchants.' },
+        { number: '04', title: 'Management', description: 'Professional long-term operation.' }
       ]
     },
     leadership: {
       title: 'Leadership',
       name: 'Alejandro Gayosso Heimpel',
       role: 'Founder & CEO',
-      bio: '15 years of experience in commercial infrastructure development in Mexico. Engineering from Tecnológico de Monterrey, MBA from IE Business School in Madrid. Operations in Mexico, based in Madrid, Spain.'
+      bio: '15 years in commercial infrastructure. Tec de Monterrey + MBA IE Business School Madrid. Operations in Mexico, based in Madrid.'
     },
     cta: {
       title: 'Private Capital Deploying',
-      description: 'We are partnering with private investors to scale our proven model. Family offices, funds, and strategic partners interested in essential commercial infrastructure.',
-      button: 'Start a Conversation'
+      description: 'Seeking strategic partners: family offices, funds and investors in essential infrastructure.',
+      button: 'START CONVERSATION'
     },
     contact: {
       title: 'Contact',
-      subtitle: 'Let\'s discuss investment opportunities',
+      subtitle: 'Let\'s discuss opportunities',
       form: {
-        name: 'Full name',
-        email: 'Corporate email',
-        company: 'Company / Family Office',
+        name: 'Name',
+        email: 'Email',
+        company: 'Company',
         message: 'Message',
-        submit: 'Send Message',
-        success: 'Message sent! We\'ll be in touch soon.',
-        error: 'Error sending. Please try again.'
+        submit: 'Send',
+        success: 'Sent! We\'ll be in touch.',
+        error: 'Error. Try again.'
       },
       info: {
         phone: '+52 871 204 0725',
         email: 'hola@mercacapital.com',
-        locations: 'Madrid, Spain | Monterrey, Mexico'
+        locations: 'Madrid · Monterrey'
       }
     },
     footer: {
@@ -480,552 +390,464 @@ const content: ContentLanguages = {
 };
 
 // ============================================
-// COLORES - PALETA NAVY + COBRE
-// ============================================
-
-const colors = {
-  navy: {
-    deep: '#000B29',
-    dark: '#001242',
-    medium: '#002266',
-    light: '#0A3A8C',
-  },
-  copper: {
-    dark: '#8B6914',
-    main: '#C08A3E',
-    light: '#D4A855',
-    pale: '#E8C878',
-  },
-  neutral: {
-    white: '#FFFFFF',
-    cream: '#F5F3EF',
-    gray: '#94A3B8',
-    grayDark: '#64748B',
-  }
-};
-
-// ============================================
-// ICONOS - Usando React.ReactNode
+// ICONOS
 // ============================================
 
 const Icons: Record<string, () => React.ReactNode> = {
-  shield: () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  globe: () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
     </svg>
   ),
   grid: () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
     </svg>
   ),
   chart: () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M18 20V10M12 20V4M6 20v-6"/>
+    </svg>
+  ),
+  shield: () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+  ),
+  star: () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
     </svg>
   ),
   check: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
       <polyline points="20 6 9 17 4 12"/>
     </svg>
   ),
+  arrow: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+    </svg>
+  ),
   phone: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
     </svg>
   ),
   mail: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
     </svg>
   ),
   mapPin: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
     </svg>
   ),
   linkedin: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-    </svg>
-  ),
-  arrowRight: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-    </svg>
-  ),
-  arrowDown: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
-    </svg>
-  ),
-  menu: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  ),
-  close: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     </svg>
   ),
 };
 
 // ============================================
-// COMPONENTES
+// HEADER - ESTILO ALTAVELA
 // ============================================
 
-// Header con Logo GRANDE estilo Altavela
 const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t: ContentStructure }> = ({ lang, setLang, t }) => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMobileMenuOpen(false);
   };
 
   return (
-    <header 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        padding: '0 3rem',
-        background: scrolled ? 'rgba(0, 11, 41, 0.98)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(192, 138, 62, 0.15)' : 'none',
-        transition: 'all 0.4s ease',
-      }}
-    >
-      <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: scrolled ? '70px' : '90px', transition: 'height 0.4s ease' }}>
-        {/* Logo GRANDE - Estilo Altavela */}
-        <div style={{ 
-          position: 'relative', 
-          height: scrolled ? '55px' : '80px', 
-          width: scrolled ? '220px' : '320px',
-          transition: 'all 0.4s ease',
-        }}>
-          <Image
-            src="/Transparent_Logo_Blanco.png"
-            alt="Merca Capital"
-            fill
-            style={{ 
-              objectFit: 'contain', 
-              objectPosition: 'left',
-              mixBlendMode: 'lighten', // Hace el fondo negro invisible
-            }}
-            priority
-          />
+    <header style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      background: scrolled ? 'rgba(0, 11, 41, 0.98)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      transition: 'all 0.4s ease',
+    }}>
+      <div style={{
+        maxWidth: '1600px',
+        margin: '0 auto',
+        padding: '0 4rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: scrolled ? '70px' : '100px',
+        transition: 'height 0.4s ease',
+      }}>
+        {/* LOGO GRANDE - Estilo Altavela */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <div style={{
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: scrolled ? '1.6rem' : '2rem',
+            fontWeight: 400,
+            letterSpacing: '0.15em',
+            color: '#FFFFFF',
+            transition: 'font-size 0.4s ease',
+          }}>
+            MERCA CAPITAL
+          </div>
+          <div style={{
+            fontSize: '0.65rem',
+            letterSpacing: '0.25em',
+            color: '#C9A227',
+            textTransform: 'uppercase',
+            fontWeight: 500,
+          }}>
+            Visión Inmobiliaria
+          </div>
         </div>
 
-        {/* Desktop Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }} className="desktop-nav">
-          {(['about', 'portfolio', 'thesis', 'model', 'contact'] as const).map((section) => (
+        {/* NAV */}
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
+          {(['portfolio', 'thesis', 'model', 'contact'] as const).map((section) => (
             <button
               key={section}
-              onClick={() => scrollToSection(section === 'about' ? 'stats' : section)}
+              onClick={() => scrollTo(section)}
               style={{
                 background: 'none',
                 border: 'none',
-                color: colors.neutral.cream,
-                fontSize: '0.8rem',
+                color: 'rgba(255,255,255,0.7)',
+                fontSize: '0.75rem',
                 fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
                 cursor: 'pointer',
-                transition: 'color 0.2s ease',
-                opacity: 0.8,
+                transition: 'color 0.2s',
+                textTransform: 'uppercase',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = colors.copper.main;
-                e.currentTarget.style.opacity = '1';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = colors.neutral.cream;
-                e.currentTarget.style.opacity = '0.8';
-              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#C9A227'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
             >
               {t.nav[section]}
             </button>
           ))}
-          
+
+          {/* CTA Button */}
+          <button
+            onClick={() => scrollTo('contact')}
+            style={{
+              background: '#C9A227',
+              border: 'none',
+              color: '#000B29',
+              fontSize: '0.72rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              padding: '0.9rem 1.8rem',
+              cursor: 'pointer',
+              transition: 'all 0.3s',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.background = '#D4AF37'}
+            onMouseLeave={(e) => e.currentTarget.style.background = '#C9A227'}
+          >
+            {t.nav.contact}
+          </button>
+
           {/* Language Toggle */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '4px', 
-            marginLeft: '1rem', 
-            padding: '4px',
-            background: 'rgba(192, 138, 62, 0.1)',
-            borderRadius: '6px',
-            border: '1px solid rgba(192, 138, 62, 0.2)',
-          }}>
+          <div style={{ display: 'flex', marginLeft: '1rem' }}>
             {(['es', 'en'] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
                 style={{
-                  padding: '8px 16px',
-                  background: lang === l ? colors.copper.main : 'transparent',
-                  color: lang === l ? colors.navy.deep : colors.neutral.cream,
-                  border: 'none',
-                  borderRadius: '4px',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            color: colors.neutral.cream,
-            cursor: 'pointer',
-            padding: '8px',
-          }}
-          className="mobile-menu-btn"
-        >
-          {mobileMenuOpen ? Icons.close() : Icons.menu()}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          background: colors.navy.deep,
-          borderTop: `1px solid rgba(192, 138, 62, 0.2)`,
-          padding: '2rem',
-        }}>
-          {(['about', 'portfolio', 'thesis', 'model', 'contact'] as const).map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section === 'about' ? 'stats' : section)}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: 'left',
-                background: 'none',
-                border: 'none',
-                color: colors.neutral.cream,
-                fontSize: '1rem',
-                fontWeight: 500,
-                padding: '1rem 0',
-                cursor: 'pointer',
-                borderBottom: '1px solid rgba(192, 138, 62, 0.1)',
-              }}
-            >
-              {t.nav[section]}
-            </button>
-          ))}
-          <div style={{ display: 'flex', gap: '8px', marginTop: '1.5rem' }}>
-            {(['es', 'en'] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => { setLang(l); setMobileMenuOpen(false); }}
-                style={{
-                  padding: '10px 20px',
-                  background: lang === l ? colors.copper.main : 'rgba(192, 138, 62, 0.1)',
-                  color: lang === l ? colors.navy.deep : colors.neutral.cream,
-                  border: 'none',
-                  borderRadius: '4px',
-                  fontSize: '0.875rem',
+                  background: lang === l ? '#C9A227' : 'transparent',
+                  border: lang === l ? 'none' : '1px solid rgba(255,255,255,0.3)',
+                  color: lang === l ? '#000B29' : 'rgba(255,255,255,0.7)',
+                  fontSize: '0.7rem',
                   fontWeight: 600,
+                  padding: '0.6rem 1rem',
                   cursor: 'pointer',
+                  transition: 'all 0.2s',
                 }}
               >
                 {l.toUpperCase()}
               </button>
             ))}
           </div>
-        </div>
-      )}
-
-      <style jsx>{`
-        @media (max-width: 1024px) {
-          .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
-        }
-      `}</style>
+        </nav>
+      </div>
     </header>
   );
 };
 
-// Hero Section - Alto Impacto
+// ============================================
+// HERO - ESTILO ALTAVELA (Asimétrico)
+// ============================================
+
 const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <section style={{
-      position: 'relative',
       minHeight: '100vh',
+      background: '#000B29',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
-      background: `linear-gradient(135deg, ${colors.navy.deep} 0%, ${colors.navy.dark} 50%, ${colors.navy.deep} 100%)`,
+      position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Luxury Pattern Background */}
       <div style={{
-        position: 'absolute',
-        inset: 0,
-        opacity: 0.03,
-        backgroundImage: `radial-gradient(circle at 25% 25%, ${colors.copper.main} 1px, transparent 1px), radial-gradient(circle at 75% 75%, ${colors.copper.main} 1px, transparent 1px)`,
-        backgroundSize: '60px 60px',
-      }} />
-
-      {/* Gradient Orbs */}
-      <div style={{
-        position: 'absolute',
-        top: '10%',
-        left: '5%',
-        width: '500px',
-        height: '500px',
-        background: `radial-gradient(circle, rgba(192, 138, 62, 0.08) 0%, transparent 70%)`,
-        borderRadius: '50%',
-        filter: 'blur(60px)',
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '10%',
-        right: '5%',
-        width: '400px',
-        height: '400px',
-        background: `radial-gradient(circle, rgba(192, 138, 62, 0.06) 0%, transparent 70%)`,
-        borderRadius: '50%',
-        filter: 'blur(60px)',
-      }} />
-
-      {/* Top Accent Line */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '3px',
-        background: `linear-gradient(90deg, transparent, ${colors.copper.main}, transparent)`,
-      }} />
-
-      <div style={{
-        position: 'relative',
-        zIndex: 10,
-        maxWidth: '1100px',
-        padding: '2rem',
-        textAlign: 'center',
+        width: '100%',
+        maxWidth: '1600px',
+        margin: '0 auto',
+        padding: '8rem 4rem 4rem',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '4rem',
+        alignItems: 'center',
       }}>
-        {/* Overline */}
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '1rem',
-          marginBottom: '2rem',
-        }}>
-          <div style={{ height: '1px', width: '60px', background: colors.copper.main }} />
-          <span style={{
-            color: colors.copper.main,
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-          }}>
-            {t.hero.overline}
-          </span>
-          <div style={{ height: '1px', width: '60px', background: colors.copper.main }} />
-        </div>
-
-        {/* Headline - Tipografía Grande */}
-        <h1 style={{
-          fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-          fontWeight: 700,
-          color: colors.neutral.white,
-          lineHeight: 1.1,
-          marginBottom: '1.5rem',
-          letterSpacing: '-0.02em',
-        }}>
-          {t.hero.headline}
-        </h1>
-
-        {/* Subhead */}
-        <p style={{
-          fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
-          color: colors.neutral.gray,
-          maxWidth: '700px',
-          margin: '0 auto 3rem',
-          lineHeight: 1.7,
-        }}>
-          {t.hero.subhead}
-        </p>
-
-        {/* CTAs */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-          <a
-            href="#portfolio"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              padding: '1rem 2.5rem',
-              background: `linear-gradient(135deg, ${colors.copper.main} 0%, ${colors.copper.dark} 100%)`,
-              color: colors.neutral.white,
-              fontSize: '1rem',
-              fontWeight: 600,
-              borderRadius: '4px',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              boxShadow: `0 4px 20px rgba(192, 138, 62, 0.3)`,
-            }}
-          >
-            {t.hero.cta}
-            {Icons.arrowDown()}
-          </a>
-          <a
-            href="#contact"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              padding: '1rem 2.5rem',
-              background: 'transparent',
-              color: colors.neutral.cream,
-              fontSize: '1rem',
-              fontWeight: 600,
-              borderRadius: '4px',
-              border: `2px solid rgba(192, 138, 62, 0.4)`,
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-            }}
-          >
-            {t.hero.ctaSecondary}
-            {Icons.arrowRight()}
-          </a>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div style={{
-        position: 'absolute',
-        bottom: '3rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
-      }}>
-        <div style={{
-          width: '28px',
-          height: '44px',
-          border: `2px solid rgba(192, 138, 62, 0.4)`,
-          borderRadius: '14px',
-          display: 'flex',
-          justifyContent: 'center',
-          paddingTop: '8px',
-        }}>
+        {/* LEFT SIDE - Headlines */}
+        <div>
+          {/* Tagline */}
           <div style={{
-            width: '4px',
-            height: '8px',
-            background: colors.copper.main,
-            borderRadius: '2px',
-            animation: 'scroll 2s infinite',
-          }} />
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            marginBottom: '3rem',
+          }}>
+            <div style={{ width: '40px', height: '1px', background: '#C9A227' }} />
+            <span style={{
+              color: '#C9A227',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              letterSpacing: '0.2em',
+            }}>
+              {t.hero.tagline}
+            </span>
+          </div>
+
+          {/* Headlines - Estilo Altavela */}
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h1 style={{
+              fontFamily: "'Times New Roman', Georgia, serif",
+              fontSize: 'clamp(3rem, 5.5vw, 5rem)',
+              fontWeight: 400,
+              lineHeight: 1.1,
+              color: '#FFFFFF',
+              margin: 0,
+            }}>
+              {t.hero.headline1}
+            </h1>
+            <h1 style={{
+              fontFamily: "'Times New Roman', Georgia, serif",
+              fontSize: 'clamp(3rem, 5.5vw, 5rem)',
+              fontWeight: 400,
+              fontStyle: 'italic',
+              lineHeight: 1.1,
+              color: '#C9A227',
+              margin: 0,
+            }}>
+              {t.hero.headline2}
+            </h1>
+            <h1 style={{
+              fontFamily: "'Times New Roman', Georgia, serif",
+              fontSize: 'clamp(3rem, 5.5vw, 5rem)',
+              fontWeight: 400,
+              lineHeight: 1.1,
+              color: '#FFFFFF',
+              margin: 0,
+            }}>
+              {t.hero.headline3}
+            </h1>
+            <h1 style={{
+              fontFamily: "'Times New Roman', Georgia, serif",
+              fontSize: 'clamp(3rem, 5.5vw, 5rem)',
+              fontWeight: 400,
+              lineHeight: 1.1,
+              color: '#FFFFFF',
+              margin: 0,
+            }}>
+              {t.hero.headline4}
+            </h1>
+          </div>
+
+          {/* Divider */}
+          <div style={{ width: '50px', height: '2px', background: '#C9A227', marginBottom: '2rem' }} />
+
+          {/* Description */}
+          <p style={{
+            color: 'rgba(255,255,255,0.65)',
+            fontSize: '1.05rem',
+            lineHeight: 1.8,
+            maxWidth: '500px',
+            marginBottom: '3rem',
+          }}>
+            {t.hero.description}
+          </p>
+
+          {/* CTAs */}
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <a
+              href="#portfolio"
+              style={{
+                background: '#C9A227',
+                color: '#000B29',
+                padding: '1.1rem 2.2rem',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textDecoration: 'none',
+                transition: 'all 0.3s',
+              }}
+            >
+              {t.hero.cta}
+            </a>
+            <a
+              href="#thesis"
+              style={{
+                background: 'transparent',
+                color: 'rgba(255,255,255,0.8)',
+                padding: '1.1rem 2.2rem',
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                textDecoration: 'none',
+                border: '1px solid rgba(255,255,255,0.25)',
+                transition: 'all 0.3s',
+              }}
+            >
+              {t.hero.ctaSecondary}
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE - Pilares Estratégicos (Estilo Altavela) */}
+        <div style={{
+          position: 'relative',
+          padding: '3rem',
+        }}>
+          {/* Corner Brackets */}
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '40px', height: '40px', borderTop: '1px solid rgba(201,162,39,0.3)', borderLeft: '1px solid rgba(201,162,39,0.3)' }} />
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '40px', height: '40px', borderTop: '1px solid rgba(201,162,39,0.3)', borderRight: '1px solid rgba(201,162,39,0.3)' }} />
+          <div style={{ position: 'absolute', bottom: 0, left: 0, width: '40px', height: '40px', borderBottom: '1px solid rgba(201,162,39,0.3)', borderLeft: '1px solid rgba(201,162,39,0.3)' }} />
+          <div style={{ position: 'absolute', bottom: 0, right: 0, width: '40px', height: '40px', borderBottom: '1px solid rgba(201,162,39,0.3)', borderRight: '1px solid rgba(201,162,39,0.3)' }} />
+
+          {/* Inner Box */}
+          <div style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            padding: '2.5rem',
+          }}>
+            <div style={{
+              color: '#C9A227',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              marginBottom: '2rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+              {t.hero.pillars.title}
+              <span style={{ color: 'rgba(255,255,255,0.3)' }}>▲</span>
+            </div>
+
+            {/* Pillar Items */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {t.hero.pillars.items.map((item, index) => (
+                <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div style={{
+                    width: '40px',
+                    height: '40px',
+                    border: '1px solid rgba(201,162,39,0.4)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#C9A227',
+                    flexShrink: 0,
+                  }}>
+                    {index === 0 && Icons.globe()}
+                    {index === 1 && Icons.grid()}
+                    {index === 2 && Icons.chart()}
+                    {index === 3 && Icons.star()}
+                  </div>
+                  <div>
+                    <div style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 500, marginBottom: '0.25rem' }}>
+                      {item.name}
+                    </div>
+                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>
+                      {item.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0%, 100% { opacity: 1; transform: translateY(0); }
-          50% { opacity: 0.5; transform: translateY(8px); }
-        }
-      `}</style>
     </section>
   );
 };
 
-// Stats Section - Efecto Cristal
+// ============================================
+// STATS - Rediseñado
+// ============================================
+
 const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <section id="stats" style={{
-      padding: '8rem 2rem',
-      background: colors.neutral.cream,
+      padding: '8rem 4rem',
+      background: '#F8F6F3',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Title */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 700,
-            color: colors.navy.deep,
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 400,
+            color: '#000B29',
             marginBottom: '1rem',
           }}>
             {t.stats.title}
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: colors.neutral.grayDark,
-            maxWidth: '600px',
-            margin: '0 auto',
-          }}>
+          <p style={{ color: '#666', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
             {t.stats.description}
           </p>
         </div>
 
-        {/* Stats Grid - Glass Effect */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gridTemplateColumns: 'repeat(5, 1fr)',
           gap: '1.5rem',
         }}>
           {t.stats.items.map((stat, index) => (
             <div
               key={index}
               style={{
-                padding: '2.5rem 2rem',
-                background: stat.highlight 
-                  ? `linear-gradient(135deg, ${colors.navy.deep} 0%, ${colors.navy.dark} 100%)`
-                  : 'rgba(255, 255, 255, 0.8)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '12px',
+                background: stat.highlight ? '#000B29' : '#FFFFFF',
+                padding: '2.5rem 1.5rem',
                 textAlign: 'center',
-                border: stat.highlight 
-                  ? `1px solid ${colors.copper.main}`
-                  : '1px solid rgba(0, 11, 41, 0.1)',
-                boxShadow: stat.highlight
-                  ? `0 8px 32px rgba(192, 138, 62, 0.2)`
-                  : '0 4px 20px rgba(0, 11, 41, 0.05)',
-                transition: 'all 0.3s ease',
+                borderRadius: '8px',
+                boxShadow: stat.highlight ? 'none' : '0 2px 20px rgba(0,0,0,0.06)',
               }}
             >
               <div style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                fontWeight: 700,
-                color: stat.highlight ? colors.copper.main : colors.copper.dark,
+                fontFamily: "'Times New Roman', Georgia, serif",
+                fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+                fontWeight: 400,
+                color: stat.highlight ? '#C9A227' : '#C9A227',
                 lineHeight: 1,
                 marginBottom: '0.75rem',
               }}>
                 {stat.value}
               </div>
               <div style={{
-                fontSize: '0.85rem',
+                fontSize: '0.75rem',
                 fontWeight: 500,
                 letterSpacing: '0.05em',
                 textTransform: 'uppercase',
-                color: stat.highlight ? colors.neutral.gray : colors.neutral.grayDark,
+                color: stat.highlight ? 'rgba(255,255,255,0.7)' : '#666',
               }}>
                 {stat.label}
               </div>
@@ -1037,158 +859,99 @@ const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => {
   );
 };
 
-// Portfolio Section
+// ============================================
+// PORTFOLIO
+// ============================================
+
 const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <section id="portfolio" style={{
-      padding: '8rem 2rem',
-      background: colors.neutral.white,
+      padding: '8rem 4rem',
+      background: '#FFFFFF',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Title */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 700,
-            color: colors.navy.deep,
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 400,
+            color: '#000B29',
             marginBottom: '1rem',
           }}>
             {t.portfolio.title}
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: colors.neutral.grayDark,
-          }}>
+          <p style={{ color: '#666', fontSize: '1.1rem' }}>
             {t.portfolio.subtitle}
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
           gap: '2rem',
         }}>
           {t.portfolio.projects.map((project, index) => (
             <div
               key={index}
               style={{
-                background: colors.neutral.cream,
-                borderRadius: '12px',
+                background: '#F8F6F3',
                 overflow: 'hidden',
-                border: '1px solid rgba(0, 11, 41, 0.08)',
-                transition: 'all 0.3s ease',
+                transition: 'transform 0.3s, box-shadow 0.3s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {/* Image Placeholder - Industrial Design */}
+              {/* Header */}
               <div style={{
-                position: 'relative',
-                height: '200px',
-                background: `linear-gradient(135deg, ${colors.navy.deep} 0%, ${colors.navy.medium} 100%)`,
-                overflow: 'hidden',
+                background: '#000B29',
+                padding: '1.5rem 2rem',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}>
-                {/* Grid Pattern */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  opacity: 0.1,
-                  backgroundImage: `
-                    linear-gradient(${colors.copper.main} 1px, transparent 1px),
-                    linear-gradient(90deg, ${colors.copper.main} 1px, transparent 1px)
-                  `,
-                  backgroundSize: '25px 25px',
-                }} />
-                
-                {/* Building Silhouette */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '120px',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  padding: '0 20px',
-                }}>
-                  <div style={{ width: '50px', height: '80px', background: 'rgba(192, 138, 62, 0.2)', borderRadius: '4px 4px 0 0' }} />
-                  <div style={{ width: '70px', height: '100px', background: 'rgba(192, 138, 62, 0.25)', borderRadius: '4px 4px 0 0' }} />
-                  <div style={{ width: '60px', height: '70px', background: 'rgba(192, 138, 62, 0.2)', borderRadius: '4px 4px 0 0' }} />
-                  <div style={{ width: '45px', height: '90px', background: 'rgba(192, 138, 62, 0.25)', borderRadius: '4px 4px 0 0' }} />
-                </div>
-
-                {/* Status Badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1rem',
-                  padding: '0.5rem 1rem',
-                  background: project.status.includes('construcción') || project.status.includes('Development')
-                    ? colors.copper.main
-                    : 'rgba(255, 255, 255, 0.15)',
-                  color: colors.neutral.white,
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  borderRadius: '4px',
-                  backdropFilter: 'blur(10px)',
-                }}>
-                  {project.status}
-                </div>
-
-                {/* Year */}
-                <div style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  left: '1rem',
-                  padding: '0.35rem 0.75rem',
-                  background: 'rgba(0, 11, 41, 0.8)',
-                  color: colors.copper.light,
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  fontFamily: 'monospace',
-                  borderRadius: '4px',
-                }}>
+                <span style={{ color: '#C9A227', fontSize: '0.7rem', letterSpacing: '0.1em', fontWeight: 600 }}>
+                  {project.status.toUpperCase()}
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', fontFamily: 'monospace' }}>
                   {project.year}
-                </div>
-
-                {/* SQM Overlay */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '1rem',
-                  right: '1rem',
-                  padding: '0.5rem 1rem',
-                  background: colors.copper.main,
-                  color: colors.neutral.white,
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  borderRadius: '4px',
-                }}>
-                  {project.sqm}
-                </div>
+                </span>
               </div>
 
               {/* Content */}
-              <div style={{ padding: '1.5rem' }}>
-                <h3 style={{
-                  fontSize: '1.25rem',
+              <div style={{ padding: '2rem' }}>
+                <div style={{
+                  fontSize: '2rem',
                   fontWeight: 700,
-                  color: colors.navy.deep,
+                  color: '#C9A227',
+                  marginBottom: '0.5rem',
+                }}>
+                  {project.sqm}
+                </div>
+                <h3 style={{
+                  fontSize: '1.3rem',
+                  fontWeight: 600,
+                  color: '#000B29',
                   marginBottom: '0.5rem',
                 }}>
                   {project.name}
                 </h3>
                 <p style={{
-                  fontSize: '0.9rem',
-                  color: colors.copper.dark,
+                  color: '#C9A227',
+                  fontSize: '0.85rem',
                   fontWeight: 500,
-                  marginBottom: '0.75rem',
+                  marginBottom: '1rem',
                 }}>
                   {project.city}
                 </p>
                 <p style={{
-                  fontSize: '0.9rem',
-                  color: colors.neutral.grayDark,
+                  color: '#666',
+                  fontSize: '0.95rem',
                   lineHeight: 1.6,
                 }}>
                   {project.description}
@@ -1202,124 +965,92 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => {
   );
 };
 
-// Thesis Section
-const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => {
-  const getIcon = (iconName: string): React.ReactNode => {
-    const iconFn = Icons[iconName];
-    return iconFn ? iconFn() : null;
-  };
+// ============================================
+// THESIS
+// ============================================
 
+const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <section id="thesis" style={{
-      padding: '8rem 2rem',
-      background: colors.navy.deep,
+      padding: '8rem 4rem',
+      background: '#000B29',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Title */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 700,
-            color: colors.neutral.white,
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 400,
+            color: '#FFFFFF',
             marginBottom: '1rem',
           }}>
             {t.thesis.title}
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: colors.neutral.gray,
-          }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem' }}>
             {t.thesis.subtitle}
           </p>
         </div>
 
         {/* Anti-Cyclical Box */}
         <div style={{
-          background: 'rgba(192, 138, 62, 0.05)',
-          border: `1px solid rgba(192, 138, 62, 0.2)`,
-          borderLeft: `4px solid ${colors.copper.main}`,
-          borderRadius: '0 12px 12px 0',
+          background: 'rgba(201,162,39,0.08)',
+          borderLeft: '3px solid #C9A227',
           padding: '2.5rem 3rem',
           marginBottom: '3rem',
         }}>
           <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: colors.copper.main,
+            color: '#C9A227',
+            fontSize: '1.4rem',
+            fontWeight: 600,
             marginBottom: '1rem',
           }}>
             {t.thesis.antiCyclical.title}
           </h3>
           <p style={{
-            fontSize: '1rem',
-            color: colors.neutral.gray,
+            color: 'rgba(255,255,255,0.75)',
+            fontSize: '1.05rem',
             lineHeight: 1.8,
             marginBottom: '1.5rem',
           }}>
             {t.thesis.antiCyclical.description}
           </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {t.thesis.antiCyclical.points.map((point, index) => (
-              <li key={index} style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.75rem',
-                color: colors.neutral.cream,
-                marginBottom: '0.75rem',
-                fontSize: '0.95rem',
-              }}>
-                <span style={{ color: colors.copper.main, marginTop: '2px', flexShrink: 0 }}>
-                  {Icons.check()}
-                </span>
-                {point}
-              </li>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+            {t.thesis.antiCyclical.points.map((point, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.85)' }}>
+                <span style={{ color: '#C9A227' }}>{Icons.check()}</span>
+                <span style={{ fontSize: '0.95rem' }}>{point}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
-        {/* Thesis Items */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '1.5rem',
-        }}>
+        {/* Thesis Cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
           {t.thesis.items.map((item, index) => (
             <div
               key={index}
               style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(192, 138, 62, 0.15)',
-                borderRadius: '12px',
-                padding: '2rem',
-                transition: 'all 0.3s ease',
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                padding: '2.5rem',
               }}
             >
               <div style={{
-                width: '56px',
-                height: '56px',
-                background: 'rgba(192, 138, 62, 0.1)',
-                borderRadius: '12px',
+                width: '50px',
+                height: '50px',
+                background: 'rgba(201,162,39,0.15)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: colors.copper.main,
+                color: '#C9A227',
                 marginBottom: '1.5rem',
               }}>
-                {getIcon(item.icon)}
+                {Icons[item.icon]?.()}
               </div>
-              <h3 style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: colors.neutral.white,
-                marginBottom: '0.75rem',
-              }}>
+              <h4 style={{ color: '#FFFFFF', fontSize: '1.15rem', fontWeight: 600, marginBottom: '0.75rem' }}>
                 {item.title}
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                color: colors.neutral.gray,
-                lineHeight: 1.7,
-              }}>
+              </h4>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.7 }}>
                 {item.description}
               </p>
             </div>
@@ -1330,87 +1061,64 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => {
   );
 };
 
-// Model Section
+// ============================================
+// MODEL
+// ============================================
+
 const Model: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <section id="model" style={{
-      padding: '8rem 2rem',
-      background: colors.neutral.cream,
+      padding: '8rem 4rem',
+      background: '#F8F6F3',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Title */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 700,
-            color: colors.navy.deep,
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 400,
+            color: '#000B29',
             marginBottom: '1rem',
           }}>
             {t.model.title}
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: colors.neutral.grayDark,
-          }}>
+          <p style={{ color: '#666', fontSize: '1.1rem' }}>
             {t.model.subtitle}
           </p>
         </div>
 
-        {/* Steps */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginBottom: '3rem',
-        }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', marginBottom: '3rem' }}>
           {t.model.steps.map((step, index) => (
-            <div key={index} style={{
-              background: colors.neutral.white,
-              borderRadius: '12px',
-              padding: '2rem',
-              border: '1px solid rgba(0, 11, 41, 0.08)',
-              position: 'relative',
-            }}>
+            <div key={index} style={{ background: '#FFFFFF', padding: '2rem', position: 'relative' }}>
               <div style={{
                 fontSize: '4rem',
                 fontWeight: 700,
-                color: 'rgba(192, 138, 62, 0.15)',
+                color: 'rgba(201,162,39,0.15)',
                 lineHeight: 1,
                 marginBottom: '1rem',
               }}>
                 {step.number}
               </div>
-              <h3 style={{
-                fontSize: '1.15rem',
-                fontWeight: 700,
-                color: colors.navy.deep,
-                marginBottom: '0.75rem',
-              }}>
+              <h4 style={{ color: '#000B29', fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.75rem' }}>
                 {step.title}
-              </h3>
-              <p style={{
-                fontSize: '0.9rem',
-                color: colors.neutral.grayDark,
-                lineHeight: 1.6,
-              }}>
+              </h4>
+              <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: 1.6 }}>
                 {step.description}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Quote */}
         <div style={{
-          textAlign: 'center',
+          background: '#000B29',
           padding: '2rem 3rem',
-          background: colors.navy.deep,
-          borderRadius: '12px',
+          textAlign: 'center',
         }}>
           <p style={{
-            fontSize: '1.25rem',
-            color: colors.copper.light,
+            color: '#C9A227',
+            fontSize: '1.2rem',
             fontStyle: 'italic',
-            margin: 0,
+            fontFamily: "'Times New Roman', Georgia, serif",
           }}>
             "{t.model.description}"
           </p>
@@ -1420,517 +1128,196 @@ const Model: React.FC<{ t: ContentStructure }> = ({ t }) => {
   );
 };
 
-// Leadership Section
-const Leadership: React.FC<{ t: ContentStructure }> = ({ t }) => {
-  return (
-    <section style={{
-      padding: '8rem 2rem',
-      background: colors.neutral.white,
-    }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{
-          fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-          fontWeight: 700,
-          color: colors.navy.deep,
-          marginBottom: '3rem',
-        }}>
-          {t.leadership.title}
-        </h2>
+// ============================================
+// CONTACT
+// ============================================
 
-        <div style={{
-          background: colors.neutral.cream,
-          borderRadius: '16px',
-          padding: '3rem',
-          border: '1px solid rgba(0, 11, 41, 0.08)',
-        }}>
-          {/* Initials */}
-          <div style={{
-            width: '80px',
-            height: '80px',
-            margin: '0 auto 1.5rem',
-            background: colors.navy.deep,
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: `3px solid ${colors.copper.main}`,
-          }}>
-            <span style={{
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: colors.copper.main,
-            }}>
-              AG
-            </span>
-          </div>
-
-          <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: colors.navy.deep,
-            marginBottom: '0.5rem',
-          }}>
-            {t.leadership.name}
-          </h3>
-          <p style={{
-            fontSize: '1rem',
-            color: colors.copper.dark,
-            fontWeight: 600,
-            marginBottom: '1.5rem',
-          }}>
-            {t.leadership.role}
-          </p>
-          <p style={{
-            fontSize: '1rem',
-            color: colors.neutral.grayDark,
-            lineHeight: 1.7,
-            maxWidth: '500px',
-            margin: '0 auto',
-          }}>
-            {t.leadership.bio}
-          </p>
-
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              marginTop: '1.5rem',
-              color: colors.navy.deep,
-              textDecoration: 'none',
-              fontWeight: 500,
-              transition: 'color 0.2s ease',
-            }}
-          >
-            {Icons.linkedin()}
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// CTA Section
-const CTA: React.FC<{ t: ContentStructure }> = ({ t }) => {
-  return (
-    <section style={{
-      padding: '8rem 2rem',
-      background: `linear-gradient(135deg, ${colors.navy.dark} 0%, ${colors.navy.deep} 100%)`,
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
-      {/* Accent Line */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '3px',
-        background: `linear-gradient(90deg, transparent, ${colors.copper.main}, transparent)`,
-      }} />
-
-      <div style={{
-        maxWidth: '800px',
-        margin: '0 auto',
-        textAlign: 'center',
-        position: 'relative',
-        zIndex: 10,
-      }}>
-        <h2 style={{
-          fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-          fontWeight: 700,
-          color: colors.neutral.white,
-          marginBottom: '1.5rem',
-        }}>
-          {t.cta.title}
-        </h2>
-        <p style={{
-          fontSize: '1.125rem',
-          color: colors.neutral.gray,
-          marginBottom: '2.5rem',
-          lineHeight: 1.7,
-        }}>
-          {t.cta.description}
-        </p>
-        <a
-          href="#contact"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.75rem',
-            padding: '1.25rem 3rem',
-            background: `linear-gradient(135deg, ${colors.copper.main} 0%, ${colors.copper.dark} 100%)`,
-            color: colors.neutral.white,
-            fontSize: '1rem',
-            fontWeight: 600,
-            borderRadius: '4px',
-            textDecoration: 'none',
-            boxShadow: `0 4px 20px rgba(192, 138, 62, 0.3)`,
-            transition: 'all 0.3s ease',
-          }}
-        >
-          {t.cta.button}
-          {Icons.arrowRight()}
-        </a>
-      </div>
-    </section>
-  );
-};
-
-// Contact Section
 const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus('submitting');
-
+    setStatus('sending');
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+      const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
         method: 'POST',
         body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Accept': 'application/json' },
       });
-
-      if (response.ok) {
-        setFormStatus('success');
-        form.reset();
-      } else {
-        setFormStatus('error');
-      }
-    } catch {
-      setFormStatus('error');
-    }
+      if (res.ok) { setStatus('success'); form.reset(); }
+      else { setStatus('error'); }
+    } catch { setStatus('error'); }
   };
 
   return (
     <section id="contact" style={{
-      padding: '8rem 2rem',
-      background: colors.neutral.cream,
+      padding: '8rem 4rem',
+      background: '#FFFFFF',
     }}>
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-        gap: '4rem',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '6rem',
       }}>
-        {/* Left: Info */}
         <div>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 700,
-            color: colors.navy.deep,
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 400,
+            color: '#000B29',
             marginBottom: '1rem',
           }}>
             {t.contact.title}
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: colors.neutral.grayDark,
-            marginBottom: '3rem',
-          }}>
+          <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '3rem' }}>
             {t.contact.subtitle}
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <a
-              href={`tel:${t.contact.info.phone}`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                color: colors.navy.deep,
-                textDecoration: 'none',
-                fontWeight: 500,
-              }}
-            >
-              <div style={{
-                width: '48px',
-                height: '48px',
-                background: colors.navy.deep,
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: colors.copper.main,
-              }}>
-                {Icons.phone()}
+            {[
+              { icon: Icons.phone(), text: t.contact.info.phone },
+              { icon: Icons.mail(), text: t.contact.info.email },
+              { icon: Icons.mapPin(), text: t.contact.info.locations },
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#000B29' }}>
+                <div style={{
+                  width: '44px',
+                  height: '44px',
+                  background: '#000B29',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#C9A227',
+                }}>
+                  {item.icon}
+                </div>
+                <span style={{ fontWeight: 500 }}>{item.text}</span>
               </div>
-              {t.contact.info.phone}
-            </a>
-
-            <a
-              href={`mailto:${t.contact.info.email}`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                color: colors.navy.deep,
-                textDecoration: 'none',
-                fontWeight: 500,
-              }}
-            >
-              <div style={{
-                width: '48px',
-                height: '48px',
-                background: colors.navy.deep,
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: colors.copper.main,
-              }}>
-                {Icons.mail()}
-              </div>
-              {t.contact.info.email}
-            </a>
-
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-              color: colors.navy.deep,
-              fontWeight: 500,
-            }}>
-              <div style={{
-                width: '48px',
-                height: '48px',
-                background: colors.navy.deep,
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: colors.copper.main,
-              }}>
-                {Icons.mapPin()}
-              </div>
-              {t.contact.info.locations}
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Right: Form */}
-        <div style={{
-          background: colors.neutral.white,
-          borderRadius: '16px',
-          padding: '2.5rem',
-          border: '1px solid rgba(0, 11, 41, 0.08)',
-          boxShadow: '0 4px 20px rgba(0, 11, 41, 0.05)',
-        }}>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: colors.navy.deep,
-                marginBottom: '0.5rem',
-              }}>
-                {t.contact.form.name} *
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {[
+            { name: 'name', label: t.contact.form.name, type: 'text' },
+            { name: 'email', label: t.contact.form.email, type: 'email' },
+            { name: 'company', label: t.contact.form.company, type: 'text' },
+          ].map((field) => (
+            <div key={field.name}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#000B29', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                {field.label}
               </label>
               <input
-                type="text"
-                name="name"
-                required
+                type={field.type}
+                name={field.name}
+                required={field.name !== 'company'}
                 style={{
                   width: '100%',
                   padding: '1rem',
-                  border: '1px solid rgba(0, 11, 41, 0.15)',
-                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F6F3',
                   fontSize: '1rem',
-                  background: colors.neutral.cream,
-                  transition: 'border-color 0.2s ease',
                   outline: 'none',
                 }}
               />
             </div>
-
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: colors.navy.deep,
-                marginBottom: '0.5rem',
-              }}>
-                {t.contact.form.email} *
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  border: '1px solid rgba(0, 11, 41, 0.15)',
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  background: colors.neutral.cream,
-                  outline: 'none',
-                }}
-              />
-            </div>
-
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: colors.navy.deep,
-                marginBottom: '0.5rem',
-              }}>
-                {t.contact.form.company}
-              </label>
-              <input
-                type="text"
-                name="company"
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  border: '1px solid rgba(0, 11, 41, 0.15)',
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  background: colors.neutral.cream,
-                  outline: 'none',
-                }}
-              />
-            </div>
-
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: colors.navy.deep,
-                marginBottom: '0.5rem',
-              }}>
-                {t.contact.form.message} *
-              </label>
-              <textarea
-                name="message"
-                rows={4}
-                required
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  border: '1px solid rgba(0, 11, 41, 0.15)',
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  background: colors.neutral.cream,
-                  resize: 'none',
-                  outline: 'none',
-                }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={formStatus === 'submitting'}
+          ))}
+          <div>
+            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#000B29', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              {t.contact.form.message}
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              required
               style={{
                 width: '100%',
-                padding: '1.25rem',
-                background: `linear-gradient(135deg, ${colors.copper.main} 0%, ${colors.copper.dark} 100%)`,
-                color: colors.neutral.white,
+                padding: '1rem',
+                border: '1px solid #E5E5E5',
+                background: '#F8F6F3',
                 fontSize: '1rem',
-                fontWeight: 600,
-                border: 'none',
-                borderRadius: '8px',
-                cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer',
-                opacity: formStatus === 'submitting' ? 0.7 : 1,
-                transition: 'all 0.2s ease',
+                outline: 'none',
+                resize: 'none',
               }}
-            >
-              {formStatus === 'submitting' ? '...' : t.contact.form.submit}
-            </button>
-
-            {formStatus === 'success' && (
-              <p style={{ color: '#10B981', textAlign: 'center', fontWeight: 500 }}>
-                {t.contact.form.success}
-              </p>
-            )}
-            {formStatus === 'error' && (
-              <p style={{ color: '#EF4444', textAlign: 'center', fontWeight: 500 }}>
-                {t.contact.form.error}
-              </p>
-            )}
-          </form>
-        </div>
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            style={{
+              background: '#C9A227',
+              color: '#000B29',
+              padding: '1.2rem',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              border: 'none',
+              cursor: 'pointer',
+              opacity: status === 'sending' ? 0.7 : 1,
+            }}
+          >
+            {status === 'sending' ? '...' : t.contact.form.submit}
+          </button>
+          {status === 'success' && <p style={{ color: '#22c55e' }}>{t.contact.form.success}</p>}
+          {status === 'error' && <p style={{ color: '#ef4444' }}>{t.contact.form.error}</p>}
+        </form>
       </div>
     </section>
   );
 };
 
-// Footer
+// ============================================
+// FOOTER
+// ============================================
+
 const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
   return (
     <footer style={{
-      padding: '5rem 2rem 2rem',
-      background: colors.navy.deep,
-      borderTop: `1px solid rgba(192, 138, 62, 0.15)`,
+      padding: '4rem',
+      background: '#000B29',
+      borderTop: '1px solid rgba(201,162,39,0.15)',
     }}>
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: '1400px',
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: '2rem',
       }}>
-        {/* Logo GRANDE */}
-        <div style={{ 
-          position: 'relative', 
-          height: '100px', 
-          width: '400px',
-        }}>
-          <Image
-            src="/Transparent_Logo_Blanco.png"
-            alt="Merca Capital"
-            fill
-            style={{ 
-              objectFit: 'contain',
-              mixBlendMode: 'lighten',
-            }}
-          />
+        <div style={{ textAlign: 'center' }}>
+          <div style={{
+            fontFamily: "'Times New Roman', Georgia, serif",
+            fontSize: '1.8rem',
+            letterSpacing: '0.15em',
+            color: '#FFFFFF',
+            marginBottom: '0.5rem',
+          }}>
+            MERCA CAPITAL
+          </div>
+          <div style={{
+            fontSize: '0.7rem',
+            letterSpacing: '0.2em',
+            color: '#C9A227',
+          }}>
+            {t.footer.tagline.toUpperCase()}
+          </div>
         </div>
 
-        <p style={{
-          color: colors.neutral.gray,
-          fontSize: '0.9rem',
-        }}>
-          {t.footer.tagline}
-        </p>
-
-        {/* Links */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem',
-        }}>
-          <a
-            href="#"
-            style={{
-              color: colors.neutral.gray,
-              textDecoration: 'none',
-              fontSize: '0.875rem',
-              transition: 'color 0.2s ease',
-            }}
-          >
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          <a href="#" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', textDecoration: 'none' }}>
             {t.footer.privacy}
           </a>
           <a
             href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: colors.copper.main }}
+            style={{ color: '#C9A227' }}
           >
             {Icons.linkedin()}
           </a>
@@ -1938,14 +1325,11 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
 
         <div style={{
           width: '100%',
-          borderTop: '1px solid rgba(192, 138, 62, 0.1)',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
           paddingTop: '2rem',
           textAlign: 'center',
         }}>
-          <p style={{
-            color: colors.neutral.grayDark,
-            fontSize: '0.85rem',
-          }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>
             {t.footer.rights}
           </p>
         </div>
@@ -1955,12 +1339,12 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => {
 };
 
 // ============================================
-// MAIN PAGE COMPONENT
+// MAIN
 // ============================================
 
 export default function MercaCapitalPage() {
   const [lang, setLang] = useState<'es' | 'en'>('es');
-  const t: ContentStructure = content[lang];
+  const t = content[lang];
 
   return (
     <main style={{ overflowX: 'hidden' }}>
@@ -1970,8 +1354,6 @@ export default function MercaCapitalPage() {
       <Portfolio t={t} />
       <Thesis t={t} />
       <Model t={t} />
-      <Leadership t={t} />
-      <CTA t={t} />
       <Contact t={t} />
       <Footer t={t} />
     </main>
