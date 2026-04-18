@@ -682,9 +682,29 @@ const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
 const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); setStatus('sending');
-    setTimeout(() => { setStatus('success'); (e.target as HTMLFormElement).reset(); }, 1500);
-  };
+  e.preventDefault();
+  setStatus('sending');
+  
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+  
+  try {
+    const response = await fetch('https://formspree.io/f/xbdqykov', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    
+    if (response.ok) {
+      setStatus('success');
+      form.reset();
+    } else {
+      setStatus('error');
+    }
+  } catch {
+    setStatus('error');
+  }
+};
 
   return (
     <section id="contact" style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
