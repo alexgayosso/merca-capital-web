@@ -6,6 +6,7 @@ import Image from 'next/image';
 // ============================================
 // MERCA CAPITAL - INSTITUTIONAL ASSET MANAGEMENT
 // "The Blackstone of Agri-Food Infrastructure in LATAM"
+// Con fotos de proyectos integradas
 // ============================================
 
 // ============================================
@@ -26,7 +27,7 @@ type HeroContent = {
 type StatItem = { value: string; label: string; highlight?: boolean; };
 type StatsContent = { title: string; description: string; items: StatItem[]; };
 type InsightContent = { title: string; content: string; stats: { value: string; label: string }[]; };
-type ProjectItem = { name: string; sqm: string; status: string; city: string; description: string; year: string; };
+type ProjectItem = { name: string; sqm: string; status: string; city: string; description: string; year: string; image: string; };
 type PortfolioContent = { title: string; subtitle: string; projects: ProjectItem[]; };
 type ThesisItem = { title: string; description: string; icon: string; };
 type AntiCyclicalContent = { title: string; description: string; points: string[]; };
@@ -55,7 +56,7 @@ type ContentStructure = {
 };
 
 // ============================================
-// 2. DICCIONARIO BILINGÜE COMPLETO
+// 2. DICCIONARIO BILINGÜE - DATOS CORREGIDOS
 // ============================================
 
 const content: Record<'es' | 'en', ContentStructure> = {
@@ -72,7 +73,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'PILARES ESTRATÉGICOS',
         items: [
-          { name: 'Torreón · Monterrey', description: 'Corredor Norte de México' },
+          { name: 'La Laguna · El Bajío', description: 'Corredor Centro-Norte de México' },
           { name: 'Infraestructura Esencial', description: 'Mercados · Abasto · Distribución' },
           { name: 'Modelo Anticíclico', description: 'Demanda Inelástica · Rentas Estables' },
           { name: 'Gestión Integral', description: 'Desarrollo · Operación · Administración' }
@@ -81,11 +82,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
     },
     stats: {
       title: 'Track Record',
-      description: 'Más de una década construyendo infraestructura esencial en el norte de México.',
+      description: 'Más de una década construyendo infraestructura esencial en el centro-norte de México.',
       items: [
-        { value: '52,000', label: 'm² desarrollados', highlight: true },
+        { value: '41,000', label: 'm² desarrollados', highlight: true },
         { value: '15', label: 'años de operación', highlight: true },
-        { value: '5', label: 'mercados construidos', highlight: false },
+        { value: '4', label: 'mercados en portafolio', highlight: false },
         { value: '90', label: '% ocupación promedio', highlight: false },
         { value: '300', label: 'comerciantes activos', highlight: false }
       ]
@@ -100,13 +101,45 @@ const content: Record<'es' | 'en', ContentStructure> = {
       ]
     },
     portfolio: {
-      title: 'Portafolio de Activos', subtitle: 'Infraestructura comercial de abasto en operación',
+      title: 'Portafolio de Activos', 
+      subtitle: 'Infraestructura comercial de abasto en La Laguna y El Bajío',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Centro de abasto regional con alta rotación de productos frescos.', year: '2012' },
-        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operando', city: 'Gómez Palacio, Durango', description: 'Hub de distribución alimentaria para la Comarca Lagunera.', year: '2015' },
-        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Complejo mayorista con infraestructura de última generación.', year: '2018' },
-        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operando', city: 'Monterrey, Nuevo León', description: 'El desarrollo más grande, sirviendo al área metropolitana.', year: '2021' },
-        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'En Desarrollo', city: 'Gómez Palacio, Durango', description: 'Expansión estratégica para la demanda creciente.', year: '2025' }
+        { 
+          name: 'Mercahorro Torreón', 
+          sqm: '16,000 m²', 
+          status: 'Operando', 
+          city: 'Torreón, Coahuila', 
+          description: 'Centro de abasto regional con alta rotación de productos frescos. Nuestro desarrollo insignia.', 
+          year: '2010',
+          image: '/projects/mercahorro-torreon.jpg'
+        },
+        { 
+          name: 'Plaza Abastos Torreón', 
+          sqm: '9,000 m²', 
+          status: 'Operando', 
+          city: 'Torreón, Coahuila', 
+          description: 'Complejo mayorista con infraestructura de última generación y ubicación estratégica.', 
+          year: '2015',
+          image: '/projects/plaza-abastos-torreon.jpg'
+        },
+        { 
+          name: 'Mercahorro Gómez Palacio', 
+          sqm: '8,000 m²', 
+          status: 'En Desarrollo', 
+          city: 'Gómez Palacio, Durango', 
+          description: 'Hub de distribución alimentaria para la Comarca Lagunera. Conclusión 2025.', 
+          year: '2025',
+          image: '/projects/mercahorro-gomez.jpg'
+        },
+        { 
+          name: 'Mercahorro Silao', 
+          sqm: '8,000 m²', 
+          status: 'En Desarrollo', 
+          city: 'Silao, Guanajuato', 
+          description: 'Expansión estratégica al corredor industrial del Bajío. Conclusión 2026.', 
+          year: '2026',
+          image: '/projects/mercahorro-silao.jpg'
+        }
       ]
     },
     thesis: {
@@ -145,7 +178,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
     contact: {
       title: 'Contacto', subtitle: 'Hablemos de oportunidades',
       form: { name: 'Nombre', email: 'Email', company: 'Empresa', message: 'Mensaje', submit: 'Enviar', success: '¡Enviado! Te contactaremos pronto.', error: 'Error. Intenta de nuevo.' },
-      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Monterrey' }
+      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Torreón' }
     },
     footer: { tagline: 'Visión Inmobiliaria', rights: '© 2025 Merca Capital. Todos los derechos reservados.', privacy: 'Aviso de Privacidad' }
   },
@@ -162,7 +195,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'STRATEGIC PILLARS',
         items: [
-          { name: 'Torreón · Monterrey', description: 'Northern Mexico Corridor' },
+          { name: 'La Laguna · El Bajío', description: 'Central-Northern Mexico Corridor' },
           { name: 'Essential Infrastructure', description: 'Markets · Wholesale · Distribution' },
           { name: 'Anti-Cyclical Model', description: 'Inelastic Demand · Stable Rents' },
           { name: 'Integrated Management', description: 'Development · Operations · Admin' }
@@ -171,11 +204,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
     },
     stats: {
       title: 'Track Record',
-      description: 'Over a decade building essential infrastructure in Northern Mexico.',
+      description: 'Over a decade building essential infrastructure in Central-Northern Mexico.',
       items: [
-        { value: '52,000', label: 'sqm developed', highlight: true },
+        { value: '41,000', label: 'sqm developed', highlight: true },
         { value: '15', label: 'years operating', highlight: true },
-        { value: '5', label: 'markets built', highlight: false },
+        { value: '4', label: 'markets in portfolio', highlight: false },
         { value: '90', label: '% avg occupancy', highlight: false },
         { value: '300', label: 'active merchants', highlight: false }
       ]
@@ -190,13 +223,45 @@ const content: Record<'es' | 'en', ContentStructure> = {
       ]
     },
     portfolio: {
-      title: 'Asset Portfolio', subtitle: 'Operating wholesale food infrastructure',
+      title: 'Asset Portfolio', 
+      subtitle: 'Operating wholesale food infrastructure in La Laguna and El Bajío',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Regional wholesale center with high turnover.', year: '2012' },
-        { name: 'Mercahorro Gómez Palacio', sqm: '9,000 m²', status: 'Operating', city: 'Gómez Palacio, Durango', description: 'Food distribution hub for Laguna Region.', year: '2015' },
-        { name: 'Plaza Abastos Torreón', sqm: '12,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Wholesale complex with modern infrastructure.', year: '2018' },
-        { name: 'Plaza Abastos Monterrey', sqm: '15,000 m²', status: 'Operating', city: 'Monterrey, Nuevo León', description: 'Our largest development.', year: '2021' },
-        { name: 'Mercahorro Gómez II', sqm: '7,000 m²', status: 'In Development', city: 'Gómez Palacio, Durango', description: 'Strategic expansion.', year: '2025' }
+        { 
+          name: 'Mercahorro Torreón', 
+          sqm: '16,000 m²', 
+          status: 'Operating', 
+          city: 'Torreón, Coahuila', 
+          description: 'Regional wholesale center with high turnover. Our flagship development.', 
+          year: '2010',
+          image: '/projects/mercahorro-torreon.jpg'
+        },
+        { 
+          name: 'Plaza Abastos Torreón', 
+          sqm: '9,000 m²', 
+          status: 'Operating', 
+          city: 'Torreón, Coahuila', 
+          description: 'Wholesale complex with modern infrastructure and strategic location.', 
+          year: '2015',
+          image: '/projects/plaza-abastos-torreon.jpg'
+        },
+        { 
+          name: 'Mercahorro Gómez Palacio', 
+          sqm: '8,000 m²', 
+          status: 'In Development', 
+          city: 'Gómez Palacio, Durango', 
+          description: 'Food distribution hub for La Laguna region. Completion 2025.', 
+          year: '2025',
+          image: '/projects/mercahorro-gomez.jpg'
+        },
+        { 
+          name: 'Mercahorro Silao', 
+          sqm: '8,000 m²', 
+          status: 'In Development', 
+          city: 'Silao, Guanajuato', 
+          description: 'Strategic expansion to El Bajío industrial corridor. Completion 2026.', 
+          year: '2026',
+          image: '/projects/mercahorro-silao.jpg'
+        }
       ]
     },
     thesis: {
@@ -235,7 +300,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
     contact: {
       title: 'Contact', subtitle: 'Let\'s discuss opportunities',
       form: { name: 'Name', email: 'Email', company: 'Company', message: 'Message', submit: 'Send', success: 'Sent! We\'ll be in touch.', error: 'Error. Try again.' },
-      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Monterrey' }
+      info: { phone: '+52 871 204 0725', email: 'hola@mercacapital.com', locations: 'Madrid · Torreón' }
     },
     footer: { tagline: 'Real Estate Vision', rights: '© 2025 Merca Capital. All rights reserved.', privacy: 'Privacy Policy' }
   }
@@ -311,7 +376,6 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
   );
 };
 
-// HERO - NUEVO DISEÑO INSTITUCIONAL
 const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section style={{
     minHeight: '100vh', background: '#000B29', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden'
@@ -324,13 +388,11 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
           <span style={{ color: '#C9A227', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.3em' }}>{t.hero.tagline}</span>
         </div>
         
-        {/* NUEVO HEADLINE INSTITUCIONAL */}
-        <h1 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 300, lineHeight: 1.1, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em' }}>
+        <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 300, lineHeight: 1.1, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em' }}>
           {t.hero.headline1} <br/>
           <span style={{ fontStyle: 'italic', color: '#C9A227', fontWeight: 400 }}>{t.hero.headline2}</span>
         </h1>
         
-        {/* NUEVO SUBTITLE */}
         <p style={{ 
           color: '#FFF', 
           fontSize: '1.25rem', 
@@ -376,7 +438,7 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
                   {i === 0 && Icons.globe()} {i === 1 && Icons.grid()} {i === 2 && Icons.chart()} {i === 3 && Icons.star()}
                 </div>
                 <div>
-                  <h4 style={{ color: '#FFF', fontSize: '1.05rem', fontWeight: 500, margin: '0 0 0.3rem 0', fontFamily: 'var(--font-cormorant), Georgia, serif' }}>{item.name}</h4>
+                  <h4 style={{ color: '#FFF', fontSize: '1.05rem', fontWeight: 500, margin: '0 0 0.3rem 0', fontFamily: 'Georgia, serif' }}>{item.name}</h4>
                   <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.description}</p>
                 </div>
               </div>
@@ -392,13 +454,13 @@ const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.stats.title}</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.stats.title}</h2>
         <p style={{ color: '#666', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>{t.stats.description}</p>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
         {t.stats.items.map((stat, i) => (
           <div key={i} style={{ background: stat.highlight ? '#000B29' : '#FFF', padding: '3rem 2rem', textAlign: 'center', border: stat.highlight ? 'none' : '1px solid rgba(0,0,0,0.05)', boxShadow: stat.highlight ? '0 20px 40px rgba(0,11,41,0.1)' : 'none' }}>
-            <div style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '3.5rem', fontWeight: 300, color: '#C9A227', lineHeight: 1, marginBottom: '1rem' }}>{stat.value}</div>
+            <div style={{ fontFamily: 'Georgia, serif', fontSize: '3.5rem', fontWeight: 300, color: '#C9A227', lineHeight: 1, marginBottom: '1rem' }}>{stat.value}</div>
             <div style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: stat.highlight ? 'rgba(255,255,255,0.7)' : '#666' }}>{stat.label}</div>
           </div>
         ))}
@@ -407,7 +469,6 @@ const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
   </section>
 );
 
-// NUEVA SECCIÓN: INSIGHT DE MERCADO
 const MarketInsight: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section style={{ 
     padding: '5rem 4rem', 
@@ -418,7 +479,7 @@ const MarketInsight: React.FC<{ t: ContentStructure }> = ({ t }) => (
     <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h2 style={{ 
-          fontFamily: 'var(--font-cormorant), Georgia, serif', 
+          fontFamily: 'Georgia, serif', 
           fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', 
           fontWeight: 400, 
           color: '#C08A3E', 
@@ -439,7 +500,6 @@ const MarketInsight: React.FC<{ t: ContentStructure }> = ({ t }) => (
         </p>
       </div>
       
-      {/* Stats Row */}
       <div style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(3, 1fr)', 
@@ -450,7 +510,7 @@ const MarketInsight: React.FC<{ t: ContentStructure }> = ({ t }) => (
         {t.insight.stats.map((stat, i) => (
           <div key={i} style={{ textAlign: 'center' }}>
             <div style={{ 
-              fontFamily: 'var(--font-cormorant), Georgia, serif', 
+              fontFamily: 'Georgia, serif', 
               fontSize: '3rem', 
               fontWeight: 300, 
               color: '#C08A3E', 
@@ -475,27 +535,42 @@ const MarketInsight: React.FC<{ t: ContentStructure }> = ({ t }) => (
   </section>
 );
 
+// PORTFOLIO CON FOTOS
 const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section id="portfolio" style={{ padding: '8rem 4rem', background: '#FFFFFF' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.portfolio.title}</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.portfolio.title}</h2>
         <p style={{ color: '#666', fontSize: '1.1rem' }}>{t.portfolio.subtitle}</p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '3rem' }}>
         {t.portfolio.projects.map((proj, i) => (
-          <div key={i} style={{ background: '#F9F8F6', border: '1px solid rgba(0,0,0,0.05)', transition: 'transform 0.4s ease', cursor: 'pointer' }} 
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} 
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-            <div style={{ background: '#000B29', padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div key={i} style={{ background: '#F9F8F6', border: '1px solid rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.4s ease, box-shadow 0.4s ease', cursor: 'pointer' }} 
+            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }} 
+            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+            
+            {/* IMAGEN DEL PROYECTO */}
+            <div style={{ position: 'relative', height: '220px', width: '100%' }}>
+              <Image 
+                src={proj.image} 
+                alt={proj.name} 
+                fill 
+                style={{ objectFit: 'cover' }} 
+              />
+            </div>
+            
+            {/* Header con status y año */}
+            <div style={{ background: '#000B29', padding: '1.2rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#C9A227', fontSize: '0.7rem', letterSpacing: '0.15em', fontWeight: 700 }}>{proj.status.toUpperCase()}</span>
               <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontFamily: 'monospace' }}>{proj.year}</span>
             </div>
-            <div style={{ padding: '2.5rem 2rem' }}>
-              <div style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '2.5rem', fontWeight: 300, color: '#C9A227', marginBottom: '0.5rem' }}>{proj.sqm}</div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.5rem 0' }}>{proj.name}</h3>
-              <p style={{ color: '#C9A227', fontSize: '0.8rem', fontWeight: 600, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{proj.city}</p>
-              <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{proj.description}</p>
+            
+            {/* Contenido */}
+            <div style={{ padding: '2rem' }}>
+              <div style={{ fontFamily: 'Georgia, serif', fontSize: '2.2rem', fontWeight: 300, color: '#C9A227', marginBottom: '0.5rem' }}>{proj.sqm}</div>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.5rem 0' }}>{proj.name}</h3>
+              <p style={{ color: '#C9A227', fontSize: '0.75rem', fontWeight: 600, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{proj.city}</p>
+              <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>{proj.description}</p>
             </div>
           </div>
         ))}
@@ -508,13 +583,12 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section id="thesis" style={{ padding: '8rem 4rem', background: '#000B29' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0' }}>{t.thesis.title}</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0' }}>{t.thesis.title}</h2>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem' }}>{t.thesis.subtitle}</p>
       </div>
 
-      {/* Anti-Cyclical Box */}
       <div style={{ background: 'rgba(201,162,39,0.08)', borderLeft: '4px solid #C9A227', padding: '3rem', marginBottom: '4rem' }}>
-        <h3 style={{ color: '#C9A227', fontSize: '1.5rem', fontWeight: 600, marginBottom: '1.5rem', fontFamily: 'var(--font-cormorant), Georgia, serif' }}>{t.thesis.antiCyclical.title}</h3>
+        <h3 style={{ color: '#C9A227', fontSize: '1.5rem', fontWeight: 600, marginBottom: '1.5rem', fontFamily: 'Georgia, serif' }}>{t.thesis.antiCyclical.title}</h3>
         <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2rem' }}>{t.thesis.antiCyclical.description}</p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
           {t.thesis.antiCyclical.points.map((point, i) => (
@@ -526,12 +600,11 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
         </div>
       </div>
 
-      {/* Thesis Items */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
         {t.thesis.items.map((item, i) => (
           <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', padding: '3rem 2rem', textAlign: 'center' }}>
             <div style={{ color: '#C9A227', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>{Icons[item.icon]?.()}</div>
-            <h4 style={{ color: '#FFF', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem', fontFamily: 'var(--font-cormorant), Georgia, serif' }}>{item.title}</h4>
+            <h4 style={{ color: '#FFF', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem', fontFamily: 'Georgia, serif' }}>{item.title}</h4>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{item.description}</p>
           </div>
         ))}
@@ -544,36 +617,34 @@ const Model: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section id="model" style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.model.title}</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.model.title}</h2>
         <p style={{ color: '#666', fontSize: '1.1rem' }}>{t.model.subtitle}</p>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', marginBottom: '4rem' }}>
         {t.model.steps.map((step, i) => (
           <div key={i} style={{ background: '#FFF', padding: '2.5rem 2rem', borderBottom: '3px solid #C9A227', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
-            <div style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '3rem', fontWeight: 300, color: 'rgba(201,162,39,0.3)', marginBottom: '1rem' }}>{step.number}</div>
+            <div style={{ fontFamily: 'Georgia, serif', fontSize: '3rem', fontWeight: 300, color: 'rgba(201,162,39,0.3)', marginBottom: '1rem' }}>{step.number}</div>
             <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#000B29', marginBottom: '0.75rem' }}>{step.title}</h4>
             <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>{step.description}</p>
           </div>
         ))}
       </div>
       <div style={{ background: '#000B29', padding: '3rem', textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#C9A227', fontSize: '1.3rem', fontStyle: 'italic', margin: 0 }}>"{t.model.description}"</p>
+        <p style={{ fontFamily: 'Georgia, serif', color: '#C9A227', fontSize: '1.3rem', fontStyle: 'italic', margin: 0 }}>"{t.model.description}"</p>
       </div>
     </div>
   </section>
 );
 
-// LEADERSHIP CON PROOF OF CONCEPT
 const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section style={{ padding: '8rem 4rem', background: '#FFFFFF' }}>
     <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem' }}>
       
-      {/* Leadership */}
       <div>
-        <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '2.5rem', fontWeight: 400, color: '#000B29', margin: '0 0 2.5rem 0' }}>{t.leadership.title}</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '2.5rem', fontWeight: 400, color: '#000B29', margin: '0 0 2.5rem 0' }}>{t.leadership.title}</h2>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', marginBottom: '2.5rem' }}>
           <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: '#F9F8F6', border: '2px solid #C9A227', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#C9A227', fontSize: '1.5rem', fontFamily: 'var(--font-cormorant), Georgia, serif' }}>AG</span>
+            <span style={{ color: '#C9A227', fontSize: '1.5rem', fontFamily: 'Georgia, serif' }}>AG</span>
           </div>
           <div>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.3rem 0' }}>{t.leadership.name}</h3>
@@ -582,7 +653,6 @@ const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
           </div>
         </div>
         
-        {/* PROOF OF CONCEPT BOX */}
         <div style={{ 
           background: '#000B29', 
           padding: '2rem', 
@@ -598,9 +668,8 @@ const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
         </div>
       </div>
 
-      {/* CTA Box */}
       <div style={{ background: '#000B29', padding: '4rem', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <h3 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FFF', fontSize: '2rem', fontWeight: 300, margin: '0 0 1.5rem 0' }}>{t.cta.title}</h3>
+        <h3 style={{ fontFamily: 'Georgia, serif', color: '#FFF', fontSize: '2rem', fontWeight: 300, margin: '0 0 1.5rem 0' }}>{t.cta.title}</h3>
         <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: 1.6, margin: '0 auto 2.5rem', maxWidth: '400px' }}>{t.cta.description}</p>
         <a href="#contact" style={{ display: 'inline-block', background: '#C9A227', color: '#000B29', padding: '1.2rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textDecoration: 'none' }}>
           {t.cta.button}
@@ -621,7 +690,7 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
     <section id="contact" style={{ padding: '8rem 4rem', background: '#F9F8F6' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '6rem' }}>
         <div>
-          <h2 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.contact.title}</h2>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0' }}>{t.contact.title}</h2>
           <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '4rem' }}>{t.contact.subtitle}</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {[{ icon: Icons.phone(), text: t.contact.info.phone }, { icon: Icons.mail(), text: t.contact.info.email }, { icon: Icons.mapPin(), text: t.contact.info.locations }].map((item, i) => (
@@ -682,7 +751,7 @@ export default function MercaCapitalPage() {
   const t = content[lang];
 
   return (
-    <main style={{ overflowX: 'hidden', fontFamily: 'var(--font-inter), system-ui, sans-serif', color: '#000B29' }}>
+    <main style={{ overflowX: 'hidden', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#000B29' }}>
       <Header lang={lang} setLang={setLang} t={t} />
       <Hero t={t} />
       <Stats t={t} />
