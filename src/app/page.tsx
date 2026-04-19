@@ -190,7 +190,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         items: [
           { name: 'La Laguna · El Bajío', description: 'Corredor Agroindustrial de México' },
           { name: 'Infraestructura Crítica', description: 'Mercados · Abasto · Distribución' },
-          { name: 'Flujos Anticíclicos', description: 'Demanda Inelástica · Cap Rates 12%+' },
+          { name: 'Flujos Anticíclicos', description: 'Demanda Inelástica · Cap Rates 8-10%' },
           { name: 'Control Operativo', description: 'Originación · Operación · Exit' }
         ]
       }
@@ -202,7 +202,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         { value: '$100M', label: 'USD Fund Target', highlight: true },
         { value: '41,000', label: 'm² bajo gestión', highlight: true },
         { value: '15', label: 'años operando', highlight: false },
-        { value: '12%+', label: 'Cap Rate promedio', highlight: false },
+        { value: '8-10%', label: 'Cap Rate promedio', highlight: false },
         { value: '90%', label: 'ocupación histórica', highlight: false }
       ]
     },
@@ -267,9 +267,9 @@ const content: Record<'es' | 'en', ContentStructure> = {
         description: 'La infraestructura alimentaria es el único asset class inmobiliario con demanda verdaderamente inelástica. La gente come todos los días — sin importar recesiones, elecciones o crisis.',
         points: [
           'Demanda inelástica: alimentación es gasto no discrecional',
-          'Cap rates 12-15% vs 6-8% en activos tradicionales',
+          'Cap rates 8-10% vs 4-6% en activos tradicionales',
           'Protección inflacionaria vía rentas indexadas',
-          'Barrera de entrada por expertise operativo'
+          'Barrera de entrada por expertise operativo y vinculación comercial estratégica'
         ]
       },
       items: [
@@ -283,17 +283,17 @@ const content: Record<'es' | 'en', ContentStructure> = {
       subtitle: 'Control total del ciclo de valor',
       description: 'No somos intermediarios. Originamos, financiarizamos, operamos y optimizamos.',
       steps: [
-        { number: '01', title: 'Originación', description: 'Deal flow propietario en mercados desatendidos.' },
+        { number: '01', title: 'Originación', description: 'Deal flow propietario basado en inteligencia comercial de red mayorista.' },
         { number: '02', title: 'Estructuración', description: 'Vehículos fiscalmente eficientes (SAPI/Fideicomiso).' },
-        { number: '03', title: 'Comercialización', description: 'Pre-arrendamiento a comerciantes establecidos.' },
-        { number: '04', title: 'Asset Management', description: 'Operación institucional y optimización de NOI.' }
+        { number: '03', title: 'Comercialización', description: 'Pre-arrendamiento mediante red de asociación comercial (Merca México).' },
+        { number: '04', title: 'Asset Management', description: 'Gestión operativa experta y estabilización de flujos (NOI).' }
       ]
     },
     leadership: {
-      title: 'General Partner',
-      name: 'Alejandro Gayosso Heimpel',
-      role: 'Founding Partner & CEO',
-      bio: '15 años estructurando y operando infraestructura comercial. Tec de Monterrey (ISC) + MBA IE Business School Madrid. Track record de $50M+ en transacciones.',
+      title: 'Liderazgo Institucional',
+      name: '',
+      role: '',
+      bio: 'Nuestro equipo directivo integra expertos en finanzas corporativas, ingeniería de infraestructura y operación comercial mayorista. Con más de 45 años de experiencia conjunta y formación en instituciones globales, gestionamos el capital bajo estándares de máxima transparencia y rigor institucional.',
       proofLabel: 'PROOF OF CONCEPT',
       proofOfConcept: 'Acceso operador único: Mercahorro es nuestro proof of concept institucional — 300+ locales, 15 años de operación continua, y el know-how que ningún fondo externo puede replicar.'
     },
@@ -319,7 +319,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         sendAnother: 'ENVIAR OTRO MENSAJE'
       },
       info: {
-        phone: '+52 871 204 0725',
+        phone: '+52 812 004 8610',
         email: 'ir@mercacapital.com',
         locations: 'Madrid · Torreón · CDMX'
       }
@@ -351,7 +351,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         items: [
           { name: 'La Laguna · El Bajío', description: 'Mexico\'s Agri-Industrial Corridor' },
           { name: 'Critical Infrastructure', description: 'Markets · Wholesale · Distribution' },
-          { name: 'Anti-Cyclical Flows', description: 'Inelastic Demand · 12%+ Cap Rates' },
+          { name: 'Anti-Cyclical Flows', description: 'Inelastic Demand · 8-10% Cap Rates' },
           { name: 'Operational Control', description: 'Origination · Operations · Exit' }
         ]
       }
@@ -363,7 +363,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         { value: '$100M', label: 'USD Fund Target', highlight: true },
         { value: '41,000', label: 'sqm under management', highlight: true },
         { value: '15', label: 'years operating', highlight: false },
-        { value: '12%+', label: 'avg Cap Rate', highlight: false },
+        { value: '8-10%', label: 'avg Cap Rate', highlight: false },
         { value: '90%', label: 'historical occupancy', highlight: false }
       ]
     },
@@ -428,9 +428,9 @@ const content: Record<'es' | 'en', ContentStructure> = {
         description: 'Food infrastructure is the only real estate asset class with truly inelastic demand. People eat every day — regardless of recessions, elections or crises.',
         points: [
           'Inelastic demand: food is non-discretionary spending',
-          '12-15% cap rates vs 6-8% in traditional assets',
+          '8-10% cap rates vs 4-6% in traditional assets',
           'Inflation protection via indexed rents',
-          'Entry barrier through operational expertise'
+          'Entry barrier through operational expertise and strategic commercial linkage'
         ]
       },
       items: [
@@ -444,17 +444,17 @@ const content: Record<'es' | 'en', ContentStructure> = {
       subtitle: 'Full control of the value cycle',
       description: 'We\'re not intermediaries. We originate, financialize, operate and optimize.',
       steps: [
-        { number: '01', title: 'Origination', description: 'Proprietary deal flow in underserved markets.' },
+        { number: '01', title: 'Origination', description: 'Proprietary deal flow based on wholesale network commercial intelligence.' },
         { number: '02', title: 'Structuring', description: 'Tax-efficient vehicles (SAPI/Trust).' },
-        { number: '03', title: 'Commercialization', description: 'Pre-lease to established merchants.' },
-        { number: '04', title: 'Asset Management', description: 'Institutional operations and NOI optimization.' }
+        { number: '03', title: 'Commercialization', description: 'Pre-lease through commercial association network (Merca México).' },
+        { number: '04', title: 'Asset Management', description: 'Expert operational management and cash flow stabilization (NOI).' }
       ]
     },
     leadership: {
-      title: 'General Partner',
-      name: 'Alejandro Gayosso Heimpel',
-      role: 'Founding Partner & CEO',
-      bio: '15 years structuring and operating commercial infrastructure. Tec de Monterrey (ISC) + MBA IE Business School Madrid. $50M+ transaction track record.',
+      title: 'Institutional Leadership',
+      name: '',
+      role: '',
+      bio: 'Our leadership team integrates experts in corporate finance, infrastructure engineering, and wholesale commercial operations. With over 45 years of combined experience and training at global institutions, we manage capital under the highest standards of transparency and institutional rigor.',
       proofLabel: 'PROOF OF CONCEPT',
       proofOfConcept: 'Unique operator access: Mercahorro is our institutional proof of concept — 300+ units, 15 years of continuous operation, and the know-how no external fund can replicate.'
     },
@@ -480,7 +480,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
         sendAnother: 'SEND ANOTHER MESSAGE'
       },
       info: {
-        phone: '+52 871 204 0725',
+        phone: '+52 812 004 8610',
         email: 'ir@mercacapital.com',
         locations: 'Madrid · Torreón · CDMX'
       }
@@ -763,16 +763,20 @@ const LeadershipAndCTA: React.FC<{ t: ContentStructure }> = ({ t }) => (
     <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem' }}>
       <div>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '2.2rem', fontWeight: 400, color: '#000B29', margin: '0 0 2.5rem 0', letterSpacing: '-0.02em' }}>{t.leadership.title}</h2>
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '2.5rem' }}>
-          <div style={{ width: '90px', height: '90px', borderRadius: '50%', background: '#000B29', border: '2px solid #C08A3E', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <span style={{ color: '#C08A3E', fontSize: '1.3rem', fontFamily: 'Georgia, serif', fontWeight: 400 }}>AG</span>
-          </div>
-          <div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.3rem 0' }}>{t.leadership.name}</h3>
-            <p style={{ color: '#C08A3E', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, margin: '0 0 1rem 0' }}>{t.leadership.role}</p>
-            <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{t.leadership.bio}</p>
-          </div>
-        </div>
+        
+        {/* Párrafo institucional elegante */}
+        <p style={{ 
+          color: '#444', 
+          fontSize: '1.1rem', 
+          lineHeight: 1.8, 
+          marginBottom: '2.5rem',
+          fontFamily: 'Georgia, serif',
+          fontStyle: 'italic',
+          borderLeft: '3px solid #C08A3E',
+          paddingLeft: '1.5rem'
+        }}>
+          {t.leadership.bio}
+        </p>
         
         <div style={{ background: '#000B29', padding: '2rem', borderLeft: '4px solid #C08A3E' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
