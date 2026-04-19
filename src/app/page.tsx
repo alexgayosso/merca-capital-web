@@ -125,6 +125,10 @@ interface FormContent {
   submit: string;
   success: string;
   error: string;
+  formTitle: string;
+  successTitle: string;
+  successMessage: string;
+  sendAnother: string;
 }
 
 interface ContactInfoContent {
@@ -308,7 +312,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
         message: 'Mensaje',
         submit: 'Enviar',
         success: '¡Enviado! Te contactaremos en 24 horas.',
-        error: 'Error. Intenta de nuevo.'
+        error: 'Error. Intenta de nuevo.',
+        formTitle: 'CUÉNTENOS SU PROYECTO',
+        successTitle: 'Mensaje enviado con éxito',
+        successMessage: 'Un socio de Merca Capital revisará su mensaje personalmente y le responderá en menos de 48 horas hábiles.',
+        sendAnother: 'ENVIAR OTRO MENSAJE'
       },
       info: {
         phone: '+52 871 204 0725',
@@ -465,7 +473,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
         message: 'Message',
         submit: 'Send',
         success: 'Sent! We\'ll contact you within 24 hours.',
-        error: 'Error. Please try again.'
+        error: 'Error. Please try again.',
+        formTitle: 'TELL US ABOUT YOUR PROJECT',
+        successTitle: 'Message sent successfully',
+        successMessage: 'A Merca Capital partner will personally review your message and respond within 48 business hours.',
+        sendAnother: 'SEND ANOTHER MESSAGE'
       },
       info: {
         phone: '+52 871 204 0725',
@@ -801,6 +813,16 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
     } catch { setStatus('error'); }
   };
 
+  const resetForm = () => setStatus('idle');
+
+  // Checkmark icon for success state
+  const CheckCircle = () => (
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#C08A3E" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="9 12 11.5 14.5 16 9"/>
+    </svg>
+  );
+
   return (
     <section id="contact" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
@@ -821,28 +843,71 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
           </div>
         </div>
 
-        <div style={{ background: '#FFF', padding: '3rem', boxShadow: '0 15px 50px rgba(0,0,0,0.05)' }}>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {[
-              { n: 'name', l: t.contact.form.name, t: 'text' },
-              { n: 'email', l: t.contact.form.email, t: 'email' },
-              { n: 'company', l: t.contact.form.company, t: 'text' }
-            ].map((f) => (
-              <div key={f.n}>
-                <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#000B29', marginBottom: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{f.l}</label>
-                <input type={f.t} name={f.n} required={f.n !== 'company'} style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '2px solid #E8E8E8', background: 'transparent', fontSize: '1rem', outline: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C08A3E'} onBlur={(e) => e.target.style.borderBottomColor = '#E8E8E8'} />
+        {/* Form Container with corner accents like Altavela */}
+        <div style={{ position: 'relative', padding: '0.5rem' }}>
+          {/* Corner accents */}
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '40px', height: '40px', borderTop: '2px solid #C08A3E', borderRight: '2px solid #C08A3E' }} />
+          <div style={{ position: 'absolute', bottom: 0, left: 0, width: '40px', height: '40px', borderBottom: '2px solid #C08A3E', borderLeft: '2px solid #C08A3E' }} />
+          
+          <div style={{ background: '#FFF', padding: '3rem', boxShadow: '0 15px 50px rgba(0,0,0,0.05)', minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            
+            {/* SUCCESS STATE - Full screen confirmation like Altavela */}
+            {status === 'success' ? (
+              <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+                <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
+                  <CheckCircle />
+                </div>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.8rem', fontWeight: 400, color: '#000B29', margin: '0 0 1.5rem 0' }}>
+                  {t.contact.form.successTitle}
+                </h3>
+                <p style={{ color: '#666', fontSize: '1rem', lineHeight: 1.7, margin: '0 auto 2.5rem', maxWidth: '320px' }}>
+                  {t.contact.form.successMessage}
+                </p>
+                <button 
+                  onClick={resetForm}
+                  style={{ 
+                    background: 'transparent', 
+                    border: 'none', 
+                    color: '#C08A3E', 
+                    fontSize: '0.75rem', 
+                    fontWeight: 600, 
+                    letterSpacing: '0.15em', 
+                    textTransform: 'uppercase', 
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '4px'
+                  }}
+                >
+                  {t.contact.form.sendAnother}
+                </button>
               </div>
-            ))}
-            <div>
-              <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#000B29', marginBottom: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.contact.form.message}</label>
-              <textarea name="message" rows={3} required style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '2px solid #E8E8E8', background: 'transparent', fontSize: '1rem', outline: 'none', resize: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C08A3E'} onBlur={(e) => e.target.style.borderBottomColor = '#E8E8E8'} />
-            </div>
-            <button type="submit" disabled={status === 'sending'} style={{ background: '#000B29', color: '#FFF', padding: '1.2rem', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', border: 'none', cursor: 'pointer', marginTop: '0.5rem', transition: 'background 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.background = '#C08A3E'} onMouseLeave={(e) => e.currentTarget.style.background = '#000B29'}>
-              {status === 'sending' ? '...' : t.contact.form.submit}
-            </button>
-            {status === 'success' && <p style={{ color: '#C08A3E', fontSize: '0.9rem', textAlign: 'center', marginTop: '0.5rem' }}>{t.contact.form.success}</p>}
-            {status === 'error' && <p style={{ color: '#ff4444', fontSize: '0.9rem', textAlign: 'center', marginTop: '0.5rem' }}>{t.contact.form.error}</p>}
-          </form>
+            ) : (
+              /* FORM STATE */
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div style={{ color: '#C08A3E', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
+                  {t.contact.form.formTitle}
+                </div>
+                {[
+                  { n: 'name', l: t.contact.form.name, ty: 'text' },
+                  { n: 'email', l: t.contact.form.email, ty: 'email' },
+                  { n: 'company', l: t.contact.form.company, ty: 'text' }
+                ].map((f) => (
+                  <div key={f.n}>
+                    <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#000B29', marginBottom: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{f.l}</label>
+                    <input type={f.ty} name={f.n} required={f.n !== 'company'} style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '2px solid #E8E8E8', background: 'transparent', fontSize: '1rem', outline: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C08A3E'} onBlur={(e) => e.target.style.borderBottomColor = '#E8E8E8'} />
+                  </div>
+                ))}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#000B29', marginBottom: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.contact.form.message}</label>
+                  <textarea name="message" rows={3} required style={{ width: '100%', padding: '1rem', border: 'none', borderBottom: '2px solid #E8E8E8', background: 'transparent', fontSize: '1rem', outline: 'none', resize: 'none', transition: 'border-color 0.3s' }} onFocus={(e) => e.target.style.borderBottomColor = '#C08A3E'} onBlur={(e) => e.target.style.borderBottomColor = '#E8E8E8'} />
+                </div>
+                <button type="submit" disabled={status === 'sending'} style={{ background: '#000B29', color: '#FFF', padding: '1.2rem', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', border: 'none', cursor: 'pointer', marginTop: '0.5rem', transition: 'background 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.background = '#C08A3E'} onMouseLeave={(e) => e.currentTarget.style.background = '#000B29'}>
+                  {status === 'sending' ? '...' : t.contact.form.submit}
+                </button>
+                {status === 'error' && <p style={{ color: '#ff4444', fontSize: '0.9rem', textAlign: 'center', marginTop: '0.5rem' }}>{t.contact.form.error}</p>}
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>
