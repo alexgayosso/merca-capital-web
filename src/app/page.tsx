@@ -320,8 +320,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       },
       info: {
         phone: '+52 812 004 8610',
-        email: 'ir@mercacapital.com',
-        locations: 'Madrid · Torreón · CDMX'
+        email: 'hola@mercacapital.com',
+        locations: 'Madrid · Monterrey · CDMX'
       }
     },
     footer: {
