@@ -188,7 +188,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'PILARES ESTRATÉGICOS',
         items: [
-          { name: 'La Laguna · El Bajío', description: 'Corredor Agroindustrial de México' },
+          { name: 'Nodos Estratégicos: Norte · Bajío · Centro', description: 'Infraestructura crítica en los corredores de mayor flujo comercial de México' },
           { name: 'Infraestructura Crítica', description: 'Mercados · Abasto · Distribución' },
           { name: 'Flujos Anticíclicos', description: 'Demanda Inelástica · Cap Rates 8-10%' },
           { name: 'Control Operativo', description: 'Originación · Operación · Exit' }
@@ -349,7 +349,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'STRATEGIC PILLARS',
         items: [
-          { name: 'La Laguna · El Bajío', description: 'Mexico\'s Agri-Industrial Corridor' },
+          { name: 'Nodos Estratégicos: Norte · Bajío · Centro', description: 'Infraestructura crítica en los corredores de mayor flujo comercial de México' },
           { name: 'Critical Infrastructure', description: 'Markets · Wholesale · Distribution' },
           { name: 'Anti-Cyclical Flows', description: 'Inelastic Demand · 8-10% Cap Rates' },
           { name: 'Operational Control', description: 'Origination · Operations · Exit' }
