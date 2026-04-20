@@ -995,7 +995,7 @@ const GatedDeckSection: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <a href="#contact"
+              <a href="#contact"href="/deck/merca-capital-teaser-2026.pdf"
                 style={{ display: 'block', textAlign: 'center', background: 'transparent', border: '1px solid rgba(192,138,62,0.5)', color: '#C08A3E', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', textTransform: 'uppercase' }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,138,62,0.1)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
