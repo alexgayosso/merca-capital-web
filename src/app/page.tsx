@@ -222,8 +222,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Activos Bajo Gestión',
       subtitle: 'Portafolio de infraestructura alimentaria en operación y desarrollo',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Flagship asset. Centro de abasto regional con flujos estabilizados y ocupación del 95%.', year: '2010', image: '/projects/mercahorro-torreon.jpg' },
-        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Activo core con infraestructura moderna. NOI estabilizado desde 2018.', year: '2015', image: '/projects/plaza-abastos-torreon.jpg' },
+        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Flagship asset. Centro de abasto regional con flujos estabilizados y ocupación del 95%.', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
+        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Activo core con infraestructura moderna. NOI estabilizado desde 2018.', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
         { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Value-Add', city: 'Gómez Palacio, Durango', description: 'Desarrollo en fase final. Pre-arrendado 70%. Estabilización Q4 2025.', year: '2025', image: '/projects/mercahorro-gomez.jpg' },
         { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'Development', city: 'Silao, Guanajuato', description: 'Pipeline estratégico en corredor del Bajío. LOIs firmadas con off-takers.', year: '2026', image: '/projects/mercahorro-silao.jpg' }
       ]
@@ -351,8 +351,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Assets Under Management',
       subtitle: 'Food infrastructure portfolio in operation and development',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Flagship asset. Regional wholesale center with stabilized cash flows and 95% occupancy.', year: '2010', image: '/projects/mercahorro-torreon.jpg' },
-        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Core asset with modern infrastructure. Stabilized NOI since 2018.', year: '2015', image: '/projects/plaza-abastos-torreon.jpg' },
+        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Flagship asset. Regional wholesale center with stabilized cash flows and 95% occupancy.', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
+        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Core asset with modern infrastructure. Stabilized NOI since 2018.', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
         { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Value-Add', city: 'Gómez Palacio, Durango', description: 'Final development phase. 70% pre-leased. Stabilization Q4 2025.', year: '2025', image: '/projects/mercahorro-gomez.jpg' },
         { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'Development', city: 'Silao, Guanajuato', description: 'Strategic pipeline in El Bajío corridor. Signed LOIs with off-takers.', year: '2026', image: '/projects/mercahorro-silao.jpg' }
       ]
@@ -646,7 +646,7 @@ const InsightSection: React.FC<{ t: ContentStructure }> = ({ t }) => (
 
 // ── PORTFOLIO ────────────────────────────────────────────────
 const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section id="portfolio" style={{ padding: '7rem 4rem', background: '#FFFFFF' }}>
+  <section id="portfolio" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.portfolio.title}</h2>
@@ -742,7 +742,7 @@ const ProgramaNodos: React.FC = () => {
 
 // ── THESIS ───────────────────────────────────────────────────
 const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section id="thesis" style={{ padding: '7rem 4rem', background: '#000B29' }}>
+  <section id="thesis" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.thesis.title}</h2>
@@ -775,7 +775,7 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
 
 // ── MODEL ────────────────────────────────────────────────────
 const Model: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section id="model" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
+  <section id="model" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.model.title}</h2>
@@ -855,7 +855,7 @@ const TEAM_DATA = [
 const TeamSection: React.FC = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   return (
-    <section id="equipo" style={{ padding: '7rem 4rem', background: '#FFFFFF' }}>
+    <section id="equipo" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
@@ -940,7 +940,7 @@ const GatedDeckSection: React.FC = () => {
   };
 
   return (
-    <section id="deck" style={{ padding: '7rem 4rem', background: '#000B29' }}>
+    <section id="deck" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
@@ -1096,7 +1096,7 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
   );
 
   return (
-    <section id="contact" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
+    <section id="contact" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
         <div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h2>
