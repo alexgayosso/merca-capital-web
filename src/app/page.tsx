@@ -847,10 +847,9 @@ const UnfairAdvantage: React.FC = () => (
 
 // ── TEAM SECTION ─────────────────────────────────────────────
 const TEAM_DATA = [
-  { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro (15+ años)'], color: '#C08A3E' },
-  { initials: 'JS', name: 'José Sánchez', title: 'Partner — Institutional Relations', bio: 'Especialista en acceso a capital europeo e institucional para proyectos de infraestructura en mercados emergentes. Puente estratégico España–México.', credentials: ['Finanzas Corporativas', 'Capital Privado e Infraestructura'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
-  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal & Structuring', bio: '15 años estructurando vehículos de inversión inmobiliaria en México. Expertise en fideicomisos y estructuras SAPI para infraestructura de gran escala.', credentials: ['Derecho Corporativo', 'Fideicomisos y Vehículos de Inversión'], roles: ['Estructuración jurídica de activos', 'Arquitectura SAPI/Fideicomiso'], color: '#7A8B9A' },
-  { initials: 'RC', name: 'Raúl Cuéllar', title: 'Partner — Operations', bio: 'Responsable del control operativo de todos los nodos en funcionamiento. Arquitecto del modelo de asset management que sostiene el 90% de ocupación histórica.', credentials: ['Ingeniería y Gestión de Infraestructura'], roles: ['Director Operativo — Mercahorro', 'Asset Management integral'], color: '#9A8A7A' },
+  { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey. Impulsor del modelo de consolidación institucional en Centrales de Abasto.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
+  { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos para proyectos de infraestructura en mercados emergentes.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
+  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Experto en estructuración jurídica de activos inmobiliarios y transformación digital de infraestructura. Combina el rigor del derecho corporativo con visión tecnológica a través de Be One Systems, su firma de transformación digital.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Transformación Digital — Be One Systems'], roles: ['Estructuración jurídica y operativa de activos', 'Director — Be One Systems'], color: '#7A8B9A' },
 ];
 
 const TeamSection: React.FC = () => {
@@ -869,7 +868,7 @@ const TeamSection: React.FC = () => {
             45+ años de experiencia conjunta en infraestructura, capital privado y operación de mercados mayoristas en México.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
           {TEAM_DATA.map((member, i) => (
             <div key={i} onClick={() => setExpanded(expanded === i ? null : i)}
               style={{ background: expanded === i ? '#F8F7F4' : '#FAFAFA', border: `1px solid ${expanded === i ? '#C08A3E' : 'rgba(0,0,0,0.06)'}`, borderLeft: `4px solid ${expanded === i ? '#C08A3E' : 'transparent'}`, padding: '2rem', cursor: 'pointer', transition: 'all 0.3s ease' }}
