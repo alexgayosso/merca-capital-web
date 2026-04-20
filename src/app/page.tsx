@@ -531,13 +531,13 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
             style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '8px 16px', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', textTransform: 'uppercase', transition: 'opacity 0.2s' }}
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
-            DECK →
+            {lang === 'es' ? 'DECK →' : 'DECK →'}
           </button>
           <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-            style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.5)', color: '#C08A3E', padding: '6px 14px', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px', transition: 'all 0.3s' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = '#C08A3E'; e.currentTarget.style.color = '#000B29'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C08A3E'; }}>
-            {lang.toUpperCase()}
+            style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.3)', color: 'rgba(192,138,62,0.6)', padding: '6px 14px', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px', transition: 'all 0.3s', letterSpacing: '0.08em' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#C08A3E'; e.currentTarget.style.color = '#000B29'; e.currentTarget.style.borderColor = '#C08A3E'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(192,138,62,0.6)'; e.currentTarget.style.borderColor = 'rgba(192,138,62,0.3)'; }}>
+            {lang === 'es' ? 'EN' : 'ES'}
           </button>
         </nav>
       </div>
@@ -966,12 +966,15 @@ const GatedDeckSection: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/deck/merca-capital-teaser-2026.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="#contact"
                 style={{ display: 'block', textAlign: 'center', background: 'transparent', border: '1px solid rgba(192,138,62,0.5)', color: '#C08A3E', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', textTransform: 'uppercase' }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,138,62,0.1)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
-                Descargar Teaser →
+                Solicitar Teaser →
               </a>
+              <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', textAlign: 'center', marginTop: '10px', marginBottom: 0 }}>
+                Envíanos un mensaje y te lo hacemos llegar de inmediato.
+              </p>
             </div>
             {/* DECK COMPLETO */}
             <div style={{ background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.3)', padding: '3rem 2.5rem', position: 'relative' }}>
