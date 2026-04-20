@@ -489,6 +489,7 @@ const MomentumBanner: React.FC<{ onClose: () => void }> = ({ onClose }) => (
 // ── HEADER ───────────────────────────────────────────────────
 const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t: ContentStructure; bannerVisible: boolean }> = ({ lang, setLang, t, bannerVisible }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -496,33 +497,30 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
+  const navBtn: React.CSSProperties = { background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.15em', cursor: 'pointer', transition: 'color 0.3s', textTransform: 'uppercase' };
 
   return (
-    <header style={{
-      position: 'fixed',
-      top: bannerVisible ? '41px' : '0',
-      left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? 'rgba(0,11,41,0.98)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(20px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(192,138,62,0.2)' : 'none',
-      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-    }}>
-      <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: scrolled ? '70px' : '100px', transition: 'height 0.4s ease' }}>
-        <div style={{ position: 'relative', height: scrolled ? '45px' : '60px', width: scrolled ? '180px' : '240px', transition: 'all 0.4s ease' }}>
+    <header style={{ position: 'fixed', top: bannerVisible ? '41px' : '0', left: 0, right: 0, zIndex: 1000, background: scrolled || menuOpen ? 'rgba(0,11,41,0.98)' : 'transparent', backdropFilter: scrolled ? 'blur(20px)' : 'none', borderBottom: scrolled ? '1px solid rgba(192,138,62,0.2)' : 'none', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+      <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: scrolled ? '70px' : '100px', transition: 'height 0.4s ease' }}>
+        <div style={{ position: 'relative', height: scrolled ? '45px' : '60px', width: scrolled ? '180px' : '220px', transition: 'all 0.4s ease', zIndex: 1001 }}>
           <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital" fill style={{ objectFit: 'contain', objectPosition: 'left' }} priority />
         </div>
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          {(['portfolio', 'thesis', 'model', 'contact'] as const).map((section) => (
-            <button key={section} onClick={() => scrollTo(section)}
-              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.15em', cursor: 'pointer', transition: 'color 0.3s', textTransform: 'uppercase' }}
+
+        {/* Desktop nav */}
+        <nav className="mc-nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          {(['portfolio', 'thesis', 'model', 'contact'] as const).map((s) => (
+            <button key={s} onClick={() => scrollTo(s)} style={navBtn}
               onMouseEnter={(e) => e.currentTarget.style.color = '#C08A3E'}
               onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}>
-              {t.nav[section]}
+              {t.nav[s]}
             </button>
           ))}
-          <button onClick={() => scrollTo('equipo')}
-            style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.15em', cursor: 'pointer', transition: 'color 0.3s', textTransform: 'uppercase' }}
+          <button onClick={() => scrollTo('equipo')} style={navBtn}
             onMouseEnter={(e) => e.currentTarget.style.color = '#C08A3E'}
             onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}>
             {lang === 'es' ? 'EQUIPO' : 'TEAM'}
@@ -531,7 +529,7 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
             style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '8px 16px', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', textTransform: 'uppercase', transition: 'opacity 0.2s' }}
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
-            {lang === 'es' ? 'DECK →' : 'DECK →'}
+            DECK →
           </button>
           <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
             style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.3)', color: 'rgba(192,138,62,0.6)', padding: '6px 14px', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px', transition: 'all 0.3s', letterSpacing: '0.08em' }}
@@ -540,7 +538,38 @@ const Header: React.FC<{ lang: 'es' | 'en'; setLang: (l: 'es' | 'en') => void; t
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
         </nav>
+
+        {/* Hamburger button (mobile only) */}
+        <button className="mc-hamburger" onClick={() => setMenuOpen(!menuOpen)}
+          style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: '8px', flexDirection: 'column', gap: '5px', zIndex: 1001 }}>
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#FFF', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#FFF', transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#FFF', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
+        </button>
       </div>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,11,41,0.99)', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.8rem', padding: '2rem' }}>
+          {(['portfolio', 'thesis', 'model', 'contact'] as const).map((s) => (
+            <button key={s} onClick={() => scrollTo(s)}
+              style={{ ...navBtn, fontSize: '1.1rem', letterSpacing: '0.2em' }}>
+              {t.nav[s]}
+            </button>
+          ))}
+          <button onClick={() => scrollTo('equipo')} style={{ ...navBtn, fontSize: '1.1rem', letterSpacing: '0.2em' }}>
+            {lang === 'es' ? 'EQUIPO' : 'TEAM'}
+          </button>
+          <button onClick={() => scrollTo('deck')}
+            style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '14px 40px', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+            SOLICITAR DECK →
+          </button>
+          <button onClick={() => { setLang(lang === 'es' ? 'en' : 'es'); setMenuOpen(false); }}
+            style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.4)', color: '#C08A3E', padding: '8px 20px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px' }}>
+            {lang === 'es' ? 'EN' : 'ES'}
+          </button>
+        </div>
+      )}
     </header>
   );
 };
@@ -550,7 +579,7 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section style={{ minHeight: '100vh', background: '#000B29', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(ellipse at 20% 50%, rgba(192,138,62,0.08) 0%, transparent 50%)', zIndex: 1 }} />
     <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: 'linear-gradient(to left, rgba(192,138,62,0.03) 0%, transparent 100%)', zIndex: 1 }} />
-    <div style={{ width: '100%', maxWidth: '1600px', margin: '0 auto', padding: '8rem 4rem 4rem', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+    <div className="mc-hero-grid" style={{ width: '100%', maxWidth: '1600px', margin: '0 auto', padding: '8rem 4rem 4rem', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2.5rem' }}>
           <div style={{ width: '50px', height: '1px', background: '#C08A3E' }} />
@@ -576,7 +605,7 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
           </a>
         </div>
       </div>
-      <div style={{ position: 'relative', padding: '2.5rem' }}>
+      <div className="mc-hero-pillars" style={{ position: 'relative', padding: '2.5rem' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '50px', height: '50px', borderTop: '2px solid #C08A3E', borderLeft: '2px solid #C08A3E' }} />
         <div style={{ position: 'absolute', top: 0, right: 0, width: '50px', height: '50px', borderTop: '2px solid #C08A3E', borderRight: '2px solid #C08A3E' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, width: '50px', height: '50px', borderBottom: '2px solid #C08A3E', borderLeft: '2px solid #C08A3E' }} />
@@ -612,7 +641,7 @@ const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.stats.title}</h2>
         <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto' }}>{t.stats.description}</p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.5rem' }}>
+      <div className="mc-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.5rem' }}>
         {t.stats.items.map((stat, i) => (
           <div key={i} style={{ background: stat.highlight ? '#000B29' : '#FFF', padding: '2.5rem 1.5rem', textAlign: 'center', border: stat.highlight ? 'none' : '1px solid rgba(0,0,0,0.06)', boxShadow: stat.highlight ? '0 15px 40px rgba(0,11,41,0.15)' : 'none' }}>
             <div style={{ fontFamily: 'Georgia, serif', fontSize: '2.8rem', fontWeight: 400, color: '#C08A3E', lineHeight: 1, marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>{stat.value}</div>
@@ -652,7 +681,7 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.portfolio.title}</h2>
         <p style={{ color: '#666', fontSize: '1.05rem' }}>{t.portfolio.subtitle}</p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2.5rem' }}>
+      <div className="mc-portfolio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2.5rem' }}>
         {t.portfolio.projects.map((proj, i) => (
           <div key={i} style={{ background: '#F8F7F4', border: '1px solid rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.4s ease, box-shadow 0.4s ease' }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.1)'; }}
@@ -706,7 +735,7 @@ const ProgramaNodos: React.FC = () => {
             Expansión disciplinada, por fases, con criterios de selección institucionales y capital parcialmente reciclable entre nodos.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+        <div className="mc-model-steps" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
           {fases.map((f, i) => (
             <div key={i} style={{ background: f.active ? '#000B29' : '#FFF', padding: '2.5rem 2rem', border: f.active ? 'none' : '1px solid rgba(0,0,0,0.06)', borderBottom: `3px solid ${f.active ? '#C08A3E' : 'rgba(192,138,62,0.3)'}`, position: 'relative' }}>
               <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: f.active ? 'rgba(255,255,255,0.5)' : '#999', marginBottom: '8px' }}>{f.periodo}</div>
@@ -760,7 +789,7 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
           ))}
         </div>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+      <div className="mc-tesis-items" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
         {t.thesis.items.map((item, i) => (
           <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', padding: '2.5rem 2rem', textAlign: 'center' }}>
             <div style={{ color: '#C08A3E', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>{Icons[item.icon]?.()}</div>
@@ -781,7 +810,7 @@ const Model: React.FC<{ t: ContentStructure }> = ({ t }) => (
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.model.title}</h2>
         <p style={{ color: '#666', fontSize: '1.05rem' }}>{t.model.subtitle}</p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+      <div className="mc-fases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
         {t.model.steps.map((step, i) => (
           <div key={i} style={{ background: '#FFF', padding: '2.5rem 2rem', borderBottom: '3px solid #C08A3E', boxShadow: '0 8px 30px rgba(0,0,0,0.04)' }}>
             <div style={{ fontFamily: 'Georgia, serif', fontSize: '2.5rem', fontWeight: 400, color: 'rgba(192,138,62,0.3)', marginBottom: '1rem', letterSpacing: '-0.02em' }}>{step.number}</div>
@@ -822,7 +851,7 @@ const UnfairAdvantage: React.FC = () => (
           El moat de Merca Capital no es capital — es acceso, confianza y know-how acumulado en 15 años de operación directa en mercados mayoristas.
         </p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'rgba(255,255,255,0.06)' }}>
+      <div className="mc-moat-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'rgba(255,255,255,0.06)' }}>
         {MOAT_DATA.map((m, i) => (
           <div key={i} style={{ background: '#000B29', padding: '3rem 2.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
             <div style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>{m.icon}</div>
@@ -868,7 +897,7 @@ const TeamSection: React.FC = () => {
             45+ años de experiencia conjunta en infraestructura, capital privado y operación de mercados mayoristas en México.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+        <div className="mc-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
           {TEAM_DATA.map((member, i) => (
             <div key={i} onClick={() => setExpanded(expanded === i ? null : i)}
               style={{ background: expanded === i ? '#F8F7F4' : '#FAFAFA', border: `1px solid ${expanded === i ? '#C08A3E' : 'rgba(0,0,0,0.06)'}`, borderLeft: `4px solid ${expanded === i ? '#C08A3E' : 'transparent'}`, padding: '2rem', cursor: 'pointer', transition: 'all 0.3s ease' }}
@@ -953,7 +982,7 @@ const GatedDeckSection: React.FC = () => {
         </div>
 
         {step === 'choice' && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="mc-deck-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             {/* TEASER */}
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', padding: '3rem 2.5rem' }}>
               <span style={{ background: 'rgba(192,138,62,0.15)', color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.1em', padding: '4px 10px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>Libre · Sin formulario</span>
@@ -1005,7 +1034,7 @@ const GatedDeckSection: React.FC = () => {
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 2.5rem' }}>Recibirá el material por email en menos de 24 horas hábiles.</p>
             <form onSubmit={handleSubmit}>
               <input type="hidden" name="_type" value="deck-request" />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+              <div className="mc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>Nombre completo</label>
                   <input name="name" type="text" required placeholder="Juan Rodríguez" style={inputStyle}
@@ -1097,7 +1126,7 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
 
   return (
     <section id="contact" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
+      <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
         <div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h2>
           <p style={{ color: '#666', fontSize: '1.05rem', marginBottom: '3rem' }}>{t.contact.subtitle}</p>
@@ -1197,7 +1226,74 @@ export default function MercaCapitalPage() {
 
   return (
     <main style={{ overflowX: 'hidden', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', color: '#000B29' }}>
-      <style>{`@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.8)} }`}</style>
+      <style>{`
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.8)} }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ── MOBILE RESPONSIVE ─────────────────────── */
+        @media (max-width: 768px) {
+
+          /* Nav */
+          .mc-nav-links { display: none !important; }
+          .mc-nav-links.open { display: flex !important; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,11,41,0.98); z-index: 999; padding: 6rem 2rem 2rem; gap: 1.5rem; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
+          .mc-hamburger { display: flex !important; }
+
+          /* Hero */
+          .mc-hero-grid { grid-template-columns: 1fr !important; padding: 7rem 1.5rem 3rem !important; }
+          .mc-hero-pillars { display: none !important; }
+          .mc-hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
+          .mc-hero-btns a { text-align: center !important; }
+
+          /* Stats */
+          .mc-stats-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .mc-stats-grid > div:nth-child(4),
+          .mc-stats-grid > div:nth-child(5) { grid-column: span 1; }
+
+          /* Sections padding */
+          .mc-section { padding: 4rem 1.5rem !important; }
+
+          /* Portfolio 2-col → 1-col */
+          .mc-portfolio-grid { grid-template-columns: 1fr !important; }
+
+          /* Team 2-col → 1-col */
+          .mc-team-grid { grid-template-columns: 1fr !important; }
+
+          /* Moat 2-col → 1-col */
+          .mc-moat-grid { grid-template-columns: 1fr !important; background: transparent !important; gap: 12px !important; }
+          .mc-moat-grid > div { border-right: none !important; }
+
+          /* Tesis 3-col → 1-col */
+          .mc-tesis-items { grid-template-columns: 1fr !important; }
+          .mc-tesis-anticyclical { grid-template-columns: 1fr !important; }
+
+          /* Model 4-col → 2-col */
+          .mc-model-steps { grid-template-columns: repeat(2, 1fr) !important; }
+
+          /* Programa fases 4-col → 2-col */
+          .mc-fases-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .mc-criterios-row { grid-template-columns: 50px 1fr !important; }
+          .mc-criterios-hide { display: none !important; }
+
+          /* Deck 2-col → 1-col */
+          .mc-deck-grid { grid-template-columns: 1fr !important; }
+
+          /* Form 2-col → 1-col */
+          .mc-form-grid { grid-template-columns: 1fr !important; }
+          .mc-form-full { grid-column: span 1 !important; }
+
+          /* Contact 2-col → 1-col */
+          .mc-contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+          /* Foote */
+          footer { padding: 3rem 1.5rem 2rem !important; }
+        }
+
+        @media (max-width: 480px) {
+          .mc-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .mc-model-steps { grid-template-columns: 1fr !important; }
+          .mc-fases-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}
       <Header lang={lang} setLang={setLang} t={t} bannerVisible={bannerVisible} />
       <Hero t={t} />
