@@ -709,53 +709,24 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
 );
 
 // ── PROGRAMA 100 NODOS ────────────────────────────────────────
-const ProgramaNodos: React.FC = () => {
-  const fases = [
-    { periodo: '2024–2026', label: 'Fase I', nodos: '4 nodos', desc: 'Proof of concept — modelo validado', active: true },
-    { periodo: '2026–2028', label: 'Fase II', nodos: '15 nodos', desc: 'Rollout playbook — Corredor Norte + Bajío', active: false },
-    { periodo: '2028–2031', label: 'Fase III', nodos: '35 nodos', desc: 'Expansión nacional — software escalado', active: false },
-    { periodo: '2031–2035', label: 'Fase IV', nodos: '100 nodos', desc: 'Red operada por datos — liderazgo de mercado', active: false },
-  ];
-  const criterios = [
-    { tier: 'A', hab: '+500k hab.', infra: 'Central de Abasto establecida, pre-2000', corredor: 'Corredor nacional' },
-    { tier: 'B', hab: '200–500k hab.', infra: 'Mercado regional consolidado', corredor: 'Corredor logístico' },
-    { tier: 'C', hab: '<200k hab.', infra: 'Mercado emergente o en construcción', corredor: 'Frontera / agroindustrial' },
-  ];
-  const pilares = [
-    {
-      icon: '📋',
-      title: 'Standardized Operational Playbooks',
-      desc: 'Cada nodo se opera con manuales estandarizados de gestión comercial, cobranza y mantenimiento. El fundador no necesita estar en cada sitio.',
-    },
-    {
-      icon: '💻',
-      title: 'Proprietary Logistics Software',
-      desc: 'Sistema propietario de gestión de ocupación, flujos NOI y comportamiento de locatarios. Inteligencia operativa que mejora con cada nodo incorporado.',
-    },
-    {
-      icon: '🏛',
-      title: 'Scalable Governance Model',
-      desc: 'Estructura SAPI/Fideicomiso replicable en cualquier estado de México. Cada nuevo activo sigue el mismo blueprint jurídico-operativo.',
-    },
-  ];
+const ProgramaNodos: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const c = newContent[lang].programa;
   return (
     <section style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
-            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>Programa de Expansión</span>
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{c.label}</span>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>100 Nodos en 10 Años</h2>
-          <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
-            No construimos naves — operamos una red de infraestructura optimizada por datos. Cada nuevo nodo hereda el playbook operativo del anterior, reduciendo el tiempo de estabilización y mejorando el retorno sobre capital desplegado.
-          </p>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{c.title}</h2>
+          <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>{c.subtitle}</p>
         </div>
 
         {/* Pilares de escalabilidad */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
-          {pilares.map((p, i) => (
+          {c.pilares.map((p, i) => (
             <div key={i} style={{ background: '#000B29', padding: '2.5rem 2rem', borderBottom: '3px solid #C08A3E' }}>
               <div style={{ fontSize: '1.6rem', marginBottom: '1rem' }}>{p.icon}</div>
               <h4 style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '0.75rem' }}>{p.title}</h4>
@@ -766,13 +737,13 @@ const ProgramaNodos: React.FC = () => {
 
         {/* Timeline fases */}
         <div className="mc-fases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
-          {fases.map((f, i) => (
-            <div key={i} style={{ background: f.active ? '#000B29' : '#FFF', padding: '2.5rem 2rem', border: f.active ? 'none' : '1px solid rgba(0,0,0,0.06)', borderBottom: `3px solid ${f.active ? '#C08A3E' : 'rgba(192,138,62,0.3)'}`, position: 'relative' }}>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: f.active ? 'rgba(255,255,255,0.5)' : '#999', marginBottom: '8px' }}>{f.periodo}</div>
+          {c.fases.map((f, i) => (
+            <div key={i} style={{ background: i === 0 ? '#000B29' : '#FFF', padding: '2.5rem 2rem', border: i === 0 ? 'none' : '1px solid rgba(0,0,0,0.06)', borderBottom: `3px solid ${i === 0 ? '#C08A3E' : 'rgba(192,138,62,0.3)'}`, position: 'relative' }}>
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: i === 0 ? 'rgba(255,255,255,0.5)' : '#999', marginBottom: '8px' }}>{f.periodo}</div>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#C08A3E', lineHeight: 1, marginBottom: '6px' }}>{f.nodos}</div>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.95rem', fontWeight: 600, color: f.active ? '#FFF' : '#000B29', marginBottom: '6px' }}>{f.label}</div>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.8rem', color: f.active ? 'rgba(255,255,255,0.6)' : '#777' }}>{f.desc}</div>
-              {f.active && <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#C08A3E', color: '#000B29', fontSize: '0.6rem', fontWeight: 700, padding: '3px 8px', letterSpacing: '0.1em' }}>ACTUAL</div>}
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.95rem', fontWeight: 600, color: i === 0 ? '#FFF' : '#000B29', marginBottom: '6px' }}>{f.label}</div>
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.8rem', color: i === 0 ? 'rgba(255,255,255,0.6)' : '#777' }}>{f.desc}</div>
+              {i === 0 && <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#C08A3E', color: '#000B29', fontSize: '0.6rem', fontWeight: 700, padding: '3px 8px', letterSpacing: '0.1em' }}>ACTUAL</div>}
             </div>
           ))}
         </div>
@@ -780,19 +751,19 @@ const ProgramaNodos: React.FC = () => {
         {/* Criterios */}
         <div style={{ background: '#FFF', border: '1px solid rgba(0,0,0,0.06)', overflow: 'hidden' }}>
           <div style={{ background: '#000B29', padding: '1.2rem 2rem' }}>
-            <span style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>Criterios de Selección de Nodos</span>
+            <span style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>{c.criteriosTitle}</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '60px 1fr 1.5fr 1fr', background: 'rgba(0,0,0,0.02)', padding: '10px 2rem', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-            {['Tier', 'Población', 'Infraestructura', 'Contexto'].map((h, i) => (
+            {c.criteriosHeaders.map((h, i) => (
               <div key={i} style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#999', fontWeight: 700 }}>{h}</div>
             ))}
           </div>
-          {criterios.map((c, i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: '60px 1fr 1.5fr 1fr', padding: '1.2rem 2rem', borderBottom: i < criterios.length - 1 ? '1px solid rgba(0,0,0,0.04)' : 'none', alignItems: 'center' }}>
-              <div style={{ background: '#C08A3E', color: '#000B29', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontFamily: 'Georgia, serif', fontSize: '1rem' }}>{c.tier}</div>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#000B29' }}>{c.hab}</div>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#555' }}>{c.infra}</div>
-              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#555' }}>{c.corredor}</div>
+          {c.criterios.map((cr, i) => (
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: '60px 1fr 1.5fr 1fr', padding: '1.2rem 2rem', borderBottom: i < c.criterios.length - 1 ? '1px solid rgba(0,0,0,0.04)' : 'none', alignItems: 'center' }}>
+              <div style={{ background: '#C08A3E', color: '#000B29', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontFamily: 'Georgia, serif', fontSize: '1rem' }}>{cr.tier}</div>
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#000B29' }}>{cr.hab}</div>
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#555' }}>{cr.infra}</div>
+              <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', color: '#555' }}>{cr.corredor}</div>
             </div>
           ))}
         </div>
@@ -866,25 +837,27 @@ const MOAT_DATA = [
   { icon: '⚖️', sub: 'SAPI · Fideicomiso · Municipal', title: 'Know-how Regulatorio', desc: 'Expertise para navegar marcos normativos en 4+ estados. Cada nodo nuevo se estructura en meses, no en años como le tomaría a un competidor externo.', metric: '4 estados · múltiples fideicomisos ejecutados' },
 ];
 
-const UnfairAdvantage: React.FC = () => (
+const UnfairAdvantage: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const c = newContent[lang].moat;
+  return (
   <section style={{ padding: '7rem 4rem', background: '#000B29' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4rem', gap: '2rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
-            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>Ventaja Competitiva</span>
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{c.label}</span>
           </div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: 0, letterSpacing: '-0.02em', maxWidth: '480px', lineHeight: 1.2 }}>
-            Por qué nadie más<br />puede hacer esto
+            {c.title}
           </h2>
         </div>
         <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.8, maxWidth: '400px', margin: 0 }}>
-          El moat de Merca Capital no es capital — es acceso, confianza y know-how acumulado en 15 años de operación directa en mercados mayoristas.
+          {c.subtitle}
         </p>
       </div>
       <div className="mc-moat-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'rgba(255,255,255,0.06)' }}>
-        {MOAT_DATA.map((m, i) => (
+        {c.items.map((m, i) => (
           <div key={i} style={{ background: '#000B29', padding: '3rem 2.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
             <div style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>{m.icon}</div>
             <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>{m.sub}</div>
@@ -897,14 +870,13 @@ const UnfairAdvantage: React.FC = () => (
         ))}
       </div>
       <div style={{ marginTop: '1px', background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.2)', padding: '2rem 2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        <p style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontStyle: 'italic', margin: 0 }}>
-          "No somos un fondo que encontró un activo. Somos el activo que se convirtió en fondo."
-        </p>
-        <span style={{ color: '#C08A3E', fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em' }}>— Alejandro Gayosso Mar, Fundador</span>
+        <p style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontStyle: 'italic', margin: 0 }}>{c.quote}</p>
+        <span style={{ color: '#C08A3E', fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em' }}>{c.quoteBy}</span>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ── TEAM SECTION ─────────────────────────────────────────────
 const TEAM_DATA = [
@@ -913,7 +885,7 @@ const TEAM_DATA = [
   { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Experto en estructuración jurídica de activos inmobiliarios y transformación digital de infraestructura. Combina el rigor del derecho corporativo con visión tecnológica a través de Be One Systems, su firma de transformación digital.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Transformación Digital — Be One Systems'], roles: ['Estructuración jurídica y operativa de activos', 'Director — Be One Systems'], color: '#7A8B9A' },
 ];
 
-const TeamSection: React.FC = () => {
+const TeamSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const [expanded, setExpanded] = useState<number | null>(null);
   return (
     <section id="equipo" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
@@ -921,16 +893,16 @@ const TeamSection: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
-            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>Equipo Directivo</span>
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{newContent[lang].team.label}</span>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>El equipo detrás del capital</h2>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{newContent[lang].team.title}</h2>
           <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '550px', margin: '0 auto' }}>
-            45+ años de experiencia conjunta en infraestructura, capital privado y operación de mercados mayoristas en México.
+            {newContent[lang].team.subtitle}
           </p>
         </div>
         <div className="mc-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
-          {TEAM_DATA.map((member, i) => (
+          {newContent[lang].team.members.map((member, i) => (
             <div key={i} onClick={() => setExpanded(expanded === i ? null : i)}
               style={{ background: expanded === i ? '#F8F7F4' : '#FAFAFA', border: `1px solid ${expanded === i ? '#C08A3E' : 'rgba(0,0,0,0.06)'}`, borderLeft: `4px solid ${expanded === i ? '#C08A3E' : 'transparent'}`, padding: '2rem', cursor: 'pointer', transition: 'all 0.3s ease' }}
               onMouseEnter={(e) => { if (expanded !== i) { e.currentTarget.style.borderLeftColor = 'rgba(192,138,62,0.4)'; e.currentTarget.style.background = '#F8F7F4'; } }}
@@ -950,11 +922,11 @@ const TeamSection: React.FC = () => {
                   <p style={{ color: '#555', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem', fontFamily: 'system-ui, sans-serif' }}>{member.bio}</p>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                     <div>
-                      <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>Formación</div>
-                      {member.credentials.map((c, ci) => <div key={ci} style={{ color: '#000B29', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', padding: '4px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>· {c}</div>)}
+                      <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>{newContent[lang].team.formation}</div>
+                      {member.credentials.map((cr, ci) => <div key={ci} style={{ color: '#000B29', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', padding: '4px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>· {cr}</div>)}
                     </div>
                     <div>
-                      <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>Roles</div>
+                      <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>{newContent[lang].team.roles}</div>
                       {member.roles.map((r, ri) => <div key={ri} style={{ color: '#000B29', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', padding: '4px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>· {r}</div>)}
                     </div>
                   </div>
@@ -966,9 +938,9 @@ const TeamSection: React.FC = () => {
         <div style={{ marginTop: '2.5rem', background: '#000B29', padding: '2rem 2.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderLeft: '4px solid #C08A3E' }}>
           <div style={{ fontSize: '2rem' }}>🏛</div>
           <div>
-            <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '6px' }}>Afiliación Institucional</div>
+            <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '6px' }}>{newContent[lang].team.badge}</div>
             <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.6 }}>
-              Miembros activos de <strong style={{ color: '#C08A3E' }}>MERCAMÉXICO</strong> — Asociación Mexicana de Mercados y Centrales de Abasto, el organismo que agrupa las <strong style={{ color: '#C08A3E' }}>329 Centrales de Abasto</strong> del país.
+              {newContent[lang].team.badgeText}
             </p>
           </div>
         </div>
@@ -978,11 +950,12 @@ const TeamSection: React.FC = () => {
 };
 
 // ── GATED DECK ────────────────────────────────────────────────
-const GatedDeckSection: React.FC = () => {
+const GatedDeckSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const [step, setStep] = useState<'choice' | 'form' | 'success'>('choice');
   const [formStatus, setFormStatus] = useState<'idle' | 'sending'>('idle');
   const [submittedEmail, setSubmittedEmail] = useState('');
 
+  const dc = newContent[lang].deck;
   const inputStyle: React.CSSProperties = { width: '100%', padding: '1rem', border: 'none', borderBottom: '2px solid rgba(255,255,255,0.15)', background: 'transparent', fontSize: '1rem', outline: 'none', fontFamily: 'system-ui, sans-serif', color: '#FFF', boxSizing: 'border-box' };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -1006,22 +979,22 @@ const GatedDeckSection: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
-            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>Material de Inversión</span>
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{dc.label}</span>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>Acceda al material de inversión</h2>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', maxWidth: '480px', margin: '0 auto' }}>Dos niveles de acceso, calibrados según el perfil del inversor.</p>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{dc.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', maxWidth: '480px', margin: '0 auto' }}>{dc.subtitle}</p>
         </div>
 
         {step === 'choice' && (
           <div className="mc-deck-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             {/* TEASER */}
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', padding: '3rem 2.5rem' }}>
-              <span style={{ background: 'rgba(192,138,62,0.15)', color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.1em', padding: '4px 10px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>Libre · Sin formulario</span>
-              <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#FFF', margin: '1.5rem 0 0.75rem' }}>Investment Teaser</h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: '0 0 1.5rem' }}>8 slides. Visión general de la tesis, track record y equipo. Acceso inmediato.</p>
+              <span style={{ background: 'rgba(192,138,62,0.15)', color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.1em', padding: '4px 10px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>{dc.teaserBadge}</span>
+              <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#FFF', margin: '1.5rem 0 0.75rem' }}>{dc.teaserTitle}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: '0 0 1.5rem' }}>{dc.teaserDesc}</p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem' }}>
-                {['Tesis de inversión', 'Track record de activos', 'Métricas clave del fondo', 'Perfil del equipo directivo'].map((item, i) => (
+                {dc.teaserItems.map((item, i) => (
                   <li key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: '10px' }}>
                     <span style={{ color: '#C08A3E' }}>✓</span>{item}
                   </li>
@@ -1033,18 +1006,18 @@ const GatedDeckSection: React.FC = () => {
                 style={{ display: 'block', textAlign: 'center', background: 'transparent', border: '1px solid rgba(192,138,62,0.5)', color: '#C08A3E', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', textTransform: 'uppercase' }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,138,62,0.1)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
-                Descargar Teaser →
+                {dc.teaserBtn}
               </a>
               
             </div>
             {/* DECK COMPLETO */}
             <div style={{ background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.3)', padding: '3rem 2.5rem', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 0, right: 0, background: '#C08A3E', color: '#000B29', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', padding: '6px 14px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>INSTITUCIONAL</div>
-              <span style={{ background: 'rgba(192,138,62,0.15)', color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.1em', padding: '4px 10px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginTop: '1rem', display: 'inline-block' }}>Acceso calificado</span>
-              <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#FFF', margin: '1.5rem 0 0.75rem' }}>Deck Completo + Modelo</h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: '0 0 1.5rem' }}>Deck ejecutivo completo + estructura financiera + proyecciones por activo.</p>
+              <div style={{ position: 'absolute', top: 0, right: 0, background: '#C08A3E', color: '#000B29', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', padding: '6px 14px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{dc.featuredBadge}</div>
+              <span style={{ background: 'rgba(192,138,62,0.15)', color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.1em', padding: '4px 10px', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginTop: '1rem', display: 'inline-block' }}>{dc.accessBadge}</span>
+              <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#FFF', margin: '1.5rem 0 0.75rem' }}>{dc.deckTitle}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: '0 0 1.5rem' }}>{dc.deckDesc}</p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem' }}>
-                {['Modelo financiero detallado', 'Proyecciones NOI por activo', 'Estructura jurídica SAPI/Fideicomiso', 'Pipeline completo de nodos', 'Términos de inversión (40/30/30)', 'Due diligence package'].map((item, i) => (
+                {dc.deckItems.map((item, i) => (
                   <li key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', padding: '8px 0', borderBottom: '1px solid rgba(192,138,62,0.1)', display: 'flex', gap: '10px' }}>
                     <span style={{ color: '#C08A3E' }}>✓</span>{item}
                   </li>
@@ -1054,7 +1027,7 @@ const GatedDeckSection: React.FC = () => {
                 style={{ width: '100%', background: '#C08A3E', border: 'none', color: '#000B29', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'system-ui, sans-serif' }}
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}>
-                Solicitar Acceso →
+                {dc.deckBtn}
               </button>
             </div>
           </div>
@@ -1062,51 +1035,51 @@ const GatedDeckSection: React.FC = () => {
 
         {step === 'form' && (
           <div style={{ background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.3)', padding: '4rem' }}>
-            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#FFF', margin: '0 0 0.5rem' }}>Perfil del Inversor</h3>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 2.5rem' }}>Recibirá el material por email en menos de 24 horas hábiles.</p>
+            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#FFF', margin: '0 0 0.5rem' }}>{dc.formTitle}</h3>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 2.5rem' }}>{dc.formSubtitle}</p>
             <form onSubmit={handleSubmit}>
               <input type="hidden" name="_type" value="deck-request" />
               <div className="mc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>Nombre completo</label>
-                  <input name="name" type="text" required placeholder="Juan Rodríguez" style={inputStyle}
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{dc.fields.name}</label>
+                  <input name="name" type="text" required style={inputStyle}
                     onFocus={(e) => { e.target.style.borderBottomColor = '#C08A3E'; }}
                     onBlur={(e) => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.15)'; }} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>Email corporativo</label>
-                  <input name="email" type="email" required placeholder="j.rodriguez@familyoffice.com" style={inputStyle}
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{dc.fields.email}</label>
+                  <input name="email" type="email" required style={inputStyle}
                     onFocus={(e) => { e.target.style.borderBottomColor = '#C08A3E'; }}
                     onBlur={(e) => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.15)'; }} />
                 </div>
                 <div style={{ gridColumn: 'span 2' }}>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>Firma / Family Office</label>
-                  <input name="company" type="text" required placeholder="Rodríguez Family Office" style={inputStyle}
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{dc.fields.company}</label>
+                  <input name="company" type="text" required style={inputStyle}
                     onFocus={(e) => { e.target.style.borderBottomColor = '#C08A3E'; }}
                     onBlur={(e) => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.15)'; }} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>Tipo de inversor</label>
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{dc.fields.type}</label>
                   <select name="investor_type" style={{ ...inputStyle, cursor: 'pointer' }}>
-                    <option value="" style={{ background: '#000B29' }}>Seleccionar</option>
-                    {['Family Office', 'Fondo de Fondos', 'HNWI / Alto Patrimonio', 'Institucional / Banco', 'Corporativo'].map(o => <option key={o} value={o} style={{ background: '#000B29' }}>{o}</option>)}
+                    <option value="" style={{ background: '#000B29' }}>—</option>
+                    {dc.typeOptions.map(o => <option key={o} value={o} style={{ background: '#000B29' }}>{o}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>AUM aproximado (USD)</label>
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{dc.fields.aum}</label>
                   <select name="aum" style={{ ...inputStyle, cursor: 'pointer' }}>
-                    <option value="" style={{ background: '#000B29' }}>Seleccionar</option>
-                    {['< $10M', '$10M – $50M', '$50M – $200M', '$200M – $1B', '> $1B'].map(o => <option key={o} value={o} style={{ background: '#000B29' }}>{o}</option>)}
+                    <option value="" style={{ background: '#000B29' }}>—</option>
+                    {dc.aumOptions.map(o => <option key={o} value={o} style={{ background: '#000B29' }}>{o}</option>)}
                   </select>
                 </div>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 2rem', lineHeight: 1.6 }}>
-                Su información es confidencial y se usa exclusivamente para clasificar su perfil de inversión. No la compartimos con terceros.
+                {dc.privacy}
               </p>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <button type="button" onClick={() => setStep('choice')} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)', padding: '1rem 1.5rem', fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', cursor: 'pointer' }}>← Volver</button>
+                <button type="button" onClick={() => setStep('choice')} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)', padding: '1rem 1.5rem', fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', cursor: 'pointer' }}>{dc.back}</button>
                 <button type="submit" disabled={formStatus === 'sending'} style={{ flex: 1, background: '#C08A3E', border: 'none', color: '#000B29', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'system-ui, sans-serif' }}>
-                  {formStatus === 'sending' ? 'Enviando...' : 'Solicitar Deck Completo →'}
+                  {formStatus === 'sending' ? dc.sending : dc.submit}
                 </button>
               </div>
             </form>
@@ -1116,12 +1089,12 @@ const GatedDeckSection: React.FC = () => {
         {step === 'success' && (
           <div style={{ textAlign: 'center', padding: '5rem 3rem', border: '1px solid rgba(192,138,62,0.3)', background: 'rgba(192,138,62,0.04)' }}>
             <div style={{ color: '#C08A3E', fontSize: '3rem', marginBottom: '1.5rem' }}>✓</div>
-            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#C08A3E', margin: '0 0 1rem' }}>Solicitud recibida</h3>
+            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#C08A3E', margin: '0 0 1rem' }}>{dc.successTitle}</h3>
             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 0.5rem' }}>
-              Recibirá el deck ejecutivo en <strong style={{ color: '#C08A3E' }}>{submittedEmail}</strong>
+              {dc.successLine1} <strong style={{ color: '#C08A3E' }}>{submittedEmail}</strong>
             </p>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 2.5rem' }}>
-              en menos de 24 horas hábiles. Un socio de Merca Capital revisará su perfil personalmente.
+              {dc.successLine2}
             </p>
             <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct" target="_blank" rel="noopener noreferrer"
               style={{ display: 'inline-block', background: '#C08A3E', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>
@@ -1135,7 +1108,9 @@ const GatedDeckSection: React.FC = () => {
 };
 
 // ── CONTACT ──────────────────────────────────────────────────
-const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
+const Contact: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => {
+  const calBtn = lang === 'es' ? 'Agendar Llamada con Fundador →' : 'Schedule Call with Founder →';
+  const confirmBtn = lang === 'es' ? 'Confirmado: Agendar Llamada de Tesis →' : 'Confirmed: Schedule Thesis Call →';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -1201,7 +1176,7 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
                 <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
                   target="_blank" rel="noopener noreferrer"
                   style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.2rem 2rem', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.1em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '1.25rem', boxShadow: '0 4px 20px rgba(192,138,62,0.3)' }}>
-                  Confirmado: Agendar Llamada de Tesis →
+                  {confirmBtn}
                 </a>
                 <button onClick={() => setStatus('idle')} style={{ background: 'transparent', border: 'none', color: '#999', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
                   {t.contact.form.sendAnother}
@@ -1244,7 +1219,9 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
 };
 
 // ── FOOTER ───────────────────────────────────────────────────
-const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => (
+const Footer: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => {
+  const calBtn = lang === 'es' ? 'Agendar Llamada con Fundador →' : 'Schedule Call with Founder →';
+  return (
   <footer style={{ padding: '4rem 4rem 2.5rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.2)' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem' }}>
       <div style={{ position: 'relative', height: '55px', width: '240px' }}>
@@ -1270,11 +1247,11 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => (
         </div>
       </div>
 
-      {/* Mobile: CTA prominente */}
+      {/* CTA prominente */}
       <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
         target="_blank" rel="noopener noreferrer"
         style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', textAlign: 'center' }}>
-        Agendar Llamada con Fundador →
+        {calBtn}
       </a>
 
       <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
@@ -1286,7 +1263,180 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => (
       </div>
     </div>
   </footer>
-);
+  );
+};
+
+// ============================================
+// DICCIONARIO SECCIONES NUEVAS (bilingüe)
+// ============================================
+const newContent = {
+  es: {
+    programa: {
+      label: 'Programa de Expansión',
+      title: '100 Nodos en 10 Años',
+      subtitle: 'No construimos naves — operamos una red de infraestructura optimizada por datos. Cada nuevo nodo hereda el playbook operativo del anterior, reduciendo el tiempo de estabilización y mejorando el retorno sobre capital desplegado.',
+      pilares: [
+        { icon: '📋', title: 'Standardized Operational Playbooks', desc: 'Cada nodo se opera con manuales estandarizados de gestión comercial, cobranza y mantenimiento. El fundador no necesita estar en cada sitio.' },
+        { icon: '💻', title: 'Proprietary Logistics Software', desc: 'Sistema propietario de gestión de ocupación, flujos NOI y comportamiento de locatarios. Inteligencia operativa que mejora con cada nodo incorporado.' },
+        { icon: '🏛', title: 'Scalable Governance Model', desc: 'Estructura SAPI/Fideicomiso replicable en cualquier estado de México. Cada nuevo activo sigue el mismo blueprint jurídico-operativo.' },
+      ],
+      fases: [
+        { periodo: '2024–2026', label: 'Fase I', nodos: '4 nodos', desc: 'Proof of concept — modelo validado' },
+        { periodo: '2026–2028', label: 'Fase II', nodos: '15 nodos', desc: 'Rollout playbook — Corredor Norte + Bajío' },
+        { periodo: '2028–2031', label: 'Fase III', nodos: '35 nodos', desc: 'Expansión nacional — software escalado' },
+        { periodo: '2031–2035', label: 'Fase IV', nodos: '100 nodos', desc: 'Red operada por datos — liderazgo de mercado' },
+      ],
+      criteriosTitle: 'Criterios de Selección de Nodos',
+      criteriosHeaders: ['Tier', 'Población', 'Infraestructura', 'Contexto'],
+      criterios: [
+        { tier: 'A', hab: '+500k hab.', infra: 'Central de Abasto establecida, pre-2000', corredor: 'Corredor nacional' },
+        { tier: 'B', hab: '200–500k hab.', infra: 'Mercado regional consolidado', corredor: 'Corredor logístico' },
+        { tier: 'C', hab: '<200k hab.', infra: 'Mercado emergente o en construcción', corredor: 'Frontera / agroindustrial' },
+      ],
+    },
+    moat: {
+      label: 'Ventaja Competitiva',
+      title: 'Por qué nadie más puede hacer esto',
+      subtitle: 'El moat de Merca Capital no es capital — es acceso, confianza y know-how acumulado en 15 años de operación directa en mercados mayoristas.',
+      items: [
+        { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto del país a través de la máxima asociación del sector. Deal flow que ningún fondo externo puede originar ni comprar.', metric: '329 mercados · 1 acceso exclusivo' },
+        { icon: '🤝', sub: '15 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 15 años. No se compra. No se replica. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
+        { icon: '📊', sub: 'Data que nadie más tiene', title: 'Inteligencia Propietaria', desc: 'Datos de ocupación, NOI y comportamiento comercial de 15 años de operación directa. El input más valioso para underwriting de nuevos activos.', metric: '15 años de data operativa propia' },
+        { icon: '⚖️', sub: 'SAPI · Fideicomiso · Municipal', title: 'Know-how Regulatorio', desc: 'Expertise para navegar marcos normativos en 4+ estados. Cada nodo nuevo se estructura en meses, no en años como le tomaría a un competidor externo.', metric: '4 estados · múltiples fideicomisos ejecutados' },
+      ],
+      quote: '"No somos un fondo que encontró un activo. Somos el activo que se convirtió en fondo."',
+      quoteBy: '— Alejandro Gayosso Mar, Fundador',
+    },
+    team: {
+      label: 'Equipo Directivo',
+      title: 'El equipo detrás del capital',
+      subtitle: '45+ años de experiencia conjunta en infraestructura, capital privado y operación de mercados mayoristas en México.',
+      badge: 'Afiliación Institucional',
+      badgeText: 'Miembros activos de MERCAMÉXICO — Asociación Mexicana de Mercados y Centrales de Abasto, el organismo que agrupa las 329 Centrales de Abasto del país.',
+      members: [
+        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
+        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos.', credentials: ['Banca Corporativa Internacional', 'Base en Suiza — Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Experto en estructuración jurídica e inmobiliaria e impulsor de transformación digital en infraestructura a través de Be One Systems.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Transformación Digital'], roles: ['Estructuración jurídica de activos', 'Director — Be One Systems'], color: '#7A8B9A' },
+      ],
+      expand: 'Ver perfil',
+      collapse: 'Cerrar',
+      formation: 'Formación',
+      roles: 'Roles',
+    },
+    deck: {
+      label: 'Material de Inversión',
+      title: 'Acceda al material de inversión',
+      subtitle: 'Dos niveles de acceso, calibrados según el perfil del inversor.',
+      teaserBadge: 'Libre · Sin formulario',
+      teaserTitle: 'Investment Teaser',
+      teaserDesc: '8 slides. Visión general de la tesis, track record y equipo. Acceso inmediato.',
+      teaserItems: ['Tesis de inversión', 'Track record de activos', 'Métricas clave del fondo', 'Perfil del equipo directivo'],
+      teaserBtn: 'Descargar Teaser →',
+      featuredBadge: 'INSTITUCIONAL',
+      accessBadge: 'Acceso calificado',
+      deckTitle: 'Deck Completo + Modelo',
+      deckDesc: 'Deck ejecutivo completo + estructura financiera + proyecciones por activo.',
+      deckItems: ['Modelo financiero detallado', 'Proyecciones NOI por activo', 'Estructura jurídica SAPI/Fideicomiso', 'Pipeline completo de nodos', 'Términos de inversión (40/30/30)', 'Due diligence package'],
+      deckBtn: 'Solicitar Acceso →',
+      formTitle: 'Perfil del Inversor',
+      formSubtitle: 'Recibirá el material por email en menos de 24 horas hábiles.',
+      fields: { name: 'Nombre completo', email: 'Email corporativo', company: 'Firma / Family Office', type: 'Tipo de inversor', aum: 'AUM aproximado (USD)' },
+      typeOptions: ['Family Office', 'Fondo de Fondos', 'HNWI / Alto Patrimonio', 'Institucional / Banco', 'Corporativo'],
+      aumOptions: ['< $10M', '$10M – $50M', '$50M – $200M', '$200M – $1B', '> $1B'],
+      privacy: 'Su información es confidencial y se usa exclusivamente para clasificar su perfil de inversión.',
+      back: '← Volver',
+      submit: 'Solicitar Deck Completo →',
+      sending: 'Enviando...',
+      successTitle: 'Solicitud recibida',
+      successLine1: 'Recibirá el deck ejecutivo en',
+      successLine2: 'en menos de 24 horas hábiles. Un socio de Merca Capital revisará su perfil personalmente.',
+      calendarBtn: 'Agendar Llamada con Fundador →',
+    },
+  },
+  en: {
+    programa: {
+      label: 'Expansion Program',
+      title: '100 Nodes in 10 Years',
+      subtitle: 'We don\'t build warehouses — we operate a data-optimized infrastructure network. Each new node inherits the operational playbook from the previous one, reducing stabilization time and improving return on deployed capital.',
+      pilares: [
+        { icon: '📋', title: 'Standardized Operational Playbooks', desc: 'Each node is operated using standardized commercial management, collections, and maintenance manuals. The founder doesn\'t need to be at every site.' },
+        { icon: '💻', title: 'Proprietary Logistics Software', desc: 'Proprietary system for occupancy management, NOI flows, and tenant behavior. Operational intelligence that improves with every node added to the network.' },
+        { icon: '🏛', title: 'Scalable Governance Model', desc: 'SAPI/Trust structure replicable across any Mexican state. Every new asset follows the same legal-operational blueprint.' },
+      ],
+      fases: [
+        { periodo: '2024–2026', label: 'Phase I', nodos: '4 nodes', desc: 'Proof of concept — model validated' },
+        { periodo: '2026–2028', label: 'Phase II', nodos: '15 nodes', desc: 'Playbook rollout — North + Bajío corridor' },
+        { periodo: '2028–2031', label: 'Phase III', nodos: '35 nodes', desc: 'National expansion — software at scale' },
+        { periodo: '2031–2035', label: 'Phase IV', nodos: '100 nodes', desc: 'Data-operated network — market leadership' },
+      ],
+      criteriosTitle: 'Node Selection Criteria',
+      criteriosHeaders: ['Tier', 'Population', 'Infrastructure', 'Context'],
+      criterios: [
+        { tier: 'A', hab: '+500k pop.', infra: 'Established wholesale market, pre-2000', corredor: 'National corridor' },
+        { tier: 'B', hab: '200–500k pop.', infra: 'Consolidated regional market', corredor: 'Logistics corridor' },
+        { tier: 'C', hab: '<200k pop.', infra: 'Emerging or under-construction market', corredor: 'Border / agro-industrial' },
+      ],
+    },
+    moat: {
+      label: 'Competitive Advantage',
+      title: 'Why no one else can do this',
+      subtitle: 'Merca Capital\'s moat is not capital — it\'s access, trust, and know-how accumulated over 15 years of direct operations in wholesale markets.',
+      items: [
+        { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Unique Guild Position', desc: 'Institutional access to Mexico\'s 329 Wholesale Food Markets through the sector\'s top association. Deal flow no external fund can originate or buy.', metric: '329 markets · 1 exclusive access' },
+        { icon: '🤝', sub: '15 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 15 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
+        { icon: '📊', sub: 'Proprietary data', title: 'Operational Intelligence', desc: 'Occupancy, NOI, and commercial behavior data from 15 years of direct operations. The most valuable input for underwriting new assets.', metric: '15 years of proprietary operational data' },
+        { icon: '⚖️', sub: 'SAPI · Trust · Municipal', title: 'Regulatory Know-how', desc: 'Expertise navigating regulatory frameworks across 4+ states. Each new node is structured in months, not years as it would take an external competitor.', metric: '4 states · multiple executed trusts' },
+      ],
+      quote: '"We are not a fund that found an asset. We are the asset that became a fund."',
+      quoteBy: '— Alejandro Gayosso Mar, Founder',
+    },
+    team: {
+      label: 'Leadership Team',
+      title: 'The team behind the capital',
+      subtitle: '45+ years of combined experience in infrastructure, private capital, and wholesale market operations in Mexico.',
+      badge: 'Institutional Affiliation',
+      badgeText: 'Active members of MERCAMÉXICO — Mexican Association of Markets and Wholesale Food Centers, the organization representing all 329 Wholesale Markets in the country.',
+      members: [
+        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Founder & Managing Partner', bio: 'Architect of northern Mexico\'s wholesale distribution infrastructure. 15+ years building and operating the most extensive wholesale market network in the Torreón–Monterrey corridor.', credentials: ['Systems Eng. — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Mexican Markets Association)', 'Founder — Grupo Mercahorro', 'Co-founder — Altavela Group'], color: '#C08A3E' },
+        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Background in international corporate banking based in Switzerland. Specialist in private capital structuring and access to European institutional investors.', credentials: ['International Corporate Banking', 'Switzerland-based — Private Capital'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Expert in legal and real estate structuring and digital transformation driver through Be One Systems.', credentials: ['Corporate Law — Trusts & SAPI', 'Digital Transformation'], roles: ['Legal & operational asset structuring', 'Director — Be One Systems'], color: '#7A8B9A' },
+      ],
+      expand: 'View profile',
+      collapse: 'Close',
+      formation: 'Education',
+      roles: 'Roles',
+    },
+    deck: {
+      label: 'Investment Materials',
+      title: 'Access investment materials',
+      subtitle: 'Two access levels, calibrated to the investor\'s profile.',
+      teaserBadge: 'Free · No form required',
+      teaserTitle: 'Investment Teaser',
+      teaserDesc: '8 slides. Overview of thesis, track record, and team. Immediate access.',
+      teaserItems: ['Investment thesis', 'Asset track record', 'Key fund metrics', 'Leadership team profile'],
+      teaserBtn: 'Download Teaser →',
+      featuredBadge: 'INSTITUTIONAL',
+      accessBadge: 'Qualified access',
+      deckTitle: 'Full Deck + Model',
+      deckDesc: 'Full executive deck + financial structure + projections per asset.',
+      deckItems: ['Detailed financial model', 'NOI projections per asset', 'Legal structure SAPI/Trust', 'Full node pipeline', 'Investment terms (40/30/30)', 'Due diligence package'],
+      deckBtn: 'Request Access →',
+      formTitle: 'Investor Profile',
+      formSubtitle: 'You will receive the material by email within 24 business hours.',
+      fields: { name: 'Full name', email: 'Corporate email', company: 'Firm / Family Office', type: 'Investor type', aum: 'Approximate AUM (USD)' },
+      typeOptions: ['Family Office', 'Fund of Funds', 'HNWI / High Net Worth', 'Institutional / Bank', 'Corporate'],
+      aumOptions: ['< $10M', '$10M – $50M', '$50M – $200M', '$200M – $1B', '> $1B'],
+      privacy: 'Your information is confidential and used solely to classify your investment profile.',
+      back: '← Back',
+      submit: 'Request Full Deck →',
+      sending: 'Sending...',
+      successTitle: 'Request received',
+      successLine1: 'You will receive the executive deck at',
+      successLine2: 'within 24 business hours. A Merca Capital partner will personally review your profile.',
+      calendarBtn: 'Schedule Thesis Call with Founder →',
+    },
+  },
+};
 
 // ============================================
 // 5. RENDER PRINCIPAL
@@ -1375,14 +1525,14 @@ export default function MercaCapitalPage() {
       <Stats t={t} />
       <InsightSection t={t} />
       <Portfolio t={t} />
-      <ProgramaNodos />
+      <ProgramaNodos lang={lang} />
       <Thesis t={t} />
       <Model t={t} />
-      <UnfairAdvantage />
-      <TeamSection />
-      <GatedDeckSection />
-      <Contact t={t} />
-      <Footer t={t} />
+      <UnfairAdvantage lang={lang} />
+      <TeamSection lang={lang} />
+      <GatedDeckSection lang={lang} />
+      <Contact t={t} lang={lang} />
+      <Footer t={t} lang={lang} />
     </main>
   );
 }
