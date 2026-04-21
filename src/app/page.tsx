@@ -232,7 +232,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Tesis de Inversión',
       subtitle: '¿Por qué infraestructura de abasto?',
       antiCyclical: {
-        title: 'Asset Class Anticíclico',
+        title: 'Strategic Digital Infrastructure — Asset Class Anticíclico',
         description: 'La infraestructura alimentaria es el único asset class inmobiliario con demanda verdaderamente inelástica. La gente come todos los días — sin importar recesiones, elecciones o crisis.',
         points: [
           'Demanda inelástica: alimentación es gasto no discrecional',
@@ -361,7 +361,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Investment Thesis',
       subtitle: 'Why food infrastructure?',
       antiCyclical: {
-        title: 'Anti-Cyclical Asset Class',
+        title: 'Strategic Digital Infrastructure — Anti-Cyclical Asset Class',
         description: 'Food infrastructure is the only real estate asset class with truly inelastic demand. People eat every day — regardless of recessions, elections or crises.',
         points: [
           'Inelastic demand: food is non-discretionary spending',
@@ -773,7 +773,7 @@ const ProgramaNodos: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 };
 
 // ── THESIS ───────────────────────────────────────────────────
-const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
+const Thesis: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => (
   <section id="thesis" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -782,7 +782,12 @@ const Thesis: React.FC<{ t: ContentStructure }> = ({ t }) => (
       </div>
       <div style={{ background: 'rgba(192,138,62,0.08)', borderLeft: '4px solid #C08A3E', padding: '3rem', marginBottom: '4rem' }}>
         <h3 style={{ color: '#C08A3E', fontSize: '1.4rem', fontWeight: 600, marginBottom: '1.5rem', fontFamily: 'Georgia, serif' }}>{t.thesis.antiCyclical.title}</h3>
-        <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2rem' }}>{t.thesis.antiCyclical.description}</p>
+        <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>{t.thesis.antiCyclical.description}</p>
+        <p style={{ color: '#C08A3E', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontStyle: 'italic', borderLeft: '3px solid rgba(192,138,62,0.4)', paddingLeft: '1.25rem' }}>
+          {lang === 'es'
+            ? 'Nuestros nodos no solo mueven alimentos; procesan datos y servicios financieros en el Edge, capturando el valor digital de la cadena de suministro.'
+            : 'Our nodes don\'t just move food — they process data and financial services at the Edge, capturing the digital value of the supply chain.'}
+        </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
           {t.thesis.antiCyclical.points.map((point, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
@@ -834,7 +839,7 @@ const MOAT_DATA = [
   { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto del país a través de la máxima asociación del sector. Deal flow que ningún fondo externo puede originar ni comprar.', metric: '329 mercados · 1 acceso exclusivo' },
   { icon: '🤝', sub: '15 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 15 años. No se compra. No se replica. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
   { icon: '📊', sub: 'Data que nadie más tiene', title: 'Inteligencia Propietaria', desc: 'Datos de ocupación, NOI y comportamiento comercial de 15 años de operación directa. El input más valioso para underwriting de nuevos activos.', metric: '15 años de data operativa propia' },
-  { icon: '⚖️', sub: 'SAPI · Fideicomiso · Municipal', title: 'Know-how Regulatorio', desc: 'Expertise para navegar marcos normativos en 4+ estados. Cada nodo nuevo se estructura en meses, no en años como le tomaría a un competidor externo.', metric: '4 estados · múltiples fideicomisos ejecutados' },
+  { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro fondo de capital privado puede replicar: Edge Data Centers, procesamiento financiero en el nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
 ];
 
 const UnfairAdvantage: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
@@ -882,7 +887,7 @@ const UnfairAdvantage: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 const TEAM_DATA = [
   { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey. Impulsor del modelo de consolidación institucional en Centrales de Abasto.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
   { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos para proyectos de infraestructura en mercados emergentes.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
-  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Experto en estructuración jurídica de activos inmobiliarios y transformación digital de infraestructura. Combina el rigor del derecho corporativo con visión tecnológica a través de Be One Systems, su firma de transformación digital.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Transformación Digital — Be One Systems'], roles: ['Estructuración jurídica y operativa de activos', 'Director — Be One Systems'], color: '#7A8B9A' },
+  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y arquitectura de ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red de infraestructura inteligente, integrando Edge Data Centers, activos de datos y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
 ];
 
 const TeamSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
@@ -1302,7 +1307,7 @@ const newContent = {
         { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto del país a través de la máxima asociación del sector. Deal flow que ningún fondo externo puede originar ni comprar.', metric: '329 mercados · 1 acceso exclusivo' },
         { icon: '🤝', sub: '15 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 15 años. No se compra. No se replica. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
         { icon: '📊', sub: 'Data que nadie más tiene', title: 'Inteligencia Propietaria', desc: 'Datos de ocupación, NOI y comportamiento comercial de 15 años de operación directa. El input más valioso para underwriting de nuevos activos.', metric: '15 años de data operativa propia' },
-        { icon: '⚖️', sub: 'SAPI · Fideicomiso · Municipal', title: 'Know-how Regulatorio', desc: 'Expertise para navegar marcos normativos en 4+ estados. Cada nodo nuevo se estructura en meses, no en años como le tomaría a un competidor externo.', metric: '4 estados · múltiples fideicomisos ejecutados' },
+        { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro fondo de capital privado puede replicar: Edge Data Centers, procesamiento financiero en el nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
       ],
       quote: '"No somos un fondo que encontró un activo. Somos el activo que se convirtió en fondo."',
       quoteBy: '— Alejandro Gayosso Mar, Fundador',
@@ -1316,7 +1321,7 @@ const newContent = {
       members: [
         { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
         { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos.', credentials: ['Banca Corporativa Internacional', 'Base en Suiza — Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
-        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Experto en estructuración jurídica e inmobiliaria e impulsor de transformación digital en infraestructura a través de Be One Systems.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Transformación Digital'], roles: ['Estructuración jurídica de activos', 'Director — Be One Systems'], color: '#7A8B9A' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y arquitectura de ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red de infraestructura inteligente, integrando Edge Data Centers, activos de datos y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
       ],
       expand: 'Ver perfil',
       collapse: 'Cerrar',
@@ -1385,7 +1390,7 @@ const newContent = {
         { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Unique Guild Position', desc: 'Institutional access to Mexico\'s 329 Wholesale Food Markets through the sector\'s top association. Deal flow no external fund can originate or buy.', metric: '329 markets · 1 exclusive access' },
         { icon: '🤝', sub: '15 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 15 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
         { icon: '📊', sub: 'Proprietary data', title: 'Operational Intelligence', desc: 'Occupancy, NOI, and commercial behavior data from 15 years of direct operations. The most valuable input for underwriting new assets.', metric: '15 years of proprietary operational data' },
-        { icon: '⚖️', sub: 'SAPI · Trust · Municipal', title: 'Regulatory Know-how', desc: 'Expertise navigating regulatory frameworks across 4+ states. Each new node is structured in months, not years as it would take an external competitor.', metric: '4 states · multiple executed trusts' },
+        { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Proprietary Technology Layer', desc: 'The Mercahorro network serves as the foundation for a technology layer no other private equity fund can replicate: Edge Data Centers, node-level financial processing, and food supply chain data monetization.', metric: '100 nodes · 1 proprietary data network' },
       ],
       quote: '"We are not a fund that found an asset. We are the asset that became a fund."',
       quoteBy: '— Alejandro Gayosso Mar, Founder',
@@ -1399,7 +1404,7 @@ const newContent = {
       members: [
         { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Founder & Managing Partner', bio: 'Architect of northern Mexico\'s wholesale distribution infrastructure. 15+ years building and operating the most extensive wholesale market network in the Torreón–Monterrey corridor.', credentials: ['Systems Eng. — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Mexican Markets Association)', 'Founder — Grupo Mercahorro', 'Co-founder — Altavela Group'], color: '#C08A3E' },
         { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Background in international corporate banking based in Switzerland. Specialist in private capital structuring and access to European institutional investors.', credentials: ['International Corporate Banking', 'Switzerland-based — Private Capital'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
-        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Legal, Structuring & Digital', bio: 'Expert in legal and real estate structuring and digital transformation driver through Be One Systems.', credentials: ['Corporate Law — Trusts & SAPI', 'Digital Transformation'], roles: ['Legal & operational asset structuring', 'Director — Be One Systems'], color: '#7A8B9A' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Leader in digital transformation and technology ecosystem architecture. Spearheads the evolution of physical assets into an intelligent infrastructure network, integrating Edge Data Centers, data assets, and financial aggregation solutions at each network node.', credentials: ['Corporate Law — Trusts & SAPI', 'Digital Ecosystem Architecture — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
       ],
       expand: 'View profile',
       collapse: 'Close',
@@ -1526,7 +1531,7 @@ export default function MercaCapitalPage() {
       <InsightSection t={t} />
       <Portfolio t={t} />
       <ProgramaNodos lang={lang} />
-      <Thesis t={t} />
+      <Thesis t={t} lang={lang} />
       <Model t={t} />
       <UnfairAdvantage lang={lang} />
       <TeamSection lang={lang} />
