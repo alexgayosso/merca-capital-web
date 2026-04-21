@@ -711,15 +711,32 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
 // ── PROGRAMA 100 NODOS ────────────────────────────────────────
 const ProgramaNodos: React.FC = () => {
   const fases = [
-    { periodo: '2024–2026', label: 'Fase I', nodos: '4 nodos', desc: 'Proof of concept consolidado', active: true },
-    { periodo: '2026–2028', label: 'Fase II', nodos: '15 nodos', desc: 'Corredor Norte + Bajío', active: false },
-    { periodo: '2028–2031', label: 'Fase III', nodos: '35 nodos', desc: 'Expansión nacional', active: false },
-    { periodo: '2031–2035', label: 'Fase IV', nodos: '100 nodos', desc: 'Liderazgo de mercado', active: false },
+    { periodo: '2024–2026', label: 'Fase I', nodos: '4 nodos', desc: 'Proof of concept — modelo validado', active: true },
+    { periodo: '2026–2028', label: 'Fase II', nodos: '15 nodos', desc: 'Rollout playbook — Corredor Norte + Bajío', active: false },
+    { periodo: '2028–2031', label: 'Fase III', nodos: '35 nodos', desc: 'Expansión nacional — software escalado', active: false },
+    { periodo: '2031–2035', label: 'Fase IV', nodos: '100 nodos', desc: 'Red operada por datos — liderazgo de mercado', active: false },
   ];
   const criterios = [
     { tier: 'A', hab: '+500k hab.', infra: 'Central de Abasto establecida, pre-2000', corredor: 'Corredor nacional' },
     { tier: 'B', hab: '200–500k hab.', infra: 'Mercado regional consolidado', corredor: 'Corredor logístico' },
     { tier: 'C', hab: '<200k hab.', infra: 'Mercado emergente o en construcción', corredor: 'Frontera / agroindustrial' },
+  ];
+  const pilares = [
+    {
+      icon: '📋',
+      title: 'Standardized Operational Playbooks',
+      desc: 'Cada nodo se opera con manuales estandarizados de gestión comercial, cobranza y mantenimiento. El fundador no necesita estar en cada sitio.',
+    },
+    {
+      icon: '💻',
+      title: 'Proprietary Logistics Software',
+      desc: 'Sistema propietario de gestión de ocupación, flujos NOI y comportamiento de locatarios. Inteligencia operativa que mejora con cada nodo incorporado.',
+    },
+    {
+      icon: '🏛',
+      title: 'Scalable Governance Model',
+      desc: 'Estructura SAPI/Fideicomiso replicable en cualquier estado de México. Cada nuevo activo sigue el mismo blueprint jurídico-operativo.',
+    },
   ];
   return (
     <section style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
@@ -731,11 +748,24 @@ const ProgramaNodos: React.FC = () => {
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>100 Nodos en 10 Años</h2>
-          <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '560px', margin: '0 auto' }}>
-            Expansión disciplinada, por fases, con criterios de selección institucionales y capital parcialmente reciclable entre nodos.
+          <p style={{ color: '#666', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
+            No construimos naves — operamos una red de infraestructura optimizada por datos. Cada nuevo nodo hereda el playbook operativo del anterior, reduciendo el tiempo de estabilización y mejorando el retorno sobre capital desplegado.
           </p>
         </div>
-        <div className="mc-model-steps" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+
+        {/* Pilares de escalabilidad */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
+          {pilares.map((p, i) => (
+            <div key={i} style={{ background: '#000B29', padding: '2.5rem 2rem', borderBottom: '3px solid #C08A3E' }}>
+              <div style={{ fontSize: '1.6rem', marginBottom: '1rem' }}>{p.icon}</div>
+              <h4 style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '0.75rem' }}>{p.title}</h4>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: 0 }}>{p.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Timeline fases */}
+        <div className="mc-fases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
           {fases.map((f, i) => (
             <div key={i} style={{ background: f.active ? '#000B29' : '#FFF', padding: '2.5rem 2rem', border: f.active ? 'none' : '1px solid rgba(0,0,0,0.06)', borderBottom: `3px solid ${f.active ? '#C08A3E' : 'rgba(192,138,62,0.3)'}`, position: 'relative' }}>
               <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: f.active ? 'rgba(255,255,255,0.5)' : '#999', marginBottom: '8px' }}>{f.periodo}</div>
@@ -746,6 +776,8 @@ const ProgramaNodos: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Criterios */}
         <div style={{ background: '#FFF', border: '1px solid rgba(0,0,0,0.06)', overflow: 'hidden' }}>
           <div style={{ background: '#000B29', padding: '1.2rem 2rem' }}>
             <span style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>Criterios de Selección de Nodos</span>
@@ -1131,16 +1163,29 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h2>
           <p style={{ color: '#666', fontSize: '1.05rem', marginBottom: '3rem' }}>{t.contact.subtitle}</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {[
-              { icon: Icons.phone(), text: t.contact.info.phone },
-              { icon: Icons.mail(), text: t.contact.info.email },
-              { icon: Icons.mapPin(), text: t.contact.info.locations },
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{item.icon}</div>
-                <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem' }}>{item.text}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{Icons.phone()}</div>
+              <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem' }}>{t.contact.info.phone}</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{Icons.mail()}</div>
+              <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem' }}>{t.contact.info.email}</span>
+            </div>
+            {/* Triangulación HQ */}
+            <div style={{ marginTop: '0.5rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1.5rem' }}>
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>Investment & Strategy HQ</div>
+                <div style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem', fontFamily: 'system-ui, sans-serif', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span>{Icons.mapPin()}</span> Madrid · Monterrey
+                </div>
               </div>
-            ))}
+              <div>
+                <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>Operational Center</div>
+                <div style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem', fontFamily: 'system-ui, sans-serif', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span>{Icons.mapPin()}</span> Torreón · Gómez Palacio · Silao
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div style={{ position: 'relative', padding: '0.5rem' }}>
@@ -1149,12 +1194,14 @@ const Contact: React.FC<{ t: ContentStructure }> = ({ t }) => {
           <div style={{ background: '#FFF', padding: '3rem', boxShadow: '0 15px 50px rgba(0,0,0,0.05)', minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {status === 'success' ? (
               <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-                <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}><CheckCircle /></div>
-                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.8rem', fontWeight: 400, color: '#000B29', margin: '0 0 1.5rem 0' }}>{t.contact.form.successTitle}</h3>
-                <p style={{ color: '#666', fontSize: '1rem', lineHeight: 1.7, margin: '0 auto 2rem', maxWidth: '320px' }}>{t.contact.form.successMessage}</p>
-                <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct" target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-block', background: '#C08A3E', color: '#000B29', padding: '0.9rem 2rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '1.5rem' }}>
-                  Agendar Llamada con Fundador →
+                <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}><CheckCircle /></div>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#000B29', margin: '0 0 0.75rem 0' }}>{t.contact.form.successTitle}</h3>
+                <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, margin: '0 auto 2rem', maxWidth: '300px' }}>{t.contact.form.successMessage}</p>
+                {/* Prominent gold CTA */}
+                <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
+                  target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.2rem 2rem', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.1em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '1.25rem', boxShadow: '0 4px 20px rgba(192,138,62,0.3)' }}>
+                  Confirmado: Agendar Llamada de Tesis →
                 </a>
                 <button onClick={() => setStatus('idle')} style={{ background: 'transparent', border: 'none', color: '#999', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
                   {t.contact.form.sendAnother}
@@ -1204,6 +1251,32 @@ const Footer: React.FC<{ t: ContentStructure }> = ({ t }) => (
         <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital" fill style={{ objectFit: 'contain' }} />
       </div>
       <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{t.footer.tagline}</p>
+
+      {/* Triangulación institucional */}
+      <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center' }}>
+        <div>
+          <div style={{ color: '#C08A3E', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>Investment & Strategy HQ</div>
+          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif' }}>Madrid · Monterrey</div>
+        </div>
+        <div style={{ width: '1px', background: 'rgba(192,138,62,0.2)' }} />
+        <div>
+          <div style={{ color: '#C08A3E', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>Operational Center</div>
+          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif' }}>Torreón · Gómez Palacio · Silao</div>
+        </div>
+        <div style={{ width: '1px', background: 'rgba(192,138,62,0.2)' }} />
+        <div>
+          <div style={{ color: '#C08A3E', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>Investor Relations</div>
+          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif' }}>hola@mercacapital.com</div>
+        </div>
+      </div>
+
+      {/* Mobile: CTA prominente */}
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
+        target="_blank" rel="noopener noreferrer"
+        style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', textAlign: 'center' }}>
+        Agendar Llamada con Fundador →
+      </a>
+
       <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
         <a href="#" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', textDecoration: 'none', letterSpacing: '0.05em' }}>{t.footer.privacy}</a>
         <a href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/" target="_blank" rel="noopener noreferrer" style={{ color: '#C08A3E' }}>{Icons.linkedin()}</a>
@@ -1292,6 +1365,8 @@ export default function MercaCapitalPage() {
           .mc-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .mc-model-steps { grid-template-columns: 1fr !important; }
           .mc-fases-grid { grid-template-columns: 1fr !important; }
+          /* CTA prominent on mobile */
+          footer a[href*="calendar.google.com"] { padding: 1.4rem 2rem !important; font-size: 0.9rem !important; width: 100%; box-sizing: border-box; }
         }
       `}</style>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}

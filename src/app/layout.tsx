@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Merca Capital | The Blackstone of Agri-Food Infrastructure in LATAM',
+  title: 'Merca Capital | Agri-Food Infrastructure & Private Equity',
   description:
     'Merca Capital es un fondo de private equity especializado en infraestructura de distribución alimentaria en México. $100M USD fund target. 15+ años de track record operativo. Cap rates 8-10%. Consolidamos las Centrales de Abasto más fragmentadas de América Latina.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     url: 'https://mercacapital.com',
     siteName: 'Merca Capital',
-    title: 'Merca Capital | The Blackstone of Agri-Food Infrastructure in LATAM',
+    title: 'Merca Capital | Agri-Food Infrastructure & Private Equity',
     description:
       'Consolidamos la infraestructura de distribución alimentaria más fragmentada de América Latina. $100M USD fund. 15+ años operando. Cap rates 8-10%.',
     images: [
