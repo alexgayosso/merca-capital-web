@@ -885,9 +885,9 @@ const UnfairAdvantage: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 
 // ── TEAM SECTION ─────────────────────────────────────────────
 const TEAM_DATA = [
-  { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey. Impulsor del modelo de consolidación institucional en Centrales de Abasto.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
-  { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos para proyectos de infraestructura en mercados emergentes.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
-  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y arquitectura de ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red de infraestructura inteligente, integrando Edge Data Centers, activos de datos y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
+  { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Managing Partner — Strategy & National Infrastructure', bio: 'VP de MERCAMÉXICO. Estratega líder en la modernización de la red nacional de abasto. Arquitecto del blueprint evolutivo para infraestructura mayorista, integrando Edge Computing y logística de última milla. Transforma activos tradicionales en nodos digitales de alta escalabilidad.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
+  { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Experto en gestión de activos para Family Offices y estructuración financiera internacional. Supervisa la integridad técnica, fiscal e institucional del fondo, aportando la sofisticación necesaria para el manejo de capital de alto patrimonio.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
+  { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red inteligente, integrando Edge Data Centers y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
 ];
 
 const TeamSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
@@ -918,13 +918,13 @@ const TeamSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '1rem', fontWeight: 600, color: '#000B29', marginBottom: '2px' }}>{member.name}</div>
-                  <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.72rem', color: '#C08A3E', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{member.title}</div>
+                  <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.7rem', color: '#C9A84C', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 600, lineHeight: 1.4 }}>{member.title}</div>
                 </div>
                 <span style={{ color: '#C08A3E', fontSize: '1.4rem', fontWeight: 300 }}>{expanded === i ? '−' : '+'}</span>
               </div>
               {expanded === i && (
                 <div>
-                  <p style={{ color: '#555', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem', fontFamily: 'system-ui, sans-serif' }}>{member.bio}</p>
+                  <p style={{ color: '#555', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.25rem', fontFamily: 'system-ui, sans-serif' }}>{member.bio}</p>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                     <div>
                       <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700, marginBottom: '8px' }}>{newContent[lang].team.formation}</div>
@@ -1103,7 +1103,7 @@ const GatedDeckSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
             </p>
             <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct" target="_blank" rel="noopener noreferrer"
               style={{ display: 'inline-block', background: '#C08A3E', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>
-              Agendar Llamada con Fundador →
+              Agendar Llamada con Socios de Inversión →
             </a>
           </div>
         )}
@@ -1114,8 +1114,8 @@ const GatedDeckSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 
 // ── CONTACT ──────────────────────────────────────────────────
 const Contact: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => {
-  const calBtn = lang === 'es' ? 'Agendar Llamada con Fundador →' : 'Schedule Call with Founder →';
-  const confirmBtn = lang === 'es' ? 'Confirmado: Agendar Llamada de Tesis →' : 'Confirmed: Schedule Thesis Call →';
+  const calBtn = lang === 'es' ? 'Agendar Llamada con Socios de Inversión →' : 'Schedule Call with Investment Partners →';
+  const confirmBtn = lang === 'es' ? 'Confirmado: Agendar con Socios de Inversión →' : 'Confirmed: Schedule with Investment Partners →';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -1225,7 +1225,7 @@ const Contact: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang
 
 // ── FOOTER ───────────────────────────────────────────────────
 const Footer: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => {
-  const calBtn = lang === 'es' ? 'Agendar Llamada con Fundador →' : 'Schedule Call with Founder →';
+  const calBtn = lang === 'es' ? 'Agendar Llamada con Socios de Inversión →' : 'Schedule Call with Investment Partners →';
   return (
   <footer style={{ padding: '4rem 4rem 2.5rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.2)' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem' }}>
@@ -1319,9 +1319,9 @@ const newContent = {
       badge: 'Afiliación Institucional',
       badgeText: 'Miembros activos de MERCAMÉXICO — Asociación Mexicana de Mercados y Centrales de Abasto, el organismo que agrupa las 329 Centrales de Abasto del país.',
       members: [
-        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Fundador & Managing Partner', bio: 'Arquitecto de la infraestructura de abasto del norte de México. 15+ años construyendo y operando la red de mercados mayoristas más extensa del corredor Torreón–Monterrey.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
-        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Trayectoria en banca corporativa internacional con base en Suiza. Especialista en estructuración de capital privado y acceso a inversores institucionales europeos.', credentials: ['Banca Corporativa Internacional', 'Base en Suiza — Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
-        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y arquitectura de ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red de infraestructura inteligente, integrando Edge Data Centers, activos de datos y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
+        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Managing Partner — Strategy & National Infrastructure', bio: 'VP de MERCAMÉXICO. Estratega líder en la modernización de la red nacional de abasto. Arquitecto del blueprint evolutivo para infraestructura mayorista, integrando Edge Computing y logística de última milla. Transforma activos tradicionales en nodos digitales de alta escalabilidad.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
+        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Experto en gestión de activos para Family Offices y estructuración financiera internacional. Supervisa la integridad técnica, fiscal e institucional del fondo, aportando la sofisticación necesaria para el manejo de capital de alto patrimonio.', credentials: ['Banca Corporativa Internacional', 'Estructuración Financiera Internacional'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Líder en transformación digital y ecosistemas tecnológicos. Encabeza la evolución de los activos físicos hacia una red inteligente, integrando Edge Data Centers y soluciones de agregación financiera en cada nodo de la red.', credentials: ['Derecho Corporativo — Fideicomisos y SAPI', 'Arquitectura de Ecosistemas Digitales'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
       ],
       expand: 'Ver perfil',
       collapse: 'Cerrar',
@@ -1355,7 +1355,7 @@ const newContent = {
       successTitle: 'Solicitud recibida',
       successLine1: 'Recibirá el deck ejecutivo en',
       successLine2: 'en menos de 24 horas hábiles. Un socio de Merca Capital revisará su perfil personalmente.',
-      calendarBtn: 'Agendar Llamada con Fundador →',
+      calendarBtn: 'Agendar Llamada con Socios de Inversión →',
     },
   },
   en: {
@@ -1402,9 +1402,9 @@ const newContent = {
       badge: 'Institutional Affiliation',
       badgeText: 'Active members of MERCAMÉXICO — Mexican Association of Markets and Wholesale Food Centers, the organization representing all 329 Wholesale Markets in the country.',
       members: [
-        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Founder & Managing Partner', bio: 'Architect of northern Mexico\'s wholesale distribution infrastructure. 15+ years building and operating the most extensive wholesale market network in the Torreón–Monterrey corridor.', credentials: ['Systems Eng. — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Mexican Markets Association)', 'Founder — Grupo Mercahorro', 'Co-founder — Altavela Group'], color: '#C08A3E' },
-        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Capital & Institutional Relations', bio: 'Background in international corporate banking based in Switzerland. Specialist in private capital structuring and access to European institutional investors.', credentials: ['International Corporate Banking', 'Switzerland-based — Private Capital'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
-        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Leader in digital transformation and technology ecosystem architecture. Spearheads the evolution of physical assets into an intelligent infrastructure network, integrating Edge Data Centers, data assets, and financial aggregation solutions at each network node.', credentials: ['Corporate Law — Trusts & SAPI', 'Digital Ecosystem Architecture — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
+        { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Managing Partner — Strategy & National Infrastructure', bio: 'VP of MERCAMÉXICO. Lead strategist in modernizing Mexico's national wholesale network. Architect of the evolutionary blueprint for wholesale infrastructure, integrating Edge Computing and last-mile logistics. Transforms traditional assets into high-scalability digital nodes.', credentials: ['Systems Eng. — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO', 'Founder — Grupo Mercahorro', 'Co-founder — Altavela Group'], color: '#C08A3E' },
+        { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Expert in asset management for Family Offices and international financial structuring. Oversees the technical, fiscal and institutional integrity of the fund, bringing the sophistication required for high-net-worth capital management.', credentials: ['International Corporate Banking', 'International Financial Structuring'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
+        { initials: 'JO', name: 'Javier Olvera', title: 'Partner — Digital Transformation & Strategy', bio: 'Leader in digital transformation and technology ecosystems. Spearheads the evolution of physical assets into an intelligent network, integrating Edge Data Centers and financial aggregation solutions at each network node.', credentials: ['Corporate Law — Trusts & SAPI', 'Digital Ecosystem Architecture — Be One Systems'], roles: ['Digital Transformation & Strategy', 'Director — Be One Systems'], color: '#7A8B9A' },
       ],
       expand: 'View profile',
       collapse: 'Close',
@@ -1438,7 +1438,7 @@ const newContent = {
       successTitle: 'Request received',
       successLine1: 'You will receive the executive deck at',
       successLine2: 'within 24 business hours. A Merca Capital partner will personally review your profile.',
-      calendarBtn: 'Schedule Thesis Call with Founder →',
+      calendarBtn: 'Schedule Call with Investment Partners →',
     },
   },
 };
