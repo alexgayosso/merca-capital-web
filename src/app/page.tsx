@@ -635,7 +635,7 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
 
 // ── STATS ────────────────────────────────────────────────────
 const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
+  <section className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.stats.title}</h2>
@@ -675,7 +675,7 @@ const InsightSection: React.FC<{ t: ContentStructure }> = ({ t }) => (
 
 // ── PORTFOLIO ────────────────────────────────────────────────
 const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section id="portfolio" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
+  <section id="portfolio" className="mc-section" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.portfolio.title}</h2>
@@ -712,7 +712,7 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
 const ProgramaNodos: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const c = newContent[lang].programa;
   return (
-    <section style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
+    <section className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
@@ -725,7 +725,7 @@ const ProgramaNodos: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
         </div>
 
         {/* Pilares de escalabilidad */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
+        <div className="mc-pilares-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
           {c.pilares.map((p, i) => (
             <div key={i} style={{ background: '#000B29', padding: '2.5rem 2rem', borderBottom: '3px solid #C08A3E' }}>
               <div style={{ fontSize: '1.6rem', marginBottom: '1rem' }}>{p.icon}</div>
@@ -774,7 +774,7 @@ const ProgramaNodos: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 
 // ── THESIS ───────────────────────────────────────────────────
 const Thesis: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang }) => (
-  <section id="thesis" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
+  <section id="thesis" className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.thesis.title}</h2>
@@ -812,7 +812,7 @@ const Thesis: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang 
 
 // ── MODEL ────────────────────────────────────────────────────
 const Model: React.FC<{ t: ContentStructure }> = ({ t }) => (
-  <section id="model" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
+  <section id="model" className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.model.title}</h2>
@@ -845,7 +845,7 @@ const MOAT_DATA = [
 const UnfairAdvantage: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const c = newContent[lang].moat;
   return (
-  <section style={{ padding: '7rem 4rem', background: '#000B29' }}>
+  <section className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4rem', gap: '2rem' }}>
         <div>
@@ -893,7 +893,7 @@ const TEAM_DATA = [
 const TeamSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const [expanded, setExpanded] = useState<number | null>(null);
   return (
-    <section id="equipo" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
+    <section id="equipo" className="mc-section" style={{ padding: '7rem 4rem', background: '#FFFFFF', scrollMarginTop: '100px' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
@@ -979,7 +979,7 @@ const GatedDeckSection: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   };
 
   return (
-    <section id="deck" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
+    <section id="deck" className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29', scrollMarginTop: '100px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
@@ -1137,7 +1137,7 @@ const Contact: React.FC<{ t: ContentStructure; lang: 'es' | 'en' }> = ({ t, lang
   );
 
   return (
-    <section id="contact" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
+    <section id="contact" className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4', scrollMarginTop: '100px' }}>
       <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
         <div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h2>
@@ -1471,6 +1471,9 @@ export default function MercaCapitalPage() {
         /* ── MOBILE RESPONSIVE ─────────────────────── */
         @media (max-width: 768px) {
 
+          /* Fix section padding — reduce horizontal */
+          section, .mc-section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
+
           /* Nav */
           .mc-nav-links { display: none !important; }
           .mc-nav-links.open { display: flex !important; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,11,41,0.98); z-index: 999; padding: 6rem 2rem 2rem; gap: 1.5rem; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
@@ -1482,56 +1485,53 @@ export default function MercaCapitalPage() {
           .mc-hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
           .mc-hero-btns a { text-align: center !important; }
 
-          /* Stats */
-          .mc-stats-grid { grid-template-columns: repeat(3, 1fr) !important; }
-          .mc-stats-grid > div:nth-child(4),
-          .mc-stats-grid > div:nth-child(5) { grid-column: span 1; }
+          /* Stats — 2 cols on mobile */
+          .mc-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
-          /* Sections padding */
-          .mc-section { padding: 4rem 1.5rem !important; }
+          /* Pilares 3-col → 1-col */
+          .mc-pilares-grid { grid-template-columns: 1fr !important; }
 
           /* Portfolio 2-col → 1-col */
           .mc-portfolio-grid { grid-template-columns: 1fr !important; }
 
-          /* Team 2-col → 1-col */
-          .mc-team-grid { grid-template-columns: 1fr !important; }
+          /* Fases 4-col → 1-col */
+          .mc-fases-grid { grid-template-columns: 1fr !important; }
+
+          /* Model steps 4-col → 1-col */
+          .mc-model-steps { grid-template-columns: 1fr !important; }
+
+          /* Tesis items 3-col → 1-col */
+          .mc-tesis-items { grid-template-columns: 1fr !important; }
 
           /* Moat 2-col → 1-col */
-          .mc-moat-grid { grid-template-columns: 1fr !important; background: transparent !important; gap: 12px !important; }
+          .mc-moat-grid { grid-template-columns: 1fr !important; background: transparent !important; }
           .mc-moat-grid > div { border-right: none !important; }
 
-          /* Tesis 3-col → 1-col */
-          .mc-tesis-items { grid-template-columns: 1fr !important; }
-          .mc-tesis-anticyclical { grid-template-columns: 1fr !important; }
-
-          /* Model 4-col → 2-col */
-          .mc-model-steps { grid-template-columns: repeat(2, 1fr) !important; }
-
-          /* Programa fases 4-col → 2-col */
-          .mc-fases-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .mc-criterios-row { grid-template-columns: 50px 1fr !important; }
-          .mc-criterios-hide { display: none !important; }
+          /* Team 3-col → 1-col */
+          .mc-team-grid { grid-template-columns: 1fr !important; }
 
           /* Deck 2-col → 1-col */
           .mc-deck-grid { grid-template-columns: 1fr !important; }
 
           /* Form 2-col → 1-col */
           .mc-form-grid { grid-template-columns: 1fr !important; }
-          .mc-form-full { grid-column: span 1 !important; }
 
           /* Contact 2-col → 1-col */
           .mc-contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
 
-          /* Foote */
+          /* Criterios table: hide last column on mobile */
+          .mc-criterios-hide { display: none !important; }
+
+          /* Footer */
           footer { padding: 3rem 1.5rem 2rem !important; }
+          footer > div > div[style*="gap: 3rem"] { flex-direction: column !important; gap: 1.5rem !important; }
+          footer > div > div[style*="width: 1px"] { display: none !important; }
+          footer a[href*="calendar.google.com"] { width: 100%; box-sizing: border-box; text-align: center; padding: 1.4rem 1rem !important; font-size: 0.8rem !important; }
         }
 
         @media (max-width: 480px) {
           .mc-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .mc-model-steps { grid-template-columns: 1fr !important; }
           .mc-fases-grid { grid-template-columns: 1fr !important; }
-          /* CTA prominent on mobile */
-          footer a[href*="calendar.google.com"] { padding: 1.4rem 2rem !important; font-size: 0.9rem !important; width: 100%; box-sizing: border-box; }
         }
       `}</style>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}
