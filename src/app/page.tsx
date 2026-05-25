@@ -634,7 +634,119 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
 );
 
 // ── STATS ────────────────────────────────────────────────────
-const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
+// ── FONDO MERCAHORRO 2026 ─────────────────────────────────────
+const FondoI: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const es = lang === 'es';
+  const ficha = [
+    { label: es ? 'Capital total' : 'Total capital', value: '$250,000,000 MXN', sub: 'Hard cap · Sin extensión' },
+    { label: es ? 'Ticket mínimo' : 'Min. ticket', value: '$10,000,000 MXN', sub: es ? '4% del fondo por ticket' : '4% of fund per ticket' },
+    { label: es ? 'Posiciones disponibles' : 'Available positions', value: '25', sub: es ? 'Tickets máximo · Cierre definitivo' : 'Max tickets · Final close' },
+    { label: 'Clase A', value: '15%', sub: es ? 'Cupón fijo anual · 10 años' : 'Fixed annual coupon · 10 yrs' },
+    { label: 'Clase B', value: '10% + 50%', sub: es ? 'Cupón + carry sin hurdle · 12 años' : 'Coupon + carry no hurdle · 12 yrs' },
+    { label: es ? 'Fee de gestión' : 'Management fee', value: '2.5%', sub: es ? 'Anual sobre capital comprometido' : 'Annual on committed capital' },
+    { label: es ? 'Estructura legal' : 'Legal structure', value: es ? 'Fideicomiso irrevocable' : 'Irrevocable Trust', sub: 'Bancrea · Fiduciaria CNBV' },
+    { label: es ? 'Vehículo' : 'Vehicle', value: 'SAPI de CV', sub: 'Grupo Merca Capital' },
+  ];
+
+  return (
+    <section className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+
+        {/* Label */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '3.5rem' }}>
+          <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+          <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>
+            {es ? 'Primer Vehículo de Inversión' : 'First Investment Vehicle'}
+          </span>
+          <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+        </div>
+
+        {/* 2-col layout */}
+        <div className="mc-fondoi-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+
+          {/* LEFT — Narrative */}
+          <div>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.75rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+              {es ? <>Fondo Mercahorro 2026<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>El paso uno del plan</span></> : <>Fondo Mercahorro 2026<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Step one of the plan</span></>}
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', fontFamily: 'system-ui, sans-serif' }}>
+              {es
+                ? 'El Fondo Mercahorro 2026 es el primer vehículo de inversión privada de Merca Capital. Estructurado como fideicomiso irrevocable ante fiduciaria CNBV, está calibrado para inversionistas patrimoniales mexicanos con tickets de $10M MXN.'
+                : 'Fondo Mercahorro 2026 is Merca Capital\'s first private investment vehicle. Structured as an irrevocable trust before a CNBV-regulated trustee, it is calibrated for Mexican patrimonial investors with $10M MXN tickets.'}
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2.5rem', fontFamily: 'system-ui, sans-serif' }}>
+              {es
+                ? 'No es el fondo institucional de $100M USD — es el tranche piloto. Capitaliza las primeras plazas operativas (Gómez Palacio, Silao) que validan el playbook antes de escalar al portafolio institucional descrito en esta web. El siguiente vehículo será distinto: apalancamiento bancario, no más equity.'
+                : 'This is not the $100M USD institutional fund — it\'s the pilot tranche. It capitalizes the first operating plazas (Gómez Palacio, Silao) that validate the playbook before scaling to the full institutional portfolio. The next vehicle will be different: bank leverage, no more equity.'}
+            </p>
+
+            {/* Urgency block */}
+            <div style={{ background: 'rgba(192,138,62,0.08)', border: '1px solid rgba(192,138,62,0.3)', borderLeft: '4px solid #C08A3E', padding: '1.5rem 2rem', marginBottom: '2.5rem' }}>
+              <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '0.6rem' }}>
+                {es ? 'Exclusividad real' : 'Real exclusivity'}
+              </div>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.7 }}>
+                {es
+                  ? '25 tickets de $10M MXN. Cuando se llenen, se llena el fondo. No hay extensión de cierre ni ronda adicional bajo las mismas condiciones.'
+                  : '25 tickets of $10M MXN. When they fill, the fund closes. No extension, no additional round under the same terms.'}
+              </p>
+            </div>
+
+            {/* Connection to 100 nodes */}
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginBottom: '3rem' }}>
+              <div style={{ background: '#C08A3E', color: '#000B29', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px' }}>FONDO I</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', marginTop: '1px' }}>→</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px', border: '1px solid rgba(255,255,255,0.15)' }}>FONDO II</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', marginTop: '1px' }}>→</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px', border: '1px solid rgba(255,255,255,0.15)' }}>$100M USD</div>
+            </div>
+
+            {/* CTA */}
+            <button
+              onClick={() => {
+                const deck = document.getElementById('deck');
+                if (deck) deck.scrollIntoView({ behavior: 'smooth' });
+              }}
+              style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'system-ui, sans-serif' }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}>
+              {es ? 'Solicitar Term Sheet Fondo 2026 →' : 'Request Fund 2026 Term Sheet →'}
+            </button>
+          </div>
+
+          {/* RIGHT — Ficha técnica */}
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(192,138,62,0.2)', padding: '0' }}>
+            <div style={{ background: '#C08A3E', padding: '1.2rem 2rem' }}>
+              <div style={{ color: '#000B29', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>
+                {es ? 'Ficha Técnica — Fondo Mercahorro 2026' : 'Fund Sheet — Fondo Mercahorro 2026'}
+              </div>
+            </div>
+            <div style={{ padding: '0' }}>
+              {ficha.map((item, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.1rem 2rem', borderBottom: i < ficha.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', gap: '1rem' }}>
+                  <div>
+                    <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.7rem', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '2px' }}>{item.label}</div>
+                    <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif' }}>{item.sub}</div>
+                  </div>
+                  <div style={{ color: '#C08A3E', fontSize: '1.1rem', fontFamily: 'Georgia, serif', fontWeight: 400, textAlign: 'right', flexShrink: 0 }}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ padding: '1.25rem 2rem', borderTop: '1px solid rgba(192,138,62,0.15)', background: 'rgba(192,138,62,0.04)' }}>
+              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.6 }}>
+                {es
+                  ? 'Información confidencial. Sujeta a verificación de perfil de inversionista calificado conforme a la CNBV.'
+                  : 'Confidential information. Subject to verification of qualified investor profile per CNBV regulation.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ── STATS ─────────────────────────────────────────────────────
   <section className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -1351,7 +1463,7 @@ const newContent = {
       accessBadge: 'Acceso calificado',
       deckTitle: 'Deck Completo + Modelo',
       deckDesc: 'Deck ejecutivo completo + estructura financiera + proyecciones por activo.',
-      deckItems: ['Modelo financiero detallado', 'Proyecciones NOI por activo', 'Estructura jurídica SAPI/Fideicomiso', 'Pipeline completo de nodos', 'Términos de inversión (40/30/30)', 'Due diligence package'],
+      deckItems: ['Modelo financiero detallado', 'Proyecciones NOI por activo', 'Estructura jurídica SAPI/Fideicomiso', 'Pipeline completo de nodos', 'Términos de inversión (Clase A / Clase B)', 'Due diligence package'],
       deckBtn: 'Solicitar Acceso →',
       formTitle: 'Perfil del Inversor',
       formSubtitle: 'Recibirá el material por email en menos de 24 horas hábiles.',
@@ -1434,7 +1546,7 @@ const newContent = {
       accessBadge: 'Qualified access',
       deckTitle: 'Full Deck + Model',
       deckDesc: 'Full executive deck + financial structure + projections per asset.',
-      deckItems: ['Detailed financial model', 'NOI projections per asset', 'Legal structure SAPI/Trust', 'Full node pipeline', 'Investment terms (40/30/30)', 'Due diligence package'],
+      deckItems: ['Detailed financial model', 'NOI projections per asset', 'Legal structure SAPI/Trust', 'Full node pipeline', 'Investment terms (Class A / Class B)', 'Due diligence package'],
       deckBtn: 'Request Access →',
       formTitle: 'Investor Profile',
       formSubtitle: 'You will receive the material by email within 24 business hours.',
@@ -1488,6 +1600,9 @@ export default function MercaCapitalPage() {
           /* Stats — 2 cols on mobile */
           .mc-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
+          /* Fondo I 2-col → 1-col */
+          .mc-fondoi-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
           /* Pilares 3-col → 1-col */
           .mc-pilares-grid { grid-template-columns: 1fr !important; }
 
@@ -1538,6 +1653,7 @@ export default function MercaCapitalPage() {
       <Header lang={lang} setLang={setLang} t={t} bannerVisible={bannerVisible} />
       <Hero t={t} />
       <Stats t={t} />
+      <FondoI lang={lang} />
       <InsightSection t={t} />
       <Portfolio t={t} />
       <ProgramaNodos lang={lang} />
