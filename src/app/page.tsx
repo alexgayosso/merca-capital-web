@@ -747,6 +747,7 @@ const FondoI: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
 };
 
 // ── STATS ─────────────────────────────────────────────────────
+const Stats: React.FC<{ t: ContentStructure }> = ({ t }) => (
   <section className="mc-section" style={{ padding: '7rem 4rem', background: '#F8F7F4' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
