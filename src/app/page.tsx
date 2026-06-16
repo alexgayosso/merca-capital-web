@@ -182,29 +182,30 @@ const content: Record<'es' | 'en', ContentStructure> = {
       headline1: 'El Blackstone de la',
       headline2: 'Infraestructura',
       headline3: 'Agro-Alimentaria',
-      subtitle: 'El activo real no son los metros cuadrados. Es el control del punto estratégico donde México come.',
-      description: 'Consolidamos la infraestructura de distribución alimentaria más fragmentada de América Latina. Financiarizamos activos que otros no ven. Operamos donde otros no llegan.',
+      subtitle: 'El activo real no son los metros cuadrados',
+      description: 'Es el control del punto estratégico donde México come',
       cta: 'VER PORTAFOLIO',
       ctaSecondary: 'TESIS DE INVERSIÓN',
       pillars: {
-        title: 'PILARES ESTRATÉGICOS',
+        title: 'Pilares estratégicos',
         items: [
-          { name: 'Nodos Estratégicos: Norte · Bajío · Centro', description: 'Infraestructura crítica en los corredores de mayor flujo comercial de México' },
-          { name: 'Infraestructura Crítica', description: 'Mercados · Abasto · Distribución' },
-          { name: 'Flujos Anticíclicos', description: 'Demanda Inelástica · Cap Rates 8-10%' },
-          { name: 'Control Operativo', description: 'Originación · Operación · Exit' }
+          { name: 'Nodos estratégicos: Norte · Bajío · Centro', description: 'Infraestructura crítica en los corredores de mayor flujo comercial de México' },
+          { name: 'Infraestructura crítica', description: 'Mercados · Abasto · Distribución' },
+          { name: 'Flujos anticíclicos', description: 'Demanda inelástica · Cap Rates 8-10%' },
+          { name: 'Control operativo', description: 'Originación · Operación · Exit' },
+          { name: 'Expansión nacional', description: 'Sur · Centro · Occidente · Noreste' }
         ]
       }
     },
     stats: {
-      title: 'Track Record Institucional',
-      description: 'Más de una década consolidando infraestructura esencial en el centro-norte de México.',
+      title: 'Track record institucional',
+      description: 'Cerca de 20 años desarrollando infraestructura comercial de abasto en México, con más de 300 comerciantes y 52,000 m² desarrollados.',
       items: [
-        { value: '$100M', label: 'USD Fund Target', highlight: true },
-        { value: '41,000', label: 'm² bajo gestión', highlight: true },
-        { value: '15', label: 'años operando', highlight: false },
-        { value: '8-10%', label: 'Cap Rate promedio', highlight: false },
-        { value: '90%', label: 'ocupación histórica', highlight: false }
+        { value: '52,000', label: 'm² desarrollados', highlight: true },
+        { value: '300+', label: 'Comerciantes activos', highlight: true },
+        { value: '20', label: 'Años de experiencia', highlight: false },
+        { value: '70%', label: 'Más ventas vs mercado', highlight: false },
+        { value: '40%', label: 'Precios más bajos', highlight: false }
       ]
     },
     insight: {
@@ -222,10 +223,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Activos Bajo Gestión',
       subtitle: 'Portafolio de infraestructura alimentaria en operación y desarrollo',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Flagship asset. Centro de abasto regional con flujos estabilizados y ocupación del 95%.', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
-        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operando', city: 'Torreón, Coahuila', description: 'Activo core con infraestructura moderna. NOI estabilizado desde 2018.', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
-        { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Value-Add', city: 'Gómez Palacio, Durango', description: 'Desarrollo en fase final. Pre-arrendado 70%. Estabilización Q4 2025.', year: '2025', image: '/projects/mercahorro-gomez.jpg' },
-        { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'Development', city: 'Silao, Guanajuato', description: 'Pipeline estratégico en corredor del Bajío. LOIs firmadas con off-takers.', year: '2026', image: '/projects/mercahorro-silao.jpg' }
+        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'En operación', city: 'Torreón, Coahuila', description: '', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
+        { name: 'Mercahorro Monterrey', sqm: '11,000 m²', status: 'En operación', city: 'Monterrey, Nuevo León', description: '', year: '2017', image: '' },
+        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'En operación', city: 'Torreón, Coahuila', description: '', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Próxima apertura', city: 'Gómez Palacio, Durango', description: '', year: '2026', image: '/projects/mercahorro-gomez.jpg' },
+        { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'En proyecto', city: 'Silao, Guanajuato', description: '', year: '2028', image: '/projects/mercahorro-silao.jpg' }
       ]
     },
     thesis: {
@@ -311,8 +313,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       headline1: 'The Blackstone of',
       headline2: 'Agri-Food',
       headline3: 'Infrastructure',
-      subtitle: 'The real asset isn\'t the square meters. It\'s control of the strategic point where Mexico eats.',
-      description: 'We consolidate Latin America\'s most fragmented food distribution infrastructure. We financialize assets others don\'t see. We operate where others can\'t reach.',
+      subtitle: 'The real asset isn\'t the square meters',
+      description: 'It\'s control of the strategic point where Mexico eats',
       cta: 'VIEW PORTFOLIO',
       ctaSecondary: 'INVESTMENT THESIS',
       pillars: {
@@ -351,10 +353,11 @@ const content: Record<'es' | 'en', ContentStructure> = {
       title: 'Assets Under Management',
       subtitle: 'Food infrastructure portfolio in operation and development',
       projects: [
-        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Flagship asset. Regional wholesale center with stabilized cash flows and 95% occupancy.', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
-        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: 'Core asset with modern infrastructure. Stabilized NOI since 2018.', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
-        { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Value-Add', city: 'Gómez Palacio, Durango', description: 'Final development phase. 70% pre-leased. Stabilization Q4 2025.', year: '2025', image: '/projects/mercahorro-gomez.jpg' },
-        { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'Development', city: 'Silao, Guanajuato', description: 'Strategic pipeline in El Bajío corridor. Signed LOIs with off-takers.', year: '2026', image: '/projects/mercahorro-silao.jpg' }
+        { name: 'Plaza Abastos Torreón', sqm: '9,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: '', year: '2013', image: '/projects/plaza-abastos-torreon.jpg' },
+        { name: 'Mercahorro Monterrey', sqm: '11,000 m²', status: 'Operating', city: 'Monterrey, Nuevo León', description: '', year: '2017', image: '' },
+        { name: 'Mercahorro Torreón', sqm: '16,000 m²', status: 'Operating', city: 'Torreón, Coahuila', description: '', year: '2021', image: '/projects/mercahorro-torreon.jpg' },
+        { name: 'Mercahorro Gómez Palacio', sqm: '8,000 m²', status: 'Opening 2026', city: 'Gómez Palacio, Durango', description: '', year: '2026', image: '/projects/mercahorro-gomez.jpg' },
+        { name: 'Mercahorro Silao', sqm: '8,000 m²', status: 'In project', city: 'Silao, Guanajuato', description: '', year: '2028', image: '/projects/mercahorro-silao.jpg' }
       ]
     },
     thesis: {
@@ -479,9 +482,6 @@ const MomentumBanner: React.FC<{ onClose: () => void }> = ({ onClose }) => (
     <span>Capital en evaluación activa</span>
     <span style={{ opacity: 0.4 }}>·</span>
     <span>Acceso limitado a LPs calificados</span>
-    <a href="#deck" style={{ background: '#000B29', color: '#C08A3E', padding: '3px 12px', fontSize: '10px', fontWeight: 800, textDecoration: 'none', marginLeft: '8px' }}>
-      SOLICITAR DECK →
-    </a>
     <button onClick={onClose} style={{ position: 'absolute', right: '16px', background: 'none', border: 'none', cursor: 'pointer', color: '#000B29', opacity: 0.45, fontSize: '16px', lineHeight: 1 }}>✕</button>
   </div>
 );
@@ -615,17 +615,18 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
             {t.hero.pillars.title}<span style={{ opacity: 0.6 }}>▲</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {t.hero.pillars.items.map((item, i) => (
-              <div key={i} style={{ display: 'flex', gap: '1.2rem' }}>
-                <div style={{ color: '#C08A3E', marginTop: '3px', opacity: 0.8 }}>
-                  {i === 0 && Icons.globe()} {i === 1 && Icons.grid()} {i === 2 && Icons.trending()} {i === 3 && Icons.target()}
+            {t.hero.pillars.items.map((item, i) => {
+              const icons = [Icons.globe(), Icons.grid(), Icons.trending(), Icons.target(), Icons.mapPin()];
+              return (
+                <div key={i} style={{ display: 'flex', gap: '1.2rem' }}>
+                  <div style={{ color: '#C08A3E', marginTop: '3px', opacity: 0.8 }}>{icons[i]}</div>
+                  <div>
+                    <h4 style={{ color: '#FFF', fontSize: '0.95rem', fontWeight: 600, margin: '0 0 0.3rem 0' }}>{item.name}</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', margin: 0, letterSpacing: '0.04em' }}>{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 style={{ color: '#FFF', fontSize: '1rem', fontWeight: 600, margin: '0 0 0.3rem 0' }}>{item.name}</h4>
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{item.description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -637,106 +638,149 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
 // ── FONDO MERCAHORRO 2026 ─────────────────────────────────────
 const FondoI: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
   const es = lang === 'es';
+  const [formSent, setFormSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
   const ficha = [
-    { label: es ? 'Capital total' : 'Total capital', value: '$250,000,000 MXN', sub: 'Hard cap · Sin extensión' },
-    { label: es ? 'Ticket mínimo' : 'Min. ticket', value: '$10,000,000 MXN', sub: es ? '4% del fondo por ticket' : '4% of fund per ticket' },
-    { label: es ? 'Posiciones disponibles' : 'Available positions', value: '25', sub: es ? 'Tickets máximo · Cierre definitivo' : 'Max tickets · Final close' },
-    { label: 'Clase A', value: '15%', sub: es ? 'Cupón fijo anual · 10 años' : 'Fixed annual coupon · 10 yrs' },
-    { label: 'Clase B', value: '10% + 50%', sub: es ? 'Cupón + carry sin hurdle · 12 años' : 'Coupon + carry no hurdle · 12 yrs' },
-    { label: es ? 'Fee de gestión' : 'Management fee', value: '2.5%', sub: es ? 'Anual sobre capital comprometido' : 'Annual on committed capital' },
-    { label: es ? 'Estructura legal' : 'Legal structure', value: es ? 'Fideicomiso irrevocable' : 'Irrevocable Trust', sub: 'Bancrea · Fiduciaria CNBV' },
-    { label: es ? 'Vehículo' : 'Vehicle', value: 'SAPI de CV', sub: 'Grupo Merca Capital' },
+    { label: es ? 'Ticket mínimo' : 'Min. ticket', value: '$10M MXN', sub: es ? 'Por hub geográfico (4 hubs en total)' : 'Per geographic hub (4 hubs total)' },
+    { label: 'Clase A', value: '17.50%', sub: es ? 'Cupón fijo años 3–10 · 5% años 1–2' : 'Fixed coupon yrs 3–10 · 5% yrs 1–2' },
+    { label: 'Clase B', value: '11.25% + 50%', sub: es ? 'Cupón + participación en utilidades' : 'Coupon + profit participation' },
+    { label: es ? 'Rentabilidad máxima' : 'Max return', value: '33.7%', sub: es ? 'Anual — escenario E2 (100% Clase B)' : 'Annual — scenario E2 (100% Class B)' },
+    { label: es ? 'Liquidez' : 'Liquidity', value: es ? 'Año 3+' : 'Year 3+', sub: es ? 'Ventanas trimestrales o libre entre particulares' : 'Quarterly windows or free transfer between investors' },
+    { label: es ? 'Estructura legal' : 'Legal structure', value: es ? 'Fideicomiso regulado' : 'Regulated Trust', sub: 'Bancrea · Fiduciaria CNBV' },
+    { label: es ? 'Garantía' : 'Collateral', value: es ? 'Activos reales' : 'Real assets', sub: es ? 'Terreno y locales escriturados en fideicomiso' : 'Land and units titled within the trust' },
+    { label: es ? 'Auditoría' : 'Audit', value: 'Big 4', sub: es ? 'Anual · Firma de reconocido prestigio' : 'Annual · Internationally recognized firm' },
   ];
 
-  return (
-    <section className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      await fetch('https://formspree.io/f/xbdqykov', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      setFormSent(true);
+    } catch { /* silent */ }
+    setSending(false);
+  };
 
-        {/* Label */}
+  return (
+    <section id="fidux" className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '3.5rem' }}>
           <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>
-            {es ? 'Primer Vehículo de Inversión' : 'First Investment Vehicle'}
+            {es ? 'Fidux Mercahorro' : 'Fidux Mercahorro'}
           </span>
           <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
         </div>
 
-        {/* 2-col layout */}
         <div className="mc-fondoi-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
 
-          {/* LEFT — Narrative */}
+          {/* LEFT — Narrative + Form */}
           <div>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.75rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              {es ? <>Fondo Mercahorro 2026<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>El paso uno del plan</span></> : <>Fondo Mercahorro 2026<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Step one of the plan</span></>}
+              {es ? <>Fidux Mercahorro<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Fideicomiso regulado de inversión inmobiliaria</span></> : <>Fidux Mercahorro<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Regulated real estate investment trust</span></>}
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', fontFamily: 'system-ui, sans-serif' }}>
+
+            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', fontFamily: 'system-ui, sans-serif' }}>
               {es
-                ? 'El Fondo Mercahorro 2026 es el primer vehículo de inversión privada de Merca Capital. Estructurado como fideicomiso irrevocable ante fiduciaria CNBV, está calibrado para inversionistas patrimoniales mexicanos con tickets de $10M MXN.'
-                : 'Fondo Mercahorro 2026 is Merca Capital\'s first private investment vehicle. Structured as an irrevocable trust before a CNBV-regulated trustee, it is calibrated for Mexican patrimonial investors with $10M MXN tickets.'}
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2.5rem', fontFamily: 'system-ui, sans-serif' }}>
-              {es
-                ? 'No es el fondo institucional de $100M USD — es el tranche piloto. Capitaliza las primeras plazas operativas (Gómez Palacio, Silao) que validan el playbook antes de escalar al portafolio institucional descrito en esta web. El siguiente vehículo será distinto: apalancamiento bancario, no más equity.'
-                : 'This is not the $100M USD institutional fund — it\'s the pilot tranche. It capitalizes the first operating plazas (Gómez Palacio, Silao) that validate the playbook before scaling to the full institutional portfolio. The next vehicle will be different: bank leverage, no more equity.'}
+                ? 'El vehículo Fidux Mercahorro es un fideicomiso regulado de inversión inmobiliaria que invierte en infraestructura comercial de abasto en México. Desarrolla centros comerciales de alimentos especializados en la última milla, en zonas desatendidas de las principales ciudades, funcionando como satélites de las centrales de abasto mayoristas.'
+                : 'Fidux Mercahorro is a regulated real estate investment trust that invests in wholesale food infrastructure in Mexico. It develops last-mile food commercial centers in underserved areas of major cities, functioning as satellites of wholesale markets.'}
             </p>
 
-            {/* Urgency block */}
-            <div style={{ background: 'rgba(192,138,62,0.08)', border: '1px solid rgba(192,138,62,0.3)', borderLeft: '4px solid #C08A3E', padding: '1.5rem 2rem', marginBottom: '2.5rem' }}>
-              <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '0.6rem' }}>
-                {es ? 'Exclusividad real' : 'Real exclusivity'}
+            {/* 5 mecanismos de protección */}
+            <div style={{ background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.2)', borderLeft: '4px solid #C08A3E', padding: '1.5rem 2rem', marginBottom: '2.5rem' }}>
+              <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '1rem' }}>
+                {es ? '5 mecanismos de protección al inversor' : '5 investor protection mechanisms'}
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.7 }}>
-                {es
-                  ? '25 tickets de $10M MXN. Cuando se llenen, se llena el fondo. No hay extensión de cierre ni ronda adicional bajo las mismas condiciones.'
-                  : '25 tickets of $10M MXN. When they fill, the fund closes. No extension, no additional round under the same terms.'}
-              </p>
-            </div>
-
-            {/* Connection to 100 nodes */}
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginBottom: '3rem' }}>
-              <div style={{ background: '#C08A3E', color: '#000B29', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px' }}>FONDO I</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', marginTop: '1px' }}>→</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px', border: '1px solid rgba(255,255,255,0.15)' }}>FONDO II</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', marginTop: '1px' }}>→</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.65rem', fontWeight: 800, padding: '4px 10px', letterSpacing: '0.1em', flexShrink: 0, marginTop: '2px', border: '1px solid rgba(255,255,255,0.15)' }}>$100M USD</div>
-            </div>
-
-            {/* CTA */}
-            <button
-              onClick={() => {
-                const deck = document.getElementById('deck');
-                if (deck) deck.scrollIntoView({ behavior: 'smooth' });
-              }}
-              style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'system-ui, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}>
-              {es ? 'Solicitar Term Sheet Fondo 2026 →' : 'Request Fund 2026 Term Sheet →'}
-            </button>
-          </div>
-
-          {/* RIGHT — Ficha técnica */}
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(192,138,62,0.2)', padding: '0' }}>
-            <div style={{ background: '#C08A3E', padding: '1.2rem 2rem' }}>
-              <div style={{ color: '#000B29', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>
-                {es ? 'Ficha Técnica — Fondo Mercahorro 2026' : 'Fund Sheet — Fondo Mercahorro 2026'}
-              </div>
-            </div>
-            <div style={{ padding: '0' }}>
-              {ficha.map((item, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.1rem 2rem', borderBottom: i < ficha.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', gap: '1rem' }}>
-                  <div>
-                    <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.7rem', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '2px' }}>{item.label}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif' }}>{item.sub}</div>
-                  </div>
-                  <div style={{ color: '#C08A3E', fontSize: '1.1rem', fontFamily: 'Georgia, serif', fontWeight: 400, textAlign: 'right', flexShrink: 0 }}>{item.value}</div>
+              {(es ? [
+                'Fideicomiso regulado · capital nunca pasa por cuentas de Merca Capital',
+                'Garantía en activos reales · terreno y locales escriturados en fideicomiso',
+                'Firmado ante notario público',
+                'Auditoría externa anual por firma Big 4',
+                'Mecanismos de liquidez anticipada desde el año 3',
+              ] : [
+                'Regulated trust · capital never passes through Merca Capital accounts',
+                'Real asset collateral · land and units titled within the trust',
+                'Notarized agreement',
+                'Annual external audit by Big 4 firm',
+                'Early liquidity mechanisms from year 3',
+              ]).map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: '#C08A3E', fontSize: '0.85rem', flexShrink: 0, marginTop: '1px' }}>✓</span>
+                  <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.5 }}>{item}</span>
                 </div>
               ))}
             </div>
-            <div style={{ padding: '1.25rem 2rem', borderTop: '1px solid rgba(192,138,62,0.15)', background: 'rgba(192,138,62,0.04)' }}>
-              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.6 }}>
+
+            {/* Contact form — NDA first */}
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(192,138,62,0.2)', padding: '2rem' }}>
+              <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '0.5rem' }}>
+                {es ? 'Solicitar información' : 'Request information'}
+              </div>
+              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem', fontFamily: 'system-ui, sans-serif', margin: '0 0 1.5rem', lineHeight: 1.6 }}>
                 {es
-                  ? 'Información confidencial. Sujeta a verificación de perfil de inversionista calificado conforme a la CNBV.'
-                  : 'Confidential information. Subject to verification of qualified investor profile per CNBV regulation.'}
+                  ? 'Compártenos tus datos y nos pondremos en contacto para coordinar una reunión. La información detallada del vehículo se entrega previa firma de NDA.'
+                  : 'Share your details and we will reach out to schedule a meeting. Detailed fund information is shared upon NDA signature.'}
+              </p>
+              {formSent ? (
+                <div style={{ textAlign: 'center', padding: '1.5rem 0' }}>
+                  <div style={{ color: '#C08A3E', fontSize: '1.5rem', marginBottom: '0.75rem' }}>✓</div>
+                  <p style={{ color: '#FFF', fontFamily: 'system-ui, sans-serif', fontSize: '0.95rem', margin: '0 0 0.5rem' }}>
+                    {es ? 'Mensaje recibido' : 'Message received'}
+                  </p>
+                  <p style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'system-ui, sans-serif', fontSize: '0.8rem', margin: 0 }}>
+                    {es ? 'Nos pondremos en contacto a la brevedad.' : 'We will be in touch shortly.'}
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <input type="hidden" name="_type" value="fidux-inquiry" />
+                  {[
+                    { name: 'name', label: es ? 'Nombre completo' : 'Full name', type: 'text' },
+                    { name: 'email', label: es ? 'Email' : 'Email', type: 'email' },
+                    { name: 'company', label: es ? 'Empresa / Family Office' : 'Company / Family Office', type: 'text' },
+                  ].map((f) => (
+                    <div key={f.name} style={{ marginBottom: '1rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'system-ui, sans-serif' }}>{f.label}</label>
+                      <input name={f.name} type={f.type} required style={{ width: '100%', padding: '0.75rem 0', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)', background: 'transparent', fontSize: '0.95rem', color: '#FFF', outline: 'none', fontFamily: 'system-ui, sans-serif', boxSizing: 'border-box' }}
+                        onFocus={(e) => { e.target.style.borderBottomColor = '#C08A3E'; }}
+                        onBlur={(e) => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.15)'; }} />
+                    </div>
+                  ))}
+                  <button type="submit" disabled={sending} style={{ width: '100%', background: '#C08A3E', border: 'none', color: '#000B29', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'system-ui, sans-serif', marginTop: '0.5rem' }}>
+                    {sending ? (es ? 'Enviando...' : 'Sending...') : (es ? 'Solicitar reunión →' : 'Request meeting →')}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* RIGHT — Ficha técnica */}
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(192,138,62,0.2)' }}>
+            <div style={{ background: '#C08A3E', padding: '1.2rem 2rem' }}>
+              <div style={{ color: '#000B29', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>
+                {es ? 'Ficha técnica — Fidux Mercahorro' : 'Fund sheet — Fidux Mercahorro'}
+              </div>
+              <div style={{ color: 'rgba(0,11,41,0.6)', fontSize: '0.65rem', fontFamily: 'system-ui, sans-serif', marginTop: '2px' }}>
+                {es ? 'Condiciones válidas hasta fin 3Q 2026' : 'Terms valid until end Q3 2026'}
+              </div>
+            </div>
+            {ficha.map((item, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.1rem 2rem', borderBottom: i < ficha.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', gap: '1rem' }}>
+                <div>
+                  <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.68rem', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '3px' }}>{item.label}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', fontFamily: 'system-ui, sans-serif' }}>{item.sub}</div>
+                </div>
+                <div style={{ color: '#C08A3E', fontSize: '1rem', fontFamily: 'Georgia, serif', fontWeight: 400, textAlign: 'right', flexShrink: 0 }}>{item.value}</div>
+              </div>
+            ))}
+            <div style={{ padding: '1.25rem 2rem', borderTop: '1px solid rgba(192,138,62,0.15)', background: 'rgba(192,138,62,0.04)' }}>
+              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.7rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.6 }}>
+                {es
+                  ? 'Confidencial · Solo inversionistas cualificados · Información detallada previa firma de NDA'
+                  : 'Confidential · Qualified investors only · Detailed information upon NDA signature'}
               </p>
             </div>
           </div>
@@ -794,28 +838,41 @@ const Portfolio: React.FC<{ t: ContentStructure }> = ({ t }) => (
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.portfolio.title}</h2>
         <p style={{ color: '#666', fontSize: '1.05rem' }}>{t.portfolio.subtitle}</p>
       </div>
-      <div className="mc-portfolio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2.5rem' }}>
-        {t.portfolio.projects.map((proj, i) => (
-          <div key={i} style={{ background: '#F8F7F4', border: '1px solid rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.4s ease, box-shadow 0.4s ease' }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.1)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
-            <div style={{ position: 'relative', height: '200px', width: '100%' }}>
-              <Image src={proj.image} alt={proj.name} fill style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: proj.status === 'Operando' || proj.status === 'Operating' ? '#C08A3E' : '#000B29', color: '#FFF', padding: '0.4rem 0.8rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em' }}>
-                {proj.status.toUpperCase()}
+      <div className="mc-portfolio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+        {t.portfolio.projects.map((proj, i) => {
+          const isOperating = ['En operación', 'Operating', 'Operando'].includes(proj.status);
+          const isProximo = ['Próxima apertura', 'Opening 2026'].includes(proj.status);
+          const badgeBg = isOperating ? '#1D7A4A' : isProximo ? '#C08A3E' : '#000B29';
+          return (
+            <div key={i} style={{ background: '#F8F7F4', border: '1px solid rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.4s ease, box-shadow 0.4s ease' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.1)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+              <div style={{ position: 'relative', height: '180px', width: '100%', background: proj.image ? 'transparent' : '#0C1E3C' }}>
+                {proj.image ? (
+                  <Image src={proj.image} alt={proj.name} fill style={{ objectFit: 'cover', objectPosition: proj.image.includes('plaza-abastos') ? 'center 70%' : 'center' }} />
+                ) : (
+                  <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ color: '#C08A3E', fontSize: '2rem', marginBottom: '0.5rem' }}>🏗</div>
+                      <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>En construcción</div>
+                    </div>
+                  </div>
+                )}
+                <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: badgeBg, color: '#FFF', padding: '0.35rem 0.75rem', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em' }}>
+                  {proj.status.toUpperCase()}
+                </div>
+              </div>
+              <div style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.4rem' }}>
+                  <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#C08A3E', letterSpacing: '-0.02em' }}>{proj.sqm}</div>
+                  <span style={{ color: '#999', fontSize: '0.8rem', fontFamily: 'monospace' }}>{proj.year}</span>
+                </div>
+                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.25rem 0' }}>{proj.name}</h3>
+                <p style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 600, margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{proj.city}</p>
               </div>
             </div>
-            <div style={{ padding: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                <div style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: '#C08A3E', letterSpacing: '-0.02em' }}>{proj.sqm}</div>
-                <span style={{ color: '#999', fontSize: '0.8rem', fontFamily: 'monospace' }}>{proj.year}</span>
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#000B29', margin: '0 0 0.3rem 0' }}>{proj.name}</h3>
-              <p style={{ color: '#C08A3E', fontSize: '0.7rem', fontWeight: 600, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{proj.city}</p>
-              <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>{proj.description}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
@@ -1607,7 +1664,7 @@ export default function MercaCapitalPage() {
           /* Pilares 3-col → 1-col */
           .mc-pilares-grid { grid-template-columns: 1fr !important; }
 
-          /* Portfolio 2-col → 1-col */
+          /* Portfolio 3-col → 1-col */
           .mc-portfolio-grid { grid-template-columns: 1fr !important; }
 
           /* Fases 4-col → 1-col */
