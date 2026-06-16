@@ -184,8 +184,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       headline3: 'Agro-Alimentaria',
       subtitle: 'El activo real no son los metros cuadrados',
       description: 'Es el control del punto estratégico donde México come',
-      cta: 'VER PORTAFOLIO',
-      ctaSecondary: 'TESIS DE INVERSIÓN',
+      cta: 'Conocer el Fidux →',
+      ctaSecondary: 'Ver escenarios',
       pillars: {
         title: 'Pilares estratégicos',
         items: [
@@ -315,8 +315,8 @@ const content: Record<'es' | 'en', ContentStructure> = {
       headline3: 'Infrastructure',
       subtitle: 'The real asset isn\'t the square meters',
       description: 'It\'s control of the strategic point where Mexico eats',
-      cta: 'VIEW PORTFOLIO',
-      ctaSecondary: 'INVESTMENT THESIS',
+      cta: 'Learn about Fidux →',
+      ctaSecondary: 'View scenarios',
       pillars: {
         title: 'STRATEGIC PILLARS',
         items: [
@@ -597,10 +597,10 @@ const Hero: React.FC<{ t: ContentStructure }> = ({ t }) => (
           {t.hero.description}
         </p>
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-          <a href="#portfolio" style={{ background: '#C08A3E', color: '#000B29', padding: '1.2rem 2.8rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textDecoration: 'none', transition: 'all 0.3s', border: '2px solid #C08A3E' }}>
+          <a href="#fidux" style={{ background: '#C08A3E', color: '#000B29', padding: '1.2rem 2.8rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', transition: 'all 0.3s', border: '2px solid #C08A3E' }}>
             {t.hero.cta}
           </a>
-          <a href="#thesis" style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textDecoration: 'none', borderBottom: '1px solid rgba(192,138,62,0.5)', paddingBottom: '5px' }}>
+          <a href="#contact" style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textDecoration: 'none', borderBottom: '1px solid rgba(192,138,62,0.5)', paddingBottom: '5px' }}>
             {t.hero.ctaSecondary}
           </a>
         </div>
