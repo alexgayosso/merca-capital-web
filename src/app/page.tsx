@@ -189,7 +189,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'Pilares estratégicos',
         items: [
-          { name: 'Nodos estratégicos: Norte · Bajío · Centro', description: 'Infraestructura crítica en los corredores de mayor flujo comercial de México' },
+          { name: 'Nodos estratégicos: Norte · Bajío · Centro · Sur', description: 'Infraestructura crítica en los 4 corredores de mayor flujo comercial de México' },
           { name: 'Infraestructura crítica', description: 'Mercados · Abasto · Distribución' },
           { name: 'Flujos anticíclicos', description: 'Demanda inelástica · Cap Rates 8-10%' },
           { name: 'Control operativo', description: 'Originación · Operación · Exit' },
@@ -320,7 +320,7 @@ const content: Record<'es' | 'en', ContentStructure> = {
       pillars: {
         title: 'STRATEGIC PILLARS',
         items: [
-          { name: 'Strategic Nodes: North · Bajío · Center', description: 'Critical infrastructure in Mexico\'s highest commercial flow corridors' },
+          { name: 'Strategic nodes: North · Bajío · Center · South', description: 'Critical infrastructure across Mexico\'s 4 highest commercial flow corridors' },
           { name: 'Critical Infrastructure', description: 'Markets · Wholesale · Distribution' },
           { name: 'Anti-Cyclical Flows', description: 'Inelastic Demand · 8-10% Cap Rates' },
           { name: 'Operational Control', description: 'Origination · Operations · Exit' }
@@ -784,6 +784,212 @@ const FondoI: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ── ESCENARIOS E1–E5 ─────────────────────────────────────────
+const Escenarios: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const es = lang === 'es';
+  const escenarios = [
+    { id: 'E1', composicion: '100% A', rentAnual: '13.30%', retornoTotal: '150%', totalRecibido: '$15.0M MXN', perfil: es ? 'Defensivo' : 'Defensive', highlight: false },
+    { id: 'E2', composicion: '100% B', rentAnual: '33.77%', retornoTotal: '405%', totalRecibido: '$40.53M MXN', perfil: es ? 'Crecimiento' : 'Growth', highlight: true },
+    { id: 'E3', composicion: '50% A / 50% B', rentAnual: '23.13%', retornoTotal: '277%', totalRecibido: '$27.76M MXN', perfil: es ? 'Equilibrado' : 'Balanced', highlight: false },
+    { id: 'E4', composicion: '60% A / 40% B', rentAnual: '21.01%', retornoTotal: '252%', totalRecibido: '$25.21M MXN', perfil: es ? 'Moderado' : 'Moderate', highlight: false },
+    { id: 'E5', composicion: '70% A / 30% B', rentAnual: '18.88%', retornoTotal: '226%', totalRecibido: '$22.65M MXN', perfil: es ? 'Conservador' : 'Conservative', highlight: false },
+  ];
+  const headers = es
+    ? ['Escenario', 'Composición', 'Rentab. anual', 'Retorno total', 'Total recibido', 'Perfil']
+    : ['Scenario', 'Composition', 'Annual return', 'Total return', 'Total received', 'Profile'];
+  return (
+    <section className="mc-section" style={{ padding: '5rem 4rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.1)' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '2.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>
+              {es ? 'Escenarios de inversión — Ticket $10M MXN' : 'Investment scenarios — $10M MXN ticket'}
+            </span>
+          </div>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 400, color: '#FFF', margin: 0, letterSpacing: '-0.02em' }}>
+            {es ? 'Todos los escenarios devuelven el capital en el año 10' : 'All scenarios return capital by year 10'}
+          </h2>
+        </div>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'system-ui, sans-serif' }}>
+            <thead>
+              <tr style={{ background: 'rgba(192,138,62,0.08)', borderBottom: '1px solid rgba(192,138,62,0.3)' }}>
+                {headers.map((h, i) => (
+                  <th key={i} style={{ padding: '1rem 1.5rem', textAlign: i === 0 ? 'center' : 'left', color: 'rgba(255,255,255,0.45)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {escenarios.map((e) => (
+                <tr key={e.id} style={{ background: e.highlight ? 'rgba(192,138,62,0.08)' : 'transparent', borderBottom: '1px solid rgba(255,255,255,0.04)', borderLeft: e.highlight ? '3px solid #C08A3E' : '3px solid transparent' }}>
+                  <td style={{ padding: '1.1rem 1.5rem', textAlign: 'center' }}>
+                    <span style={{ background: e.highlight ? '#C08A3E' : 'rgba(255,255,255,0.08)', color: e.highlight ? '#000B29' : 'rgba(255,255,255,0.6)', fontSize: '0.75rem', fontWeight: 800, padding: '3px 10px' }}>{e.id}</span>
+                  </td>
+                  <td style={{ padding: '1.1rem 1.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>{e.composicion}</td>
+                  <td style={{ padding: '1.1rem 1.5rem' }}><span style={{ color: '#C08A3E', fontSize: '1.05rem', fontFamily: 'Georgia, serif' }}>{e.rentAnual}</span></td>
+                  <td style={{ padding: '1.1rem 1.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>{e.retornoTotal}</td>
+                  <td style={{ padding: '1.1rem 1.5rem' }}><span style={{ color: e.highlight ? '#C08A3E' : '#FFF', fontSize: '0.95rem', fontWeight: e.highlight ? 700 : 400 }}>{e.totalRecibido}</span></td>
+                  <td style={{ padding: '1.1rem 1.5rem', color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>{e.perfil}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif', marginTop: '1.25rem', lineHeight: 1.6 }}>
+          {es ? 'Proyecciones basadas en el modelo financiero auditado. Rentabilidades pasadas no garantizan resultados futuros. Condiciones válidas hasta fin 3Q 2026.' : 'Projections based on audited financial model. Past performance does not guarantee future results. Terms valid until end Q3 2026.'}
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// ── COMPARATIVA VS ALTERNATIVAS ───────────────────────────────
+const Comparativa: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const es = lang === 'es';
+  const alts = [
+    { nombre: 'CETES 28 días', retorno: '~10–11%', w: 28, highlight: false, tipo: es ? 'Renta fija · Sin garantía en activos' : 'Fixed income · No asset collateral' },
+    { nombre: 'S&P 500', retorno: '~7–9%', w: 22, highlight: false, tipo: es ? 'Renta variable · Alta volatilidad' : 'Equities · High volatility' },
+    { nombre: es ? 'Bienes raíces tradicional' : 'Traditional real estate', retorno: '5–8%', w: 18, highlight: false, tipo: es ? 'Ilíquido · Cap rate estándar' : 'Illiquid · Standard cap rate' },
+    { nombre: 'Fidux Mercahorro — Clase A', retorno: '17.50%', w: 55, highlight: true, tipo: es ? 'Cupón fijo · Garantía en activos reales · CNBV' : 'Fixed coupon · Real asset collateral · CNBV' },
+    { nombre: 'Fidux Mercahorro — Clase B', retorno: '33.77%', w: 100, highlight: true, tipo: es ? 'Cupón + participación · Máximo rendimiento' : 'Coupon + participation · Maximum return' },
+  ];
+  return (
+    <section className="mc-section" style={{ padding: '6rem 4rem', background: '#F8F7F4' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>
+              {es ? '¿Por qué Fidux vs otras alternativas?' : 'Why Fidux vs other alternatives?'}
+            </span>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+          </div>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#000B29', margin: '0 0 0.75rem 0', letterSpacing: '-0.02em' }}>
+            {es ? 'La misma seguridad. Un retorno diferente.' : 'Same security. A different return.'}
+          </h2>
+          <p style={{ color: '#666', fontSize: '1rem', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
+            {es ? 'Fidux Clase A ofrece 17.50% fijo con garantía en activos reales — más del doble que CETES, con respaldo físico que la renta fija no tiene.' : 'Fidux Class A offers 17.50% fixed with real asset collateral — more than double CETES, with physical backing that fixed income lacks.'}
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {alts.map((a, i) => (
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: '240px 1fr 90px', gap: '1.5rem', alignItems: 'center', padding: '1.25rem 1.5rem', background: a.highlight ? '#000B29' : '#FFF', border: a.highlight ? '1px solid rgba(192,138,62,0.3)' : '1px solid rgba(0,0,0,0.05)', borderLeft: a.highlight ? '4px solid #C08A3E' : '4px solid transparent' }}>
+              <div>
+                <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.85rem', fontWeight: a.highlight ? 700 : 500, color: a.highlight ? '#FFF' : '#333', marginBottom: '3px' }}>{a.nombre}</div>
+                <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', color: a.highlight ? 'rgba(255,255,255,0.4)' : '#999' }}>{a.tipo}</div>
+              </div>
+              <div style={{ height: '24px', background: 'rgba(0,0,0,0.05)', borderRadius: '2px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${a.w}%`, background: a.highlight ? '#C08A3E' : '#CCC', borderRadius: '2px' }} />
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.15rem', color: a.highlight ? '#C08A3E' : '#888' }}>{a.retorno}</div>
+                <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.6rem', color: a.highlight ? 'rgba(255,255,255,0.3)' : '#BBB', marginTop: '2px' }}>{es ? 'anual' : 'annual'}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{ color: '#AAA', fontSize: '0.7rem', fontFamily: 'system-ui, sans-serif', marginTop: '1.25rem' }}>
+          {es ? 'Comparativa referencial. CETES y S&P 500 no garantizan activos físicos. Clase B corresponde al escenario E2.' : 'Reference comparison only. CETES and S&P 500 include no physical asset guarantee. Class B corresponds to scenario E2.'}
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// ── MAPA 4 ZONAS ─────────────────────────────────────────────
+const Mapa4Zonas: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const es = lang === 'es';
+  const zonas = [
+    { id: 'Z1', nombre: es ? 'Zona Norte' : 'North Zone', estados: 'Chihuahua, Coahuila, Nuevo León, Tamaulipas, San Luis Potosí', color: '#C08A3E', activos: 'Torreón 1 · Torreón 2 · Monterrey', status: es ? 'En operación' : 'Operating' },
+    { id: 'Z2', nombre: es ? 'Zona Bajío-Occidente' : 'Bajío-West Zone', estados: 'Guanajuato, Jalisco, Michoacán, Colima, Nayarit, Aguascalientes, Zacatecas', color: '#7C8E76', activos: es ? 'Gómez Palacio · Silao' : 'Gómez Palacio · Silao', status: es ? 'En desarrollo' : 'In development' },
+    { id: 'Z3', nombre: es ? 'Zona Centro' : 'Central Zone', estados: 'Querétaro, Hidalgo, Estado de México, CDMX, Morelos, Puebla, Guerrero, Tlaxcala', color: '#7A8B9A', activos: es ? 'Pipeline 2027–2028' : 'Pipeline 2027–2028', status: 'Pipeline' },
+    { id: 'Z4', nombre: es ? 'Zona Sur-Sureste' : 'South-Southeast Zone', estados: 'Veracruz, Oaxaca, Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo', color: '#9A8B6A', activos: es ? 'Pipeline 2028–2030' : 'Pipeline 2028–2030', status: 'Pipeline' },
+  ];
+  return (
+    <section className="mc-section" style={{ padding: '6rem 4rem', background: '#000B29' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', fontWeight: 700 }}>
+              {es ? '4 hubs geográficos de inversión' : '4 geographic investment hubs'}
+            </span>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+          </div>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.6rem)', fontWeight: 400, color: '#FFF', margin: '0 0 0.75rem 0', letterSpacing: '-0.02em' }}>
+            {es ? 'Cobertura nacional · El inversionista elige su zona' : 'National coverage · Investor chooses their zone'}
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto', fontFamily: 'system-ui, sans-serif' }}>
+            {es ? 'Cada hub opera como un fideicomiso independiente. Diversificación geográfica sin complejidad adicional.' : 'Each hub operates as an independent trust. Geographic diversification without added complexity.'}
+          </p>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+          {zonas.map((z) => (
+            <div key={z.id} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${z.color}40`, borderLeft: `4px solid ${z.color}`, padding: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                <div>
+                  <div style={{ color: z.color, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', marginBottom: '4px' }}>{z.id}</div>
+                  <div style={{ color: '#FFF', fontSize: '1.05rem', fontFamily: 'Georgia, serif' }}>{z.nombre}</div>
+                </div>
+                <span style={{ background: z.status === (es ? 'En operación' : 'Operating') ? 'rgba(29,154,117,0.15)' : 'rgba(255,255,255,0.06)', color: z.status === (es ? 'En operación' : 'Operating') ? '#1D9A75' : 'rgba(255,255,255,0.35)', fontSize: '0.6rem', fontWeight: 700, padding: '3px 8px', letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif' }}>{z.status}</span>
+              </div>
+              <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.72rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.5, marginBottom: '0.75rem' }}>{z.estados}</div>
+              <div style={{ borderTop: `1px solid ${z.color}25`, paddingTop: '0.75rem' }}>
+                <div style={{ color: z.color, fontSize: '0.78rem', fontFamily: 'system-ui, sans-serif', fontWeight: 600 }}>{z.activos}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: '2rem', background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.2)', padding: '1.25rem 2rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <span style={{ color: '#C08A3E', fontSize: '1.2rem', flexShrink: 0 }}>📍</span>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif', margin: 0, lineHeight: 1.6 }}>
+            {es ? 'El inversionista elige en qué zona invertir su ticket de $10M MXN. Cada hub es un fideicomiso independiente con sus propios activos, flujos y garantías.' : 'The investor selects which zone to place their $10M MXN ticket. Each hub is an independent trust with its own assets, cash flows, and collateral.'}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ── PROCESO ONBOARDING ────────────────────────────────────────
+const ProcesoOnboarding: React.FC<{ lang: 'es' | 'en' }> = ({ lang }) => {
+  const es = lang === 'es';
+  const pasos = es ? [
+    { n: '01', titulo: 'Contacto inicial', desc: 'Rellena el formulario. En menos de 24 horas un socio se pone en contacto para una llamada de 30 minutos.' },
+    { n: '02', titulo: 'NDA y documentación', desc: 'Firmamos un acuerdo de confidencialidad. Recibes el memorando completo, modelo financiero y documentación legal.' },
+    { n: '03', titulo: 'Convenio ante notario', desc: 'Firmamos el Convenio de Adhesión ante notario público. Tu capital entra al fideicomiso bajo custodia de Bancrea.' },
+  ] : [
+    { n: '01', titulo: 'Initial contact', desc: 'Fill out the form. Within 24 hours a partner will reach out for a 30-minute introductory call.' },
+    { n: '02', titulo: 'NDA and documentation', desc: 'We sign a confidentiality agreement. You receive the full memorandum, financial model and legal documentation.' },
+    { n: '03', titulo: 'Notarized agreement', desc: 'We sign the Adhesion Agreement before a notary. Your capital enters the regulated trust under Bancrea custody.' },
+  ];
+  return (
+    <section className="mc-section" style={{ padding: '5rem 4rem', background: '#F8F7F4' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 3vw, 2.2rem)', fontWeight: 400, color: '#000B29', margin: '0 0 0.5rem 0', letterSpacing: '-0.02em' }}>
+            {es ? '¿Qué pasa después de contactarnos?' : 'What happens after you contact us?'}
+          </h2>
+          <p style={{ color: '#888', fontSize: '0.9rem', fontFamily: 'system-ui, sans-serif', margin: 0 }}>
+            {es ? 'Proceso claro, sin sorpresas' : 'Clear process, no surprises'}
+          </p>
+        </div>
+        <div className="mc-model-steps" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: '1.4rem', left: 'calc(16.66% + 0.5rem)', right: 'calc(16.66% + 0.5rem)', height: '2px', background: '#C08A3E', opacity: 0.3, zIndex: 0 }} />
+          {pasos.map((p, i) => (
+            <div key={i} style={{ textAlign: 'center', padding: '0 1.5rem', position: 'relative', zIndex: 1 }}>
+              <div style={{ width: '44px', height: '44px', background: '#000B29', border: '2px solid #C08A3E', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem', color: '#C08A3E', fontSize: '0.7rem', fontWeight: 800, fontFamily: 'system-ui, sans-serif' }}>{p.n}</div>
+              <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', fontWeight: 400, color: '#000B29', margin: '0 0 0.6rem 0' }}>{p.titulo}</h3>
+              <p style={{ color: '#666', fontSize: '0.82rem', fontFamily: 'system-ui, sans-serif', lineHeight: 1.7, margin: 0 }}>{p.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1712,14 +1918,13 @@ export default function MercaCapitalPage() {
       <Hero t={t} />
       <Stats t={t} />
       <FondoI lang={lang} />
+      <Escenarios lang={lang} />
+      <Comparativa lang={lang} />
+      <Mapa4Zonas lang={lang} />
       <InsightSection t={t} />
-      <Portfolio t={t} />
-      <ProgramaNodos lang={lang} />
-      <Thesis t={t} lang={lang} />
-      <Model t={t} />
       <UnfairAdvantage lang={lang} />
       <TeamSection lang={lang} />
-      <GatedDeckSection lang={lang} />
+      <ProcesoOnboarding lang={lang} />
       <Contact t={t} lang={lang} />
       <Footer t={t} lang={lang} />
     </main>
