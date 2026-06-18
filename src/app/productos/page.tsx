@@ -200,7 +200,7 @@ export default function ProductosPage() {
       </section>
 
       {/* ── ESCENARIOS E1–E5 ─────────────────────── */}
-      <section className="mc-section" style={{ padding: '5rem 4rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.1)' }}>
+      <section id="escenarios" className="mc-section" style={{ padding: '5rem 4rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.1)', scrollMarginTop: '100px' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{ marginBottom: '2.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>

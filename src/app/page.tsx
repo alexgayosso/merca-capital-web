@@ -62,7 +62,7 @@ export default function HomePage() {
               <Link href="/productos" style={{ background: '#C08A3E', color: '#000B29', padding: '1.2rem 2.8rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', transition: 'all 0.3s', border: '2px solid #C08A3E' }}>
                 {t.hero.cta}
               </Link>
-              <Link href="/contacto" style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textDecoration: 'none', borderBottom: '1px solid rgba(192,138,62,0.5)', paddingBottom: '5px' }}>
+              <Link href="/productos#escenarios" style={{ color: '#C08A3E', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textDecoration: 'none', borderBottom: '1px solid rgba(192,138,62,0.5)', paddingBottom: '5px' }}>
                 {t.hero.ctaSecondary}
               </Link>
             </div>
