@@ -41,7 +41,7 @@ export const content: Record<'es' | 'en', ContentStructure> = {
       title: 'EL INSIGHT QUE NADIE VE',
       content: 'México tiene 329 Centrales de Abasto que mueven',
       highlight: '~$80B USD anuales',
-      subtext: 'en alimentos. El 78% opera en infraestructura obsoleta (pre-2000). Nadie los ha consolidado. Nadie los ha digitalizado. Nadie los ha financiarizado.',
+      subtext: 'en alimentos. El 78% opera en infraestructura obsoleta (pre-2000). Nadie los ha consolidado. Nadie los ha digitalizado. Nadie los ha financiado.',
       stats: [
         { value: '329', label: 'Centrales de Abasto' },
         { value: '$80B', label: 'USD Flow Anual' },
@@ -156,12 +156,12 @@ export const content: Record<'es' | 'en', ContentStructure> = {
 export const TEAM_DATA: Record<'es' | 'en', TeamMember[]> = {
   es: [
     { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Managing Partner — Strategy & National Infrastructure', bio: 'Fundador y VP de MERCAMÉXICO. Estratega líder en la modernización de la red nacional de abasto. Arquitecto del blueprint evolutivo para infraestructura mayorista, integrando Edge Computing y logística de última milla. Transforma activos tradicionales en nodos digitales de alta escalabilidad.', credentials: ['Ing. Sistemas — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO (Asociación Mexicana de Mercados)', 'Fundador — Grupo Mercahorro', 'Co-fundador — Altavela Group'], color: '#C08A3E' },
-    { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Experto en gestión de activos para Family Offices y estructuración financiera internacional. Supervisa la integridad técnica, fiscal e institucional del fondo, aportando la sofisticación necesaria para el manejo de capital de alto patrimonio.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
+    { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Experto en gestión de activos para Family Offices y estructuración financiera internacional. Supervisa la integridad técnica, fiscal e institucional del vehículo, aportando la sofisticación necesaria para el manejo de capital de alto patrimonio.', credentials: ['Banca Corporativa Internacional', 'Estructuración de Capital Privado'], roles: ['Co-fundador — Altavela Group', 'Relaciones institucionales Europa–LATAM'], color: '#7C8E76' },
     { initials: 'JG', name: 'José M. González O.', title: 'Chief Legal Officer', bio: 'Socio y Director del Área Inmobiliaria de su despacho con más de 10 años especializándose en Fideicomisos Patrimoniales, de Desarrollo Inmobiliario, Fondos de Inversión, Garantía y Fuente de Pago. Coordina la arquitectura legal del Fidux Mercahorro con experiencia en múltiples estados de la República.', credentials: ['Lic. en Derecho — UANL', 'Maestría en Derecho de la Empresa — UDEM'], roles: ['Chief Legal Officer — Merca Capital', 'Socio · Director Área Inmobiliaria'], color: '#8A7A5A' },
   ],
   en: [
     { initials: 'AG', name: 'Alejandro Gayosso Mar', title: 'Managing Partner — Strategy & National Infrastructure', bio: 'Founder & VP of MERCAMÉXICO. Lead strategist in modernizing Mexico\'s national wholesale network. Architect of the evolutionary blueprint for wholesale infrastructure, integrating Edge Computing and last-mile logistics. Transforms traditional assets into high-scalability digital nodes.', credentials: ['Systems Eng. — Tec de Monterrey', 'MBA — IE Business School, Madrid'], roles: ['VP — MERCAMÉXICO', 'Founder — Grupo Mercahorro', 'Co-founder — Altavela Group'], color: '#C08A3E' },
-    { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Expert in asset management for Family Offices and international financial structuring. Oversees the technical, fiscal and institutional integrity of the fund, bringing the sophistication required for high-net-worth capital management.', credentials: ['International Corporate Banking', 'International Financial Structuring'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
+    { initials: 'JS', name: 'José Sánchez', title: 'Partner — Investment Structure', bio: 'Expert in asset management for Family Offices and international financial structuring. Oversees the technical, fiscal and institutional integrity of the vehicle, bringing the sophistication required for high-net-worth capital management.', credentials: ['International Corporate Banking', 'International Financial Structuring'], roles: ['Co-founder — Altavela Group', 'Institutional relations Europe–LATAM'], color: '#7C8E76' },
     { initials: 'JG', name: 'José M. González O.', title: 'Chief Legal Officer', bio: 'Partner and Real Estate Practice Director with 10+ years specializing in Patrimonial, Real Estate Development, Investment Fund, Guarantee, and Payment Source Trusts. Coordinates the legal architecture of Fidux Mercahorro across multiple Mexican states.', credentials: ['Law Degree — UANL', 'Master in Business Law — UDEM'], roles: ['Chief Legal Officer — Merca Capital', 'Partner · Real Estate Practice Director'], color: '#8A7A5A' },
   ],
 };
@@ -181,12 +181,12 @@ export const MOAT_CONTENT = {
     title: 'Por qué nadie más puede hacer esto',
     subtitle: 'El moat de Merca Capital no es el capital — es el acceso, la confianza y el know-how acumulado en 20 años de operación directa en mercados mayoristas.',
     items: [
-      { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto de México a través de la principal asociación del sector. Deal flow que ningún fondo externo puede originar o comprar.', metric: '329 centrales · 1 acceso exclusivo' },
-      { icon: '🤝', sub: '20 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 20 años. No se puede comprar. No se puede replicar. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
+      { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto de México a través de la principal asociación del sector. Deal flow que ningún vehículo externo puede originar o comprar.', metric: '329 centrales · 1 acceso exclusivo' },
+      { icon: '🔗', sub: '20 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 20 años. No se puede comprar. No se puede replicar. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
       { icon: '📊', sub: 'Datos propietarios', title: 'Inteligencia Operativa', desc: 'Datos de ocupación, NOI y comportamiento comercial de 20 años de operación directa. El input más valioso para el underwriting de nuevos activos.', metric: '20 años de datos operativos propietarios' },
-      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro fondo de capital privado puede replicar: Edge Data Centers, procesamiento financiero a nivel nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
+      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro vehículo de capital privado puede replicar: Edge Data Centers, procesamiento financiero a nivel nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
     ],
-    quote: '"No somos un fondo que encontró un activo. Somos el activo que se convirtió en fondo."',
+    quote: '"No somos un vehículo que encontró un activo. Somos el activo que se convirtió en vehículo."',
     quoteBy: '— Alejandro Gayosso Mar, Fundador',
   },
   en: {
@@ -195,11 +195,11 @@ export const MOAT_CONTENT = {
     subtitle: 'Merca Capital\'s moat is not capital — it\'s access, trust, and know-how accumulated over 20 years of direct operations in wholesale markets.',
     items: [
       { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Unique Guild Position', desc: 'Institutional access to Mexico\'s 329 Wholesale Food Markets through the sector\'s top association. Deal flow no external fund can originate or buy.', metric: '329 markets · 1 exclusive access' },
-      { icon: '🤝', sub: '20 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 20 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
+      { icon: '🔗', sub: '20 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 20 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
       { icon: '📊', sub: 'Proprietary data', title: 'Operational Intelligence', desc: 'Occupancy, NOI, and commercial behavior data from 20 years of direct operations. The most valuable input for underwriting new assets.', metric: '20 years of proprietary operational data' },
-      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Proprietary Technology Layer', desc: 'The Mercahorro network serves as the foundation for a technology layer no other private equity fund can replicate: Edge Data Centers, node-level financial processing, and food supply chain data monetization.', metric: '100 nodes · 1 proprietary data network' },
+      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Proprietary Technology Layer', desc: 'The Mercahorro network serves as the foundation for a technology layer no other private equity vehicle can replicate: Edge Data Centers, node-level financial processing, and food supply chain data monetization.', metric: '100 nodes · 1 proprietary data network' },
     ],
-    quote: '"We are not a fund that found an asset. We are the asset that became a fund."',
+    quote: '"We are not a vehicle that found an asset. We are the asset that became a vehicle."',
     quoteBy: '— Alejandro Gayosso Mar, Founder',
   },
 };

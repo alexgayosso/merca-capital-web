@@ -81,12 +81,6 @@ export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) 
               {lang === 'es' ? item.es : item.en}
             </Link>
           ))}
-          <Link href="/contacto"
-            style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '8px 16px', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', transition: 'opacity 0.2s' }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
-            {lang === 'es' ? 'INVERTIR →' : 'INVEST →'}
-          </Link>
           <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
             style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.3)', color: 'rgba(192,138,62,0.6)', padding: '6px 14px', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px', transition: 'all 0.3s', letterSpacing: '0.08em' }}
             onMouseEnter={(e) => { e.currentTarget.style.background = '#C08A3E'; e.currentTarget.style.color = '#000B29'; e.currentTarget.style.borderColor = '#C08A3E'; }}
@@ -113,10 +107,6 @@ export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) 
               {lang === 'es' ? item.es : item.en}
             </Link>
           ))}
-          <Link href="/contacto" onClick={() => setMenuOpen(false)}
-            style={{ background: '#C08A3E', border: 'none', color: '#000B29', padding: '14px 40px', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', marginTop: '0.5rem' }}>
-            {lang === 'es' ? 'INVERTIR →' : 'INVEST →'}
-          </Link>
           <button onClick={() => { setLang(lang === 'es' ? 'en' : 'es'); setMenuOpen(false); }}
             style={{ background: 'transparent', border: '1px solid rgba(192,138,62,0.4)', color: '#C08A3E', padding: '8px 20px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', borderRadius: '2px' }}>
             {lang === 'es' ? 'EN' : 'ES'}

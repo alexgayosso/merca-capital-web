@@ -17,6 +17,7 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; font-family: system-ui, 
   /* Hero */
   .mc-hero-grid { grid-template-columns: 1fr !important; padding: 7rem 1.5rem 3rem !important; }
   .mc-hero-pillars { display: none !important; }
+  .mc-hero-photo { height: 240px !important; order: -1; margin-bottom: 1rem; }
   .mc-hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
   .mc-hero-btns a { text-align: center !important; }
 

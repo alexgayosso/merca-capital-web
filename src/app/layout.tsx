@@ -4,10 +4,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Merca Capital | Agri-Food Infrastructure & Private Equity',
-  description: 'Merca Capital consolida y financiariza infraestructura comercial de abasto en México. 20 años de operación, 52,000 m² desarrollados, 300+ comerciantes activos.',
+  description: 'Merca Capital consolida y financia infraestructura comercial de abasto en México. 20 años de operación, 52,000 m² desarrollados, 300+ comerciantes activos.',
   openGraph: {
     title: 'Merca Capital | Agri-Food Infrastructure & Private Equity',
-    description: 'Consolidamos la infraestructura de distribución alimentaria más fragmentada de América Latina.',
+    description: 'Consolidamos la infraestructura de distribución alimentaria más fragmentada de Latam.',
     url: 'https://mercacapital.com',
     siteName: 'Merca Capital',
     images: [{ url: 'https://mercacapital.com/og-image.jpg', width: 1200, height: 630 }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Merca Capital | Agri-Food Infrastructure & Private Equity',
-    description: 'Consolidamos la infraestructura de distribución alimentaria más fragmentada de América Latina.',
+    description: 'Consolidamos la infraestructura de distribución alimentaria más fragmentada de Latam.',
     images: ['https://mercacapital.com/og-image.jpg'],
   },
 };
