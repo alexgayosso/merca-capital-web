@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useLang } from '../lib/LangContext';
 import { Header, Footer, MomentumBanner } from '../lib/Header';
 import { content } from '../lib/content';
@@ -35,27 +36,32 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Photo placeholder — reemplazar por foto aérea real (Gómez Palacio / Torreón) */}
+          {/* Foto aérea real con overlay degradado integrado a la paleta navy/dorado */}
           <div className="mc-hero-photo" style={{
             position: 'relative',
             height: '420px',
-            border: '2px dashed rgba(192,138,62,0.4)',
-            background: 'rgba(255,255,255,0.02)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            padding: '2rem',
+            overflow: 'hidden',
           }}>
-            <div>
-              <div style={{ fontSize: '2rem', marginBottom: '1rem', opacity: 0.5 }}>📷</div>
-              <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 0.5rem' }}>
-                {es ? 'Placeholder — Foto aérea' : 'Placeholder — Aerial photo'}
-              </p>
-              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', margin: 0, lineHeight: 1.6 }}>
-                {es ? 'Sugerencia: Mercahorro Gómez Palacio o Torreón' : 'Suggestion: Mercahorro Gómez Palacio or Torreón'}
-              </p>
-            </div>
+            <Image
+              src="/mercahorro-torreon-aerea.jpg"
+              alt={es ? 'Mercahorro Torreón — vista aérea' : 'Mercahorro Torreón — aerial view'}
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+            {/* Wash diagonal: oscurece el lado que toca el texto, se aclara hacia la derecha */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(115deg, rgba(0,11,41,0.95) 0%, rgba(0,11,41,0.7) 22%, rgba(0,11,41,0.35) 48%, rgba(0,11,41,0.12) 100%)',
+            }} />
+            {/* Wash vertical: ancla la base, evita que se vea "flotando" */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to top, rgba(0,11,41,0.55) 0%, transparent 35%, transparent 75%, rgba(0,11,41,0.25) 100%)',
+            }} />
+            {/* Acentos dorados en las esquinas — coherencia con el resto del sitio */}
+            <div style={{ position: 'absolute', top: 0, right: 0, width: '48px', height: '48px', borderTop: '2px solid rgba(192,138,62,0.55)', borderRight: '2px solid rgba(192,138,62,0.55)' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '48px', height: '48px', borderBottom: '2px solid rgba(192,138,62,0.55)', borderLeft: '2px solid rgba(192,138,62,0.55)' }} />
           </div>
         </div>
       </section>
