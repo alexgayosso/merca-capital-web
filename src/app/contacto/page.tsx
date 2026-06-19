@@ -10,8 +10,6 @@ export default function ContactoPage() {
   const { lang } = useLang();
   const [bannerVisible, setBannerVisible] = useState(true);
   const t = content[lang];
-  const calBtn = lang === 'es' ? 'Agendar Llamada con Socios de Inversión →' : 'Schedule Call with Investment Partners →';
-  const confirmBtn = lang === 'es' ? 'Confirmado: Agendar con Socios de Inversión →' : 'Confirmed: Schedule with Investment Partners →';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,7 +32,7 @@ export default function ContactoPage() {
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#F8F7F4' }}>
         <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
           <div>
-            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h1>
+            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h1>
             <p style={{ color: '#666', fontSize: '1.05rem', marginBottom: '3rem' }}>{t.contact.subtitle}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -69,12 +67,7 @@ export default function ContactoPage() {
                 <div style={{ textAlign: 'center', padding: '2rem 0' }}>
                   <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}><CheckCircle /></div>
                   <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 400, color: '#000B29', margin: '0 0 0.75rem 0' }}>{t.contact.form.successTitle}</h3>
-                  <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, margin: '0 auto 2rem', maxWidth: '300px' }}>{t.contact.form.successMessage}</p>
-                  <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
-                    target="_blank" rel="noopener noreferrer"
-                    style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.2rem 2rem', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.1em', textDecoration: 'none', textTransform: 'uppercase', marginBottom: '1.25rem', boxShadow: '0 4px 20px rgba(192,138,62,0.3)' }}>
-                    {confirmBtn}
-                  </a>
+                  <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, margin: '0 auto 2rem', maxWidth: '320px' }}>{t.contact.form.successMessage}</p>
                   <button onClick={() => setStatus('idle')} style={{ background: 'transparent', border: 'none', color: '#999', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
                     {t.contact.form.sendAnother}
                   </button>
@@ -120,15 +113,6 @@ export default function ContactoPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* CTA banner */}
-      <section style={{ padding: '4rem 4rem', background: '#000B29', textAlign: 'center' }}>
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
-          target="_blank" rel="noopener noreferrer"
-          style={{ display: 'inline-block', background: '#C08A3E', color: '#000B29', padding: '1.2rem 3rem', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase' }}>
-          {calBtn}
-        </a>
       </section>
 
       <Footer />

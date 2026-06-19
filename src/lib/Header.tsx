@@ -120,8 +120,8 @@ export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) 
 export const Footer: React.FC = () => {
   const { lang } = useLang();
   const t = lang === 'es'
-    ? { tagline: 'Private Equity Infrastructure', rights: '© 2026 Merca Capital SAPI de CV. Todos los derechos reservados.', privacy: 'Aviso Legal', calBtn: 'Agendar Llamada con Socios de Inversión →' }
-    : { tagline: 'Private Equity Infrastructure', rights: '© 2026 Merca Capital SAPI de CV. All rights reserved.', privacy: 'Legal Notice', calBtn: 'Schedule Call with Investment Partners →' };
+    ? { tagline: 'Private Equity Infrastructure', rights: '© 2026 Merca Capital SAPI de CV. Todos los derechos reservados.', privacy: 'Aviso Legal' }
+    : { tagline: 'Private Equity Infrastructure', rights: '© 2026 Merca Capital SAPI de CV. All rights reserved.', privacy: 'Legal Notice' };
 
   return (
     <footer style={{ padding: '4rem 4rem 2.5rem', background: '#000B29', borderTop: '1px solid rgba(192,138,62,0.2)' }}>
@@ -161,17 +161,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37U2uWe0A2rvvFjgSSst1J-o-KwpbQEKWL2wMi6bhf1bd9KnYPpDR31myr13uLaKkJlfYD6Qct"
-          target="_blank" rel="noopener noreferrer"
-          style={{ display: 'block', background: '#C08A3E', color: '#000B29', padding: '1.1rem 2.5rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textDecoration: 'none', textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif', textAlign: 'center' }}>
-          {t.calBtn}
-        </a>
-
         <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
           <Link href="/aviso-legal" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', textDecoration: 'none', letterSpacing: '0.05em' }}>{t.privacy}</Link>
-          <a href="https://www.linkedin.com/in/alejandro-gayosso-a93099287/" target="_blank" rel="noopener noreferrer" style={{ color: '#C08A3E' }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
         </div>
         <div style={{ width: '100%', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '2rem', textAlign: 'center' }}>
           <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', letterSpacing: '0.05em', margin: 0 }}>{t.rights}</p>

@@ -31,20 +31,23 @@ export default function HomePage() {
               <span style={{ color: '#C08A3E', fontStyle: 'italic', fontWeight: 400 }}>{t.hero.headline2}</span><br/>
               <span style={{ fontWeight: 400 }}>{t.hero.headline3}</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', lineHeight: 1.6, maxWidth: '560px', marginBottom: 0, fontWeight: 300, fontStyle: 'italic', borderLeft: '3px solid #C08A3E', paddingLeft: '1.5rem', fontFamily: 'Georgia, serif' }}>
-              {t.hero.subtitle} — {t.hero.description}
+            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', lineHeight: 1.5, maxWidth: '560px', marginBottom: '0.85rem', fontWeight: 300, fontStyle: 'italic', borderLeft: '3px solid #C08A3E', paddingLeft: '1.5rem', fontFamily: 'Georgia, serif' }}>
+              {t.hero.subtitle}
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '560px', marginBottom: 0, fontWeight: 300, paddingLeft: '1.5rem' }}>
+              {t.hero.description}
             </p>
           </div>
 
-          {/* Foto aérea real con overlay degradado integrado a la paleta navy/dorado */}
+          {/* Foto institucional — infraestructura de abasto en operación y expansión */}
           <div className="mc-hero-photo" style={{
             position: 'relative',
             height: '420px',
             overflow: 'hidden',
           }}>
             <Image
-              src="/mercahorro-torreon-aerea.jpg"
-              alt={es ? 'Mercahorro Torreón — vista aérea' : 'Mercahorro Torreón — aerial view'}
+              src="/hero-obra.jpg"
+              alt={es ? 'Infraestructura de abasto en operación' : 'Wholesale infrastructure in operation'}
               fill
               style={{ objectFit: 'cover' }}
               priority

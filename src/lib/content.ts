@@ -167,8 +167,8 @@ export const TEAM_DATA: Record<'es' | 'en', TeamMember[]> = {
 };
 
 export const TEAM_LABELS = {
-  es: { label: 'Equipo Directivo', title: 'El equipo detrás del capital', subtitle: '45+ años de experiencia conjunta en infraestructura, capital privado y operación de mercados mayoristas en México.', badge: 'Afiliación Institucional', badgeText: 'Miembros activos de MERCAMÉXICO — Asociación Mexicana de Mercados y Centrales de Abasto, organismo que representa a las 329 Centrales de Abasto del país.', expand: 'Ver perfil', collapse: 'Cerrar', formation: 'Formación', roles: 'Roles' },
-  en: { label: 'Leadership Team', title: 'The team behind the capital', subtitle: '45+ years of combined experience in infrastructure, private capital, and wholesale market operations in Mexico.', badge: 'Institutional Affiliation', badgeText: 'Active members of MERCAMÉXICO — Mexican Association of Markets and Wholesale Food Centers, the organization representing all 329 Wholesale Markets in the country.', expand: 'View profile', collapse: 'Close', formation: 'Education', roles: 'Roles' },
+  es: { label: 'Equipo Directivo', title: 'El equipo detrás del capital', subtitle: '45+ años de experiencia combinada en infraestructura y capital privado.', badge: 'Afiliación Institucional', badgeText: 'Miembros activos de MERCAMÉXICO — Asociación Mexicana de Mercados y Centrales de Abasto, organismo que representa a las 329 Centrales de Abasto del país.', expand: 'Ver perfil', collapse: 'Cerrar', formation: 'Formación', roles: 'Roles' },
+  en: { label: 'Leadership Team', title: 'The team behind the capital', subtitle: '45+ years of combined experience in infrastructure and private capital.', badge: 'Institutional Affiliation', badgeText: 'Active members of MERCAMÉXICO — Mexican Association of Markets and Wholesale Food Centers, the organization representing all 329 Wholesale Markets in the country.', expand: 'View profile', collapse: 'Close', formation: 'Education', roles: 'Roles' },
 };
 
 // ============================================
@@ -181,10 +181,10 @@ export const MOAT_CONTENT = {
     title: 'Por qué nadie más puede hacer esto',
     subtitle: 'El moat de Merca Capital no es el capital — es el acceso, la confianza y el know-how acumulado en 20 años de operación directa en mercados mayoristas.',
     items: [
-      { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto de México a través de la principal asociación del sector. Deal flow que ningún vehículo externo puede originar o comprar.', metric: '329 centrales · 1 acceso exclusivo' },
-      { icon: '🔗', sub: '20 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 20 años. No se puede comprar. No se puede replicar. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
-      { icon: '📊', sub: 'Datos propietarios', title: 'Inteligencia Operativa', desc: 'Datos de ocupación, NOI y comportamiento comercial de 20 años de operación directa. El input más valioso para el underwriting de nuevos activos.', metric: '20 años de datos operativos propietarios' },
-      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro vehículo de capital privado puede replicar: Edge Data Centers, procesamiento financiero a nivel nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
+      { icon: 'landmark', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto de México a través de la principal asociación del sector. Deal flow que ningún vehículo externo puede originar o comprar.', metric: '329 centrales · 1 acceso exclusivo' },
+      { icon: 'network', sub: '20 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 20 años. No se puede comprar. No se puede replicar. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },
+      { icon: 'chart', sub: 'Datos propietarios', title: 'Inteligencia Operativa', desc: 'Datos de ocupación, NOI y comportamiento comercial de 20 años de operación directa. El input más valioso para el underwriting de nuevos activos.', metric: '20 años de datos operativos propietarios' },
+      { icon: 'globe', sub: 'Data & Connectivity Advantage', title: 'Capa Tecnológica Propietaria', desc: 'La red Mercahorro sirve como base para una capa tecnológica que ningún otro vehículo de capital privado puede replicar: Edge Data Centers, procesamiento financiero a nivel nodo y monetización de datos de la cadena de suministro alimentaria.', metric: '100 nodos · 1 red de datos propietaria' },
     ],
     quote: '"No somos un vehículo que encontró un activo. Somos el activo que se convirtió en vehículo."',
     quoteBy: '— Alejandro Gayosso Mar, Fundador',
@@ -194,10 +194,10 @@ export const MOAT_CONTENT = {
     title: 'Why no one else can do this',
     subtitle: 'Merca Capital\'s moat is not capital — it\'s access, trust, and know-how accumulated over 20 years of direct operations in wholesale markets.',
     items: [
-      { icon: '🏛', sub: 'VP — MERCAMÉXICO', title: 'Unique Guild Position', desc: 'Institutional access to Mexico\'s 329 Wholesale Food Markets through the sector\'s top association. Deal flow no external fund can originate or buy.', metric: '329 markets · 1 exclusive access' },
-      { icon: '🔗', sub: '20 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 20 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
-      { icon: '📊', sub: 'Proprietary data', title: 'Operational Intelligence', desc: 'Occupancy, NOI, and commercial behavior data from 20 years of direct operations. The most valuable input for underwriting new assets.', metric: '20 years of proprietary operational data' },
-      { icon: '🌐', sub: 'Data & Connectivity Advantage', title: 'Proprietary Technology Layer', desc: 'The Mercahorro network serves as the foundation for a technology layer no other private equity vehicle can replicate: Edge Data Centers, node-level financial processing, and food supply chain data monetization.', metric: '100 nodes · 1 proprietary data network' },
+      { icon: 'landmark', sub: 'VP — MERCAMÉXICO', title: 'Unique Guild Position', desc: 'Institutional access to Mexico\'s 329 Wholesale Food Markets through the sector\'s top association. Deal flow no external fund can originate or buy.', metric: '329 markets · 1 exclusive access' },
+      { icon: 'network', sub: '20 years of commercial relationships', title: 'Network of 300+ Operators', desc: 'A network of wholesale merchants built operation by operation over 20 years. Cannot be bought. Cannot be replicated. Earned with time and trust.', metric: '300+ active commercial relationships' },
+      { icon: 'chart', sub: 'Proprietary data', title: 'Operational Intelligence', desc: 'Occupancy, NOI, and commercial behavior data from 20 years of direct operations. The most valuable input for underwriting new assets.', metric: '20 years of proprietary operational data' },
+      { icon: 'globe', sub: 'Data & Connectivity Advantage', title: 'Proprietary Technology Layer', desc: 'The Mercahorro network serves as the foundation for a technology layer no other private equity vehicle can replicate: Edge Data Centers, node-level financial processing, and food supply chain data monetization.', metric: '100 nodes · 1 proprietary data network' },
     ],
     quote: '"We are not a vehicle that found an asset. We are the asset that became a vehicle."',
     quoteBy: '— Alejandro Gayosso Mar, Founder',
