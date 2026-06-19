@@ -32,13 +32,8 @@ export default function ContactoPage() {
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#F8F7F4' }}>
         <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
           <div>
-            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h1>
-            <p style={{ color: '#666', fontSize: '1.05rem', marginBottom: '3rem' }}>{t.contact.subtitle}</p>
+            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 2rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h1>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{Icons.phone()}</div>
-                <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem' }}>{t.contact.info.phone}</span>
-              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{Icons.mail()}</div>
                 <span style={{ color: '#000B29', fontWeight: 500, fontSize: '1rem' }}>{t.contact.info.email}</span>

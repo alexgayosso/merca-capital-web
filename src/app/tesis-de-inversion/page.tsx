@@ -27,6 +27,7 @@ export default function TesisPage() {
             <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>
               {es ? 'Tesis de Inversión' : 'Investment Thesis'}
             </span>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
           <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 400, color: '#FFF', margin: 0, letterSpacing: '-0.02em', maxWidth: '700px', lineHeight: 1.15 }}>
             {es ? 'El insight que nadie ve' : 'The insight no one sees'}
@@ -37,8 +38,11 @@ export default function TesisPage() {
       {/* ── INSIGHT ─────────────────────────────── */}
       <section style={{ padding: '4rem 4rem 5rem', background: '#000000', borderTop: '3px solid #C08A3E', borderBottom: '3px solid #C08A3E' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', lineHeight: 1.7, maxWidth: '900px', margin: '0 auto 1rem', fontWeight: 300 }}>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', lineHeight: 1.7, maxWidth: '900px', margin: '0 auto 1.5rem', fontWeight: 300 }}>
             {t.insight.content} <span style={{ color: '#C08A3E', fontWeight: 600 }}>{t.insight.highlight}</span> {t.insight.subtext}
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', lineHeight: 1.7, maxWidth: '900px', margin: '0 auto 1rem', fontWeight: 300 }}>
+            {t.insight.closing}
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', borderTop: '1px solid rgba(192,138,62,0.3)', paddingTop: '3rem', marginTop: '2rem' }}>
             {t.insight.stats.map((stat, i) => (
@@ -58,6 +62,7 @@ export default function TesisPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
               <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
               <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{moat.label}</span>
+              <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
             </div>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               {moat.title}
@@ -72,15 +77,16 @@ export default function TesisPage() {
                 <div style={{ color: '#C08A3E', marginBottom: '1.25rem' }}>{Icons[m.icon]?.()}</div>
                 <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px' }}>{m.sub}</div>
                 <h3 style={{ color: '#FFF', fontSize: '1.3rem', fontWeight: 500, fontFamily: 'Georgia, serif', margin: '0 0 1rem 0' }}>{m.title}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 1.5rem 0' }}>{m.desc}</p>
+                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 0.85rem 0' }}>{m.desc}</p>
+                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 1.5rem 0' }}>{m.desc2}</p>
                 <div style={{ borderTop: '1px solid rgba(192,138,62,0.2)', paddingTop: '1rem' }}>
                   <span style={{ color: '#C08A3E', fontSize: '0.8rem', fontWeight: 600 }}>{m.metric}</span>
                 </div>
               </div>
             ))}
           </div>
-          <div style={{ marginTop: '1px', background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.2)', padding: '2rem 2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-            <p style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontStyle: 'italic', margin: 0 }}>{moat.quote}</p>
+          <div style={{ marginTop: '1px', background: 'rgba(192,138,62,0.06)', border: '1px solid rgba(192,138,62,0.2)', padding: '2.5rem 2.5rem', textAlign: 'center' }}>
+            <p style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontStyle: 'italic', margin: '0 0 1rem 0' }}>{moat.quote}</p>
             <span style={{ color: '#C08A3E', fontSize: '0.75rem', letterSpacing: '0.06em' }}>{moat.quoteBy}</span>
           </div>
         </div>

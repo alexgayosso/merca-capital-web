@@ -16,13 +16,6 @@ export default function FiduxHaloPage() {
 
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#0C1E3C' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-            <div style={{ width: '24px', height: '1px', background: 'rgba(192,138,62,0.6)' }} />
-            <span style={{ color: 'rgba(192,138,62,0.8)', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>
-              {es ? 'Productos' : 'Products'}
-            </span>
-          </div>
-
           <div style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', display: 'inline-block', marginBottom: '1.5rem' }}>
             {es ? 'Producto 2 · En estructuración' : 'Product 2 · In structuring'}
           </div>
@@ -30,10 +23,15 @@ export default function FiduxHaloPage() {
             {es ? <>Fidux Halo<br /><span style={{ color: '#C08A3E', fontStyle: 'italic', fontSize: '0.65em' }}>Apreciación de tierra alrededor de la red Mercahorro</span></> : <>Fidux Halo<br /><span style={{ color: '#C08A3E', fontStyle: 'italic', fontSize: '0.65em' }}>Land appreciation around the Mercahorro network</span></>}
           </h1>
 
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            {es
+              ? 'Cuando un Mercahorro entra en operación, atrae tráfico comercial constante, nuevos servicios y demanda de suelo en su zona inmediata.'
+              : 'When a Mercahorro begins operating, it attracts constant commercial traffic, new services, and land demand in its immediate area.'}
+          </p>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
             {es
-              ? 'Cuando un Mercahorro entra en operación, atrae tráfico comercial constante, nuevos servicios y demanda de suelo en su zona inmediata. Fidux Halo adquiere tierra estratégicamente ubicada alrededor de los futuros nodos de la red, antes de que esa actividad eleve su valor.'
-              : 'When a Mercahorro begins operating, it attracts constant commercial traffic, new services, and land demand in its immediate area. Fidux Halo acquires strategically located land around future network nodes, before that activity drives up its value.'}
+              ? 'Fidux Halo adquiere tierra estratégicamente ubicada alrededor de los futuros nodos de la red, antes de que esa actividad eleve su valor.'
+              : 'Fidux Halo acquires strategically located land around future network nodes, before that activity drives up its value.'}
           </p>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '2.5rem' }}>
             {es

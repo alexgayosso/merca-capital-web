@@ -8,8 +8,6 @@ export default function FiduxMercahorroPage() {
   const { lang } = useLang();
   const [bannerVisible, setBannerVisible] = useState(true);
   const es = lang === 'es';
-  const [formSent, setFormSent] = useState(false);
-  const [sending, setSending] = useState(false);
 
   const ficha = [
     { label: es ? 'Ticket mínimo' : 'Min. ticket', value: '$10M MXN', sub: es ? 'Por hub geográfico (4 hubs en total)' : 'Per geographic hub (4 hubs total)' },
@@ -42,23 +40,11 @@ export default function FiduxMercahorroPage() {
 
   const alts = [
     { nombre: 'CETES 28 días', retorno: '~10–11%', w: 28, highlight: false, tipo: es ? 'Renta fija · Sin garantía en activos' : 'Fixed income · No asset collateral' },
-    { nombre: 'S&P 500', retorno: '~7–9%', w: 22, highlight: false, tipo: es ? 'Renta variable · Alta volatilidad' : 'Equities · High volatility' },
+    { nombre: 'S&P 500', retorno: '~12–16%*', w: 38, highlight: false, tipo: es ? 'Renta variable · Alta volatilidad' : 'Equities · High volatility' },
     { nombre: es ? 'Bienes raíces tradicional' : 'Traditional real estate', retorno: '5–8%', w: 18, highlight: false, tipo: es ? 'Ilíquido · Cap rate estándar' : 'Illiquid · Standard cap rate' },
     { nombre: 'Fidux Mercahorro — Clase A', retorno: '17.50%', w: 55, highlight: true, tipo: es ? 'Cupón fijo · Garantía en activos reales · CNBV' : 'Fixed coupon · Real asset collateral · CNBV' },
     { nombre: 'Fidux Mercahorro — Clase B', retorno: '33.77%', w: 100, highlight: true, tipo: es ? 'Cupón + participación · Máximo rendimiento' : 'Coupon + participation · Maximum return' },
   ];
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    try {
-      await fetch('https://formspree.io/f/xbdqykov', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-      setFormSent(true);
-    } catch { /* silent */ }
-    setSending(false);
-  };
 
   return (
     <main style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', color: '#000B29' }}>
@@ -68,13 +54,6 @@ export default function FiduxMercahorroPage() {
       {/* ── HEADER + FORM ─────────────────────────── */}
       <section className="mc-section" style={{ padding: '10rem 4rem 5rem', background: '#000B29' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
-            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>
-              {es ? 'Productos · Producto 1 · Disponible' : 'Products · Product 1 · Available'}
-            </span>
-          </div>
-
           <div className="mc-fondoi-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
             <div>
               <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.75rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
@@ -112,43 +91,10 @@ export default function FiduxMercahorroPage() {
                 ))}
               </div>
 
-              {/* Contact form — NDA first */}
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(192,138,62,0.2)', padding: '2rem' }}>
-                <div style={{ color: '#C08A3E', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-                  {es ? 'Solicitar información' : 'Request information'}
-                </div>
-                <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem', margin: '0 0 1.5rem', lineHeight: 1.6 }}>
-                  {es
-                    ? 'Compártenos tus datos y nos pondremos en contacto para coordinar una reunión. La información detallada del vehículo se entrega previa firma de NDA.'
-                    : 'Share your details and we will reach out to schedule a meeting. Detailed information is shared upon NDA signature.'}
-                </p>
-                {formSent ? (
-                  <div style={{ textAlign: 'center', padding: '1.5rem 0' }}>
-                    <div style={{ color: '#C08A3E', fontSize: '1.5rem', marginBottom: '0.75rem' }}>✓</div>
-                    <p style={{ color: '#FFF', fontSize: '0.95rem', margin: '0 0 0.5rem' }}>{es ? 'Mensaje recibido' : 'Message received'}</p>
-                    <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem', margin: 0 }}>{es ? 'Nos pondremos en contacto a la brevedad.' : 'We will be in touch shortly.'}</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit}>
-                    <input type="hidden" name="_type" value="fidux-mercahorro-inquiry" />
-                    {[
-                      { name: 'name', label: es ? 'Nombre completo' : 'Full name', type: 'text' },
-                      { name: 'email', label: es ? 'Email' : 'Email', type: 'email' },
-                      { name: 'company', label: es ? 'Empresa / Family Office' : 'Company / Family Office', type: 'text' },
-                    ].map((f) => (
-                      <div key={f.name} style={{ marginBottom: '1rem' }}>
-                        <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{f.label}</label>
-                        <input name={f.name} type={f.type} required style={{ width: '100%', padding: '0.75rem 0', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)', background: 'transparent', fontSize: '0.95rem', color: '#FFF', outline: 'none', boxSizing: 'border-box' }}
-                          onFocus={(e) => { e.target.style.borderBottomColor = '#C08A3E'; }}
-                          onBlur={(e) => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.15)'; }} />
-                      </div>
-                    ))}
-                    <button type="submit" disabled={sending} style={{ width: '100%', background: '#C08A3E', border: 'none', color: '#000B29', padding: '1rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer', marginTop: '0.5rem' }}>
-                      {sending ? (es ? 'Enviando...' : 'Sending...') : (es ? 'Solicitar reunión →' : 'Request meeting →')}
-                    </button>
-                  </form>
-                )}
-              </div>
+              {/* CTA — mismo patrón que Fidux Halo */}
+              <a href="/contacto" style={{ display: 'inline-block', background: 'transparent', border: '1px solid #C08A3E', color: '#C08A3E', padding: '1rem 2.25rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none' }}>
+                {es ? 'Quiero más información →' : 'I want more information →'}
+              </a>
             </div>
 
             {/* RIGHT — Ficha técnica */}
@@ -189,6 +135,7 @@ export default function FiduxMercahorroPage() {
               <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>
                 {es ? 'Escenarios de inversión — Ticket $10M MXN' : 'Investment scenarios — $10M MXN ticket'}
               </span>
+              <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
             </div>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 400, color: '#FFF', margin: 0, letterSpacing: '-0.02em' }}>
               {es ? 'Todos los escenarios devuelven el capital en el año 10' : 'All scenarios return capital by year 10'}
@@ -261,7 +208,9 @@ export default function FiduxMercahorroPage() {
             ))}
           </div>
           <p style={{ color: '#AAA', fontSize: '0.7rem', marginTop: '1.25rem' }}>
-            {es ? 'Comparativa referencial. CETES y S&P 500 no garantizan activos físicos. Clase B corresponde al escenario E2.' : 'Reference comparison only. CETES and S&P 500 include no physical asset guarantee. Class B corresponds to scenario E2.'}
+            {es
+              ? 'Comparativa referencial. CETES y S&P 500 no garantizan activos físicos. Clase B corresponde al escenario E2. *S&P 500: ~10–12% promedio histórico en USD a 40 años; rango mostrado ajustado por depreciación histórica del peso MXN/USD.'
+              : 'Reference comparison only. CETES and S&P 500 include no physical asset guarantee. Class B corresponds to scenario E2. *S&P 500: ~10–12% 40-year historical average in USD; range shown adjusted for historical MXN/USD peso depreciation.'}
           </p>
         </div>
       </section>
@@ -280,8 +229,11 @@ export default function FiduxMercahorroPage() {
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.6rem)', fontWeight: 400, color: '#FFF', margin: '0 0 0.75rem 0', letterSpacing: '-0.02em' }}>
               {es ? 'Cobertura nacional · El inversionista elige su zona' : 'National coverage · Investor chooses their zone'}
             </h2>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto 0.5rem' }}>
+              {es ? 'Cada hub opera como un fideicomiso independiente.' : 'Each hub operates as an independent trust.'}
+            </p>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto' }}>
-              {es ? 'Cada hub opera como un fideicomiso independiente. Diversificación geográfica sin complejidad adicional.' : 'Each hub operates as an independent trust. Geographic diversification without added complexity.'}
+              {es ? 'Diversificación geográfica sin complejidad adicional.' : 'Geographic diversification without added complexity.'}
             </p>
           </div>
           <div className="mc-zonas-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>

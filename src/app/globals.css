@@ -64,6 +64,9 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; font-family: system-ui, 
   /* Criterios table: hide last column on mobile */
   .mc-criterios-hide { display: none !important; }
 
+  /* Productos title: allow wrap on mobile, override forced nowrap */
+  .mc-productos-title { white-space: normal !important; }
+
   /* Footer */
   footer { padding: 3rem 1.5rem 2rem !important; }
   footer > div > div[style*="gap: 3rem"] { flex-direction: column !important; gap: 1.5rem !important; }

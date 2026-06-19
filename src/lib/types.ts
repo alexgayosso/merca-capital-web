@@ -34,6 +34,7 @@ export interface InsightContent {
   content: string;
   highlight: string;
   subtext: string;
+  closing: string;
   stats: { value: string; label: string }[];
 }
 

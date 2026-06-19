@@ -16,7 +16,7 @@ export default function ProductosPage() {
       <Header bannerVisible={bannerVisible} />
 
       <section style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000B29' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '10rem 4rem 6rem', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1150px', margin: '0 auto', padding: '10rem 4rem 6rem', textAlign: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1.5rem' }}>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
             <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>
@@ -24,14 +24,14 @@ export default function ProductosPage() {
             </span>
             <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
           </div>
-          <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.75rem 0', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h1 className="mc-productos-title" style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 2.9rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.75rem 0', letterSpacing: '-0.02em', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
             {es ? 'Dos vehículos. Una infraestructura' : 'Two vehicles. One infrastructure'}
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto 0.6rem', lineHeight: 1.6 }}>
-            {es ? 'Fidux Mercahorro financia la operación comercial.' : 'Fidux Mercahorro finances the commercial operation.'}
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '740px', margin: '0 auto 0.6rem', lineHeight: 1.6 }}>
+            {es ? 'Fidux Mercahorro financia la operación comercial' : 'Fidux Mercahorro finances the commercial operation'}
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
-            {es ? 'Fidux Halo captura la apreciación de tierra que esa operación genera alrededor.' : 'Fidux Halo captures the land appreciation that operation generates around it.'}
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', maxWidth: '740px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
+            {es ? 'Fidux Halo captura la apreciación de tierra que esa operación genera alrededor' : 'Fidux Halo captures the land appreciation that operation generates around it'}
           </p>
 
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>

@@ -25,6 +25,7 @@ export default function HomePage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2.5rem' }}>
               <div style={{ width: '50px', height: '1px', background: '#C08A3E' }} />
               <span style={{ color: '#C08A3E', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.35em' }}>{t.hero.tagline}</span>
+              <div style={{ width: '50px', height: '1px', background: '#C08A3E' }} />
             </div>
             <h1 style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 'clamp(2.6rem, 5vw, 4.5rem)', fontWeight: 400, lineHeight: 1.05, color: '#FFF', margin: '0 0 2rem 0', letterSpacing: '-0.03em' }}>
               {t.hero.headline1}<br/>
@@ -34,9 +35,10 @@ export default function HomePage() {
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', lineHeight: 1.5, maxWidth: '560px', marginBottom: '0.85rem', fontWeight: 300, fontStyle: 'italic', borderLeft: '3px solid #C08A3E', paddingLeft: '1.5rem', fontFamily: 'Georgia, serif' }}>
               {t.hero.subtitle}
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '560px', marginBottom: 0, fontWeight: 300, paddingLeft: '1.5rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '560px', marginBottom: '1.25rem', fontWeight: 300, paddingLeft: '1.5rem' }}>
               {t.hero.description}
             </p>
+            <div style={{ width: '50px', height: '1px', background: '#C08A3E', marginLeft: '1.5rem' }} />
           </div>
 
           {/* Foto institucional — infraestructura de abasto en operación y expansión */}
