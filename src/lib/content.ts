@@ -181,7 +181,7 @@ export const MOAT_CONTENT = {
   es: {
     label: 'Ventaja Competitiva',
     title: 'Por qué nadie más puede hacer esto',
-    subtitle: 'El moat de Merca Capital no es el capital — es el acceso, la confianza y el know-how acumulado en 20 años de operación directa en mercados mayoristas.',
+    subtitle: 'El moat de Merca Capital no es el capital: es el acceso, la confianza y el know-how acumulado en 20 años de operación directa en mercados mayoristas.',
     items: [
       { icon: 'landmark', sub: 'VP — MERCAMÉXICO', title: 'Posición Gremial Única', desc: 'Acceso institucional a las 329 Centrales de Abasto de México a través de la principal asociación del sector.', desc2: 'Deal flow que ningún vehículo externo puede originar o comprar.', metric: '329 centrales · 1 acceso exclusivo' },
       { icon: 'network', sub: '20 años de relaciones comerciales', title: 'Red de 300+ Operadores', desc: 'Una red de comerciantes mayoristas construida operación por operación durante 20 años.', desc2: 'No se puede comprar. No se puede replicar. Se gana con tiempo y confianza.', metric: '300+ relaciones comerciales activas' },

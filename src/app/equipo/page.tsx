@@ -36,7 +36,7 @@ export default function EquipoPage() {
           <div className="mc-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
             {members.map((member, i) => (
               <div key={i}
-                style={{ background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)', borderLeft: '4px solid #C08A3E', padding: '2rem' }}>
+                style={{ background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)', borderLeft: '4px solid #C08A3E', padding: '2rem', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                   <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: `${member.color}18`, border: `2px solid ${member.color}40`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: member.color, fontSize: '14px', fontWeight: 700, flexShrink: 0 }}>
                     {member.initials}
@@ -46,8 +46,8 @@ export default function EquipoPage() {
                     <div style={{ fontSize: '0.7rem', color: '#C9A84C', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 600, lineHeight: 1.4 }}>{member.title}</div>
                   </div>
                 </div>
-                <p style={{ color: '#555', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.25rem' }}>{member.bio}</p>
-                <div>
+                <p style={{ color: '#555', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.25rem', textAlign: 'justify' }}>{member.bio}</p>
+                <div style={{ marginTop: 'auto' }}>
                   <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px' }}>{labels.formation}</div>
                   {member.credentials.map((cr, ci) => <div key={ci} style={{ color: '#000B29', fontSize: '0.85rem', padding: '4px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>· {cr}</div>)}
                 </div>

@@ -68,19 +68,19 @@ export default function TesisPage() {
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               {moat.title}
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', lineHeight: 1.8, margin: 0, maxWidth: '650px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', lineHeight: 1.8, margin: 0, maxWidth: '750px' }}>
               {moat.subtitle}
             </p>
           </div>
           <div className="mc-moat-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'rgba(255,255,255,0.06)' }}>
             {moat.items.map((m, i) => (
-              <div key={i} style={{ background: '#000B29', padding: '3rem 2.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <div key={i} style={{ background: '#000B29', padding: '3rem 2.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ color: '#C08A3E', marginBottom: '1.25rem' }}>{Icons[m.icon]?.()}</div>
                 <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px' }}>{m.sub}</div>
                 <h3 style={{ color: '#FFF', fontSize: '1.3rem', fontWeight: 500, fontFamily: 'Georgia, serif', margin: '0 0 1rem 0' }}>{m.title}</h3>
                 <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 0.85rem 0', textAlign: 'justify' }}>{m.desc}</p>
                 <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 1.5rem 0', textAlign: 'justify' }}>{m.desc2}</p>
-                <div style={{ borderTop: '1px solid rgba(192,138,62,0.2)', paddingTop: '1rem' }}>
+                <div style={{ borderTop: '1px solid rgba(192,138,62,0.2)', paddingTop: '1rem', marginTop: 'auto' }}>
                   <span style={{ color: '#C08A3E', fontSize: '0.8rem', fontWeight: 600 }}>{m.metric}</span>
                 </div>
               </div>

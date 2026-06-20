@@ -39,7 +39,7 @@ export default function FiduxMercahorroPage() {
   ];
 
   const alts = [
-    { nombre: 'CETES 28 días', retorno: '~10–11%', w: 28, highlight: false, tipo: es ? 'Renta fija · Sin garantía en activos' : 'Fixed income · No asset collateral' },
+    { nombre: 'CETES 1-10 años', retorno: '~7–9%', w: 21, highlight: false, tipo: es ? 'Renta fija · Sin garantía en activos' : 'Fixed income · No asset collateral' },
     { nombre: 'S&P 500', retorno: '~12–16%*', w: 38, highlight: false, tipo: es ? 'Renta variable · Alta volatilidad' : 'Equities · High volatility' },
     { nombre: es ? 'Bienes raíces tradicional' : 'Traditional real estate', retorno: '5–8%', w: 18, highlight: false, tipo: es ? 'Ilíquido · Cap rate estándar' : 'Illiquid · Standard cap rate' },
     { nombre: 'Fidux Mercahorro — Clase A', retorno: '17.50%', w: 55, highlight: true, tipo: es ? 'Cupón fijo · Garantía en activos reales · CNBV' : 'Fixed coupon · Real asset collateral · CNBV' },
@@ -184,10 +184,10 @@ export default function FiduxMercahorroPage() {
               <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
             </div>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#000B29', margin: '0 0 0.75rem 0', letterSpacing: '-0.02em' }}>
-              {es ? 'La misma seguridad. Un retorno diferente.' : 'Same security. A different return.'}
+              {es ? 'La misma seguridad. Un retorno diferente' : 'Same security. A different return'}
             </h2>
             <p style={{ color: '#666', fontSize: '1rem', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
-              {es ? 'Fidux Clase A ofrece 17.50% fijo con garantía en activos reales — más del doble que CETES, con respaldo físico que la renta fija no tiene.' : 'Fidux Class A offers 17.50% fixed with real asset collateral — more than double CETES, with physical backing that fixed income lacks.'}
+              {es ? 'Fidux Clase A ofrece un 15% fijo anualizado: similar a la renta variable norteamericana, con menos volatilidad y con garantía en activos reales.' : 'Fidux Class A offers a 15% fixed annualized return: similar to U.S. equities, with less volatility and real-asset collateral.'}
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -233,7 +233,7 @@ export default function FiduxMercahorroPage() {
               {es ? 'Cada hub opera como un fideicomiso independiente.' : 'Each hub operates as an independent trust.'}
             </p>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto' }}>
-              {es ? 'Diversificación geográfica sin complejidad adicional.' : 'Geographic diversification without added complexity.'}
+              {es ? 'Diversificación geográfica sin complejidad adicional' : 'Geographic diversification without added complexity'}
             </p>
           </div>
           <div className="mc-zonas-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
