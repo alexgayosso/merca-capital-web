@@ -27,12 +27,28 @@ export default function ContactoPage() {
   return (
     <main style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', color: '#000B29' }}>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}
-      <Header bannerVisible={bannerVisible} solidBg={true} />
+      <Header bannerVisible={bannerVisible} />
 
-      <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#F8F7F4' }}>
+      {/* Page header — mismo patrón que Tesis/Equipo/Fidux Mercahorro */}
+      <section style={{ padding: '10rem 4rem 4rem', background: '#000B29' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+            <span style={{ color: '#C08A3E', fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>
+              {lang === 'es' ? 'Contacto' : 'Contact'}
+            </span>
+            <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
+          </div>
+          <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em' }}>
+            {t.contact.title}
+          </h1>
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', maxWidth: '600px', margin: 0 }}>{t.contact.subtitle}</p>
+        </div>
+      </section>
+
+      <section className="mc-section" style={{ padding: '4rem 4rem 6rem', background: '#F8F7F4' }}>
         <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>
           <div>
-            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 400, color: '#000B29', margin: '0 0 2rem 0', letterSpacing: '-0.02em' }}>{t.contact.title}</h1>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '45px', height: '45px', background: '#000B29', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C08A3E' }}>{Icons.mail()}</div>

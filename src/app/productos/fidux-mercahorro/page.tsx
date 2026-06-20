@@ -187,7 +187,7 @@ export default function FiduxMercahorroPage() {
               {es ? 'La misma seguridad. Un retorno diferente' : 'Same security. A different return'}
             </h2>
             <p style={{ color: '#666', fontSize: '1rem', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
-              {es ? 'Fidux Clase A ofrece un 15% fijo anualizado: similar a la renta variable norteamericana, con menos volatilidad y con garantía en activos reales.' : 'Fidux Class A offers a 15% fixed annualized return: similar to U.S. equities, with less volatility and real-asset collateral.'}
+              {es ? 'Fidux Clase A ofrece un 15% fijo anualizado: similar a la renta variable norteamericana, con menos volatilidad y con garantía en activos reales' : 'Fidux Class A offers a 15% fixed annualized return: similar to U.S. equities, with less volatility and real-asset collateral'}
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -230,7 +230,7 @@ export default function FiduxMercahorroPage() {
               {es ? 'Cobertura nacional · El inversionista elige su zona' : 'National coverage · Investor chooses their zone'}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto 0.5rem' }}>
-              {es ? 'Cada hub opera como un fideicomiso independiente.' : 'Each hub operates as an independent trust.'}
+              {es ? 'Cada hub opera como un fideicomiso independiente' : 'Each hub operates as an independent trust'}
             </p>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto' }}>
               {es ? 'Diversificación geográfica sin complejidad adicional' : 'Geographic diversification without added complexity'}
