@@ -16,9 +16,6 @@ export default function FiduxHaloPage() {
 
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#0C1E3C' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', display: 'inline-block', marginBottom: '1.5rem' }}>
-            {es ? 'Producto 2 · En estructuración' : 'Product 2 · In structuring'}
-          </div>
           <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#FFF', margin: '0 0 1.5rem 0', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
             {es ? <>Fidux Halo<br /><span style={{ color: '#C08A3E', fontStyle: 'italic', fontSize: '0.65em' }}>Apreciación de tierra alrededor de la red Mercahorro</span></> : <>Fidux Halo<br /><span style={{ color: '#C08A3E', fontStyle: 'italic', fontSize: '0.65em' }}>Land appreciation around the Mercahorro network</span></>}
           </h1>
@@ -43,7 +40,7 @@ export default function FiduxHaloPage() {
             <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               {es ? 'Lógica de inversión' : 'Investment logic'}
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0, textAlign: 'justify' }}>
               {es
                 ? 'Adquisición temprana de suelo en el radio de influencia de nodos Mercahorro en desarrollo o pipeline, antes de la entrada en operación. La tesis es la misma que ha funcionado alrededor de infraestructura comercial en cualquier mercado: el suelo cercano a un polo de actividad constante se revaloriza conforme el polo madura.'
                 : 'Early land acquisition within the influence radius of Mercahorro nodes in development or pipeline, ahead of operational launch. The thesis mirrors what has worked around commercial infrastructure in any market: land near a hub of constant activity appreciates as that hub matures.'}

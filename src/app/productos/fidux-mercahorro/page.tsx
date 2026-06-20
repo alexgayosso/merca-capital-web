@@ -17,7 +17,7 @@ export default function FiduxMercahorroPage() {
     { label: es ? 'Liquidez' : 'Liquidity', value: es ? 'Año 3+' : 'Year 3+', sub: es ? 'Ventanas trimestrales o libre entre particulares' : 'Quarterly windows or free transfer between investors' },
     { label: es ? 'Estructura legal' : 'Legal structure', value: es ? 'Fideicomiso regulado' : 'Regulated Trust', sub: 'Bancrea · Fiduciaria CNBV' },
     { label: es ? 'Garantía' : 'Collateral', value: es ? 'Activos reales' : 'Real assets', sub: es ? 'Terreno y locales escriturados en fideicomiso' : 'Land and units titled within the trust' },
-    { label: es ? 'Auditoría' : 'Audit', value: 'Big 4', sub: es ? 'Anual · Firma de reconocido prestigio' : 'Annual · Internationally recognized firm' },
+    { label: es ? 'Auditoría' : 'Audit', value: es ? 'Firma reconocida' : 'Recognized firm', sub: es ? 'Auditoría externa anual' : 'Annual external audit' },
   ];
 
   const escenarios = [
@@ -60,7 +60,7 @@ export default function FiduxMercahorroPage() {
                 {es ? <>Fidux Mercahorro<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Fideicomiso regulado de inversión inmobiliaria</span></> : <>Fidux Mercahorro<br /><span style={{ color: '#C08A3E', fontStyle: 'italic' }}>Regulated real estate investment trust</span></>}
               </h1>
 
-              <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', textAlign: 'justify' }}>
                 {es
                   ? 'El vehículo Fidux Mercahorro es un fideicomiso regulado de inversión inmobiliaria que invierte en infraestructura comercial de abasto en México. Desarrolla centros comerciales de alimentos especializados en la última milla, en zonas desatendidas de las principales ciudades, funcionando como satélites de las centrales de abasto mayoristas.'
                   : 'Fidux Mercahorro is a regulated real estate investment trust that invests in wholesale food infrastructure in Mexico. It develops last-mile food commercial centers in underserved areas of major cities, functioning as satellites of wholesale markets.'}
@@ -75,13 +75,13 @@ export default function FiduxMercahorroPage() {
                   'Fideicomiso regulado · capital nunca pasa por cuentas de Merca Capital',
                   'Garantía en activos reales · terreno y locales escriturados en fideicomiso',
                   'Firmado ante notario público',
-                  'Auditoría externa anual por firma Big 4',
+                  'Auditoría externa anual por firma de reconocido prestigio',
                   'Mecanismos de liquidez anticipada desde el año 3',
                 ] : [
                   'Regulated trust · capital never passes through Merca Capital accounts',
                   'Real asset collateral · land and units titled within the trust',
                   'Notarized agreement',
-                  'Annual external audit by Big 4 firm',
+                  'Annual external audit by an internationally recognized firm',
                   'Early liquidity mechanisms from year 3',
                 ]).map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem', alignItems: 'flex-start' }}>

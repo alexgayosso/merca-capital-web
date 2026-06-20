@@ -32,13 +32,17 @@ export default function HomePage() {
               <span style={{ color: '#C08A3E', fontStyle: 'italic', fontWeight: 400 }}>{t.hero.headline2}</span><br/>
               <span style={{ fontWeight: 400 }}>{t.hero.headline3}</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', lineHeight: 1.5, maxWidth: '560px', marginBottom: '0.85rem', fontWeight: 300, fontStyle: 'italic', borderLeft: '3px solid #C08A3E', paddingLeft: '1.5rem', fontFamily: 'Georgia, serif' }}>
-              {t.hero.subtitle}
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '560px', marginBottom: '1.25rem', fontWeight: 300, paddingLeft: '1.5rem' }}>
-              {t.hero.description}
-            </p>
-            <div style={{ width: '50px', height: '1px', background: '#C08A3E', marginLeft: '1.5rem' }} />
+            {/* Bloque unificado: una sola barra dorada vertical que corre junto a las DOS frases.
+                Antes: la barra solo envolvía la primera <p>, y un <div> horizontal suelto
+                quedaba flotando debajo — eso era la "ralla" que José veía aparecer. */}
+            <div style={{ borderLeft: '3px solid #C08A3E', paddingLeft: '1.5rem', maxWidth: '560px', marginBottom: '1.25rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', lineHeight: 1.5, margin: '0 0 0.85rem 0', fontWeight: 300, fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
+                {t.hero.subtitle}
+              </p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                {t.hero.description}
+              </p>
+            </div>
           </div>
 
           {/* Foto institucional — infraestructura de abasto en operación y expansión */}

@@ -12,7 +12,7 @@ export default function AvisoLegalPage() {
   return (
     <main style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', color: '#000B29' }}>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}
-      <Header bannerVisible={bannerVisible} />
+      <Header bannerVisible={bannerVisible} solidBg={true} />
 
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#FFFFFF' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -20,7 +20,7 @@ export default function AvisoLegalPage() {
             {es ? 'Aviso Legal' : 'Legal Notice'}
           </h1>
 
-          <div style={{ color: '#444', fontSize: '0.95rem', lineHeight: 1.85 }}>
+          <div style={{ color: '#444', fontSize: '0.95rem', lineHeight: 1.85, textAlign: 'justify' }}>
             <p>
               {es
                 ? 'Este sitio web es operado por Grupo Merca Capital SAPI de CV. El contenido publicado tiene fines exclusivamente informativos y no constituye una oferta pública de valores, una recomendación de inversión, ni una solicitud de compra o venta de instrumentos financieros en ninguna jurisdicción.'

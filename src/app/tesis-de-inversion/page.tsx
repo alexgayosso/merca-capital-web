@@ -56,8 +56,9 @@ export default function TesisPage() {
       </section>
 
       {/* ── UNFAIR ADVANTAGE ────────────────────── */}
+      {/* maxWidth unificado a 1100px (antes 1400px) para alinear con el kicker/título de arriba */}
       <section className="mc-section" style={{ padding: '7rem 4rem', background: '#000B29' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ marginBottom: '4rem', maxWidth: '1050px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
               <div style={{ width: '24px', height: '1px', background: '#C08A3E' }} />
@@ -77,8 +78,8 @@ export default function TesisPage() {
                 <div style={{ color: '#C08A3E', marginBottom: '1.25rem' }}>{Icons[m.icon]?.()}</div>
                 <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px' }}>{m.sub}</div>
                 <h3 style={{ color: '#FFF', fontSize: '1.3rem', fontWeight: 500, fontFamily: 'Georgia, serif', margin: '0 0 1rem 0' }}>{m.title}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 0.85rem 0' }}>{m.desc}</p>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 1.5rem 0' }}>{m.desc2}</p>
+                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 0.85rem 0', textAlign: 'justify' }}>{m.desc}</p>
+                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', lineHeight: 1.75, margin: '0 0 1.5rem 0', textAlign: 'justify' }}>{m.desc2}</p>
                 <div style={{ borderTop: '1px solid rgba(192,138,62,0.2)', paddingTop: '1rem' }}>
                   <span style={{ color: '#C08A3E', fontSize: '0.8rem', fontWeight: 600 }}>{m.metric}</span>
                 </div>

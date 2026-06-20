@@ -27,7 +27,7 @@ export default function ContactoPage() {
   return (
     <main style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', color: '#000B29' }}>
       {bannerVisible && <MomentumBanner onClose={() => setBannerVisible(false)} />}
-      <Header bannerVisible={bannerVisible} />
+      <Header bannerVisible={bannerVisible} solidBg={true} />
 
       <section className="mc-section" style={{ padding: '10rem 4rem 6rem', background: '#F8F7F4' }}>
         <div className="mc-contact-grid" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem' }}>

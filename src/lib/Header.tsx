@@ -43,7 +43,12 @@ export const MomentumBanner: React.FC<{ onClose: () => void }> = ({ onClose }) =
   </div>
 );
 
-export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) => {
+// NOTA: nuevo prop opcional `solidBg`.
+// Páginas con fondo CLARO (Contacto, Aviso Legal) deben pasar solidBg={true}
+// para forzar la barra sólida siempre, sin depender del scroll.
+// Páginas con hero OSCURO (Home, Tesis, Productos, Equipo) no pasan nada
+// y mantienen el comportamiento actual (transparente hasta hacer scroll).
+export const Header: React.FC<{ bannerVisible: boolean; solidBg?: boolean }> = ({ bannerVisible, solidBg = false }) => {
   const { lang, setLang } = useLang();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -54,6 +59,8 @@ export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const showSolid = solidBg || scrolled || menuOpen;
 
   const navBtn = (active: boolean): React.CSSProperties => ({
     color: active ? '#C08A3E' : 'rgba(255,255,255,0.7)',
@@ -66,7 +73,7 @@ export const Header: React.FC<{ bannerVisible: boolean }> = ({ bannerVisible }) 
   });
 
   return (
-    <header style={{ position: 'fixed', top: bannerVisible ? '41px' : '0', left: 0, right: 0, zIndex: 1000, background: scrolled || menuOpen ? 'rgba(0,11,41,0.98)' : 'transparent', backdropFilter: scrolled ? 'blur(20px)' : 'none', borderBottom: scrolled ? '1px solid rgba(192,138,62,0.2)' : 'none', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+    <header style={{ position: 'fixed', top: bannerVisible ? '41px' : '0', left: 0, right: 0, zIndex: 1000, background: showSolid ? 'rgba(0,11,41,0.98)' : 'transparent', backdropFilter: (solidBg || scrolled) ? 'blur(20px)' : 'none', borderBottom: (solidBg || scrolled) ? '1px solid rgba(192,138,62,0.2)' : 'none', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
       <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: scrolled ? '70px' : '100px', transition: 'height 0.4s ease' }}>
         <Link href="/" style={{ position: 'relative', height: scrolled ? '45px' : '60px', width: scrolled ? '180px' : '220px', transition: 'all 0.4s ease', zIndex: 1001, display: 'block' }}>
           <Image src="/Transparent_Logo_Blanco.png" alt="Merca Capital" fill style={{ objectFit: 'contain', objectPosition: 'left' }} priority />
