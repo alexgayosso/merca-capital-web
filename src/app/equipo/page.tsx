@@ -47,7 +47,7 @@ export default function EquipoPage() {
                   </div>
                 </div>
                 <p style={{ color: '#555', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.25rem', textAlign: 'justify', minHeight: '120px' }}>{member.bio}</p>
-                <div style={{ marginTop: 'auto' }}>
+                <div>
                   <div style={{ color: '#C08A3E', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px' }}>{labels.formation}</div>
                   {member.credentials.map((cr, ci) => <div key={ci} style={{ color: '#000B29', fontSize: '0.85rem', padding: '4px 0' }}>· {cr}</div>)}
                 </div>
